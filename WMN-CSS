@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "navbar navbar"
+    "maincontent maincontent"
+    "footer footer";
+}
+
+header {
+    height: 95vh;
+    background-image: url('wmsuBg.png');
+    background-size: cover;
+    background-position: center;   
+    position: relative;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.home-description {
+    text-align: center;
+    color: white;
+    z-index: 2;
+    position: relative;  
+}
+
+nav {
+    grid-area: navbar;
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(255, 0, 0, 0.1);
+    padding: 1em;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+nav li {
+    height: 50px;
+}
+
+nav a {
+    border: none;
+    border-radius: 20px;
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: crimson;
+    color: white;
+}
+
+main {
+    grid-area: maincontent;
+    background: linear-gradient(90deg, 
+        rgba(184, 26, 26, 1) 0%, 
+        rgba(255, 0, 0, 1) 44%, 
+        rgba(255, 255, 255, 1) 100%);
+}
+
+.container.map {
+    display: flex;
+    flex-direction: column;
+    height: 1000px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.wmsuMap {
+    height: 250px;
+    width: 400px;
+}
+
+.breakline {
+    height: 200px;
+}
+
+.space#about-us {
+    background: linear-gradient(180deg, 
+        rgba(184, 26, 26, 1) 0%, 
+        rgba(255, 0, 0, 1) 6%, 
+        rgba(255, 255, 255, 1) 100%);
+    height: 95vh;
+    color: white;
+}
+
+.about-usSpan {
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    display: block;    
+    padding: 0 1rem;
+}
+
+div > h1 {
+    color: crimson;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+footer {
+    grid-area: footer;
+    background-color: gray;
+    color: white;
+    padding: 2em;
+    text-align: center;
+}
+
+footer div {
+    text-align: center;
+}
+
+footer h2,
+footer p,
+footer a {
+    text-align: center;
+}
+
+footer a {
+    font-size: 22px;
+    text-decoration: none;
+    color: white;
+}
+
+#comments {
+    display: block;
+    width: 90%;
+    max-width: 600px;
+    height: 150px;
+    padding: 10px;
+    margin: 20px auto;
+    font-size: 14px;
+}
+
+.aboutWmsuMap {
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+#title {
+    color: white;
+    text-align: center;
+}
+
+blockquote {
+    font-size: 50px;
+    text-align: center;
+}
