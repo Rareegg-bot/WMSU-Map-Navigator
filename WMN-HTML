@@ -28,16 +28,44 @@
         </header>
         <section class="container map">
             <div id="map">
-                <img src="wmsu.jpg" alt="CAMPUS A" class="wmsuMap">
-                <a href="#CTE" class="DEP CTE">CTE</a>
+                <img src="wmsuMap.jpeg" alt="WMSU" class="wmsuMap">
+                <a href="#CCS" class="DEP CCS">CCS</a>
+                <a href="#Gate1" class="DEP Gate1">Gate 1</a>
             </div>
             <!--Building/Department Info-->
-            <div class="breakline"></div>
-
-            <div id="campusB">
-                <h1>WMSU CAMPUS B</h1>
-                <img src="wmsu.jpg" alt="CAMPUS B" class="wmsuMap">
+            <div id="CCS" class="info">
+                <h2>CCS</h2>
+                <img src="" alt="">
+                <ul>
+                    <li>1st Floor</li>
+                </ul>
+                <ol>
+                    <li>Dean's office</li>
+                    <li>CCS DEP</li>
+                    <li>Lab 1</li>
+                    <li>Lab 2</li>
+                </ol>
+                <br>
+                <ul>
+                    <li>2nd Floor</li>
+                </ul>
+                <ol>
+                    <li>Guidance</li>
+                    <li>LR 1</li>
+                    <li>LR 2</li>
+                </ol>
             </div>
+
+        <!--GATE CAMPUS B-->
+            <div id="Gate1" class="info">
+                <h2>Gate 1</h2>
+                <img src="Gate 1.png" alt="Gate" id="gate1-image">
+                <ul>
+                    <li>Entrance/Exit Gate</li>
+                </ul>
+            </div>    
+
+
         </section>
         <!--About Us Section-->
         <section class="space" id="about-us">
