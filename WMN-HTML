@@ -7,17 +7,18 @@
     <title>WMSU Map Navigator</title>
 </head>
 <body>
+    <!--Navigation-->
     <nav>
         <ul>
             <li><a href="https://wmsu.edu.ph/">WMSU</a></li>
             <li><a href="#">Home</a></li>
-            <li><a href="#campusA">Campus A</a></li>
-            <li><a href="#campusB">Campus B</a></li>
+            <li><a href="##map">Map</a></li>
             <li><a href="#about-us">About Us</a></li>
             <li><a href="#contact-us">Contact Us</a></li>
             <li><a href="loginUI.html">Login</a></li>
         </ul>
     </nav>
+    <!--Main Content-->
     <main>
         <header class="header-description">
             <div class="home-description">
@@ -26,11 +27,11 @@
             </div>
         </header>
         <section class="container map">
-            <div id="campusA">
-                <h1>WMSU CAMPUS A</h1>
+            <div id="map">
                 <img src="wmsu.jpg" alt="CAMPUS A" class="wmsuMap">
+                <a href="#CTE" class="DEP CTE">CTE</a>
             </div>
-
+            <!--Building/Department Info-->
             <div class="breakline"></div>
 
             <div id="campusB">
@@ -38,6 +39,7 @@
                 <img src="wmsu.jpg" alt="CAMPUS B" class="wmsuMap">
             </div>
         </section>
+        <!--About Us Section-->
         <section class="space" id="about-us">
             <h1 style="text-align: center; font-size: 40px;">About Us</h1>
             <span class="about-usSpan">
@@ -45,6 +47,7 @@
             </span>
         </section>
     </main>
+    <!--Info on where to contact us-->
     <footer id="contact-us">
         <h1>Contact Info</h1>
         <div>
