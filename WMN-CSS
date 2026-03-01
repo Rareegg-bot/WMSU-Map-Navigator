@@ -92,6 +92,8 @@ main {
         rgba(255, 255, 255, 1) 100%);
 }
 
+/* ================= CONTAINER MAP ================= */
+
 .container.map {
     display: flex;
     flex-direction: column;
@@ -101,6 +103,59 @@ main {
     justify-content: center;
     background-color: white;
 }
+
+/*******************************************************************************************/
+/**                                IMAGES FOR ANCHOR TAGS                                 **/
+/*******************************************************************************************/
+
+#gate1-image{
+    height: 200px;
+    width: 200px;
+    border: 2px solid white;
+    border-radius: 14px;
+}
+
+/*  BUILDING/COLLEGE DEPARTMENT  */
+
+.Gate1 {
+    background-color: aqua;
+    border-radius: 8px;
+    padding: 4px;
+    text-decoration: none;
+}
+
+.CCS {
+    background-color: aqua;
+    border-radius: 8px;
+    padding: 4px;
+    text-decoration: none;
+}
+
+.info {
+    background-color: crimson;
+    color: white;
+    display: none;
+    border: 1px solid #333;
+    border-radius: 14px;
+    margin: 20px auto;
+    width: 300px;
+    padding: 10px;
+    justify-items: center;
+}
+
+/* Show info when clicked */
+.info:target {
+    display: block;
+}
+
+.gate1{
+    border: 2px solid white;
+    border-radius: 14px;
+    height: 200px;
+    width: 1fr;
+}
+
+/* ================= WMSU MAP ================= */
 
 .wmsuMap {
     height: 250px;
