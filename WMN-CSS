@@ -107,10 +107,6 @@ main {
     width: 400px;
 }
 
-.breakline {
-    height: 200px;
-}
-
 .space#about-us {
     background: linear-gradient(180deg, 
         rgba(184, 26, 26, 1) 0%, 
