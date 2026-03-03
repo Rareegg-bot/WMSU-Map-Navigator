@@ -23,7 +23,6 @@
         <header class="header-description">
             <div class="home-description">
                 <h1>WMSU MAP NAVIGATOR</h1>
-                <p>Find your way around Western Mindanao State University easily. Perfect for new students, visitors, and everyone exploring Campus A and Campus B.</p>
             </div>
         </header>
         <section class="container map">
@@ -32,10 +31,73 @@
                 <a href="#CCS" class="DEP CCS">CCS</a>
                 <a href="#Gate1" class="DEP Gate1">Gate 1</a>
             </div>
-            <!--Building/Department Info-->
+            <!--List of all building/college department etc.-->
+            <div  class="cod-container">
+                <div class="column">
+                    <h2>College Departments</h2>
+                    <ol>
+                        <li><a href="" class="colleges">College of Agriculture</a></li>
+                        <li><a href="" class="colleges">College of Architecture</a></li>
+                        <li><a href="" class="colleges">College of Asian and Islamic Studies</a></li>
+                        <li><a href="#CCS" class="colleges">College of Computing Studies</a></li>
+                        <li><a href="" class="colleges">College of Communications and Humanities</a></li>
+                        <li><a href="" class="colleges">College of Criminal Justice and Education</a></li>
+                        <li><a href="" class="colleges">College of Education</a></li>
+                        <li><a href="" class="colleges">College of Engineering and Technology</a></li>
+                        <li><a href="" class="colleges">College of Forestry and Environmental Studies</a></li>
+                        <li><a href="" class="colleges">College of Home Economics</a></li>
+                        <li><a href="" class="colleges">College of Law</a></li>
+                        <li><a href="" class="colleges">College of Nursing</a></li>
+                        <li><a href="" class="colleges">College of Public Administration and Deve</a></li>
+                        <li><a href="" class="colleges">College of </a></li>
+                        <li><a href="" class="colleges">College of </a></li>
+                        <li><a href="" class="colleges">College of </a></li>
+                    </ol>
+                </div>
+
+
+                      <div class="column">
+                    <h2>Other Buildings</h2>
+                    <ol>
+                        <li><a href="" class="other-buildings">Garments</a></li>
+                        <li><a href="" class="other-buildings">Registrar</a></li>
+                        <li><a href="" class="other-buildings">Misto</a></li>
+                        <li><a href="" class="other-buildings">Gym</a></li>
+                        <li><a href="" class="other-buildings">Library</a></li>
+                        <li><a href="" class="other-buildings">Administration Building</a></li>
+                        <li><a href="" class="other-buildings">CTE Park</a></li>
+                        <li><a href="" class="other-buildings">Covered court</a></li>
+                        <li><a href="" class="other-buildings">Open Stage</a></li>
+                        <li><a href="" class="other-buildings">Canteen</a></li>
+                    </ol>
+                </div>
+                <div class="column">
+                    <h2>Other Places</h2>
+                    <ol>
+                        <li><a href="#Gate1" class="ETC">Gate 1</a></li>
+                        <li><a href="#Gate2" class="ETC">Gate 2</a></li>
+                        <li><a href="#Gate3" class="ETC">Gate 3</a></li>
+                        <li><a href="#Gate4" class="ETC">Gate 4</a></li>
+                        <li><a href="#Gate5" class="ETC">Gate 5</a></li>
+                        <li><a href="#Gate6" class="ETC">Gate 6</a></li>
+                        <li><a href="#Gate7" class="ETC">Gate 7</a></li>
+                        <li><a href="#" class="ETC">Canteen 1</a></li>
+                        <li><a href="#" class="ETC">Canteen 2</a></li>
+                        <li><a href="#" class="ETC">Canteen 3</a></li>
+                        <li><a href="#" class="ETC">Canteen 4</a></li>
+                        <li><a href="#" class="ETC">Canteen 5</a></li>
+                        <li><a href="#" class="ETC">Canteen 6</a></li>
+                    </ol>
+                </div>
+            </div>
+
+            <!------------------------------------Building/Department Info------------------------------------------------------->
+
+
+            <!-- #4  COLLEGE OF COMPUTING STUDIES  ----------------->
             <div id="CCS" class="info">
                 <h2>CCS</h2>
-                <img src="" alt="">
+                <img src="CCS-Image.png" alt="College Of Computing Studies" id="ccs-image">
                 <ul>
                     <li>1st Floor</li>
                 </ul>
@@ -55,17 +117,57 @@
                     <li>LR 2</li>
                 </ol>
             </div>
-
-        <!--GATE CAMPUS B-->
+        <!--  GATE LOCATION IN THE CAMPUS  ------------------------->
             <div id="Gate1" class="info">
                 <h2>Gate 1</h2>
-                <img src="Gate 1.png" alt="Gate" id="gate1-image">
+                <img src="Gate 1.png" alt="Gate 1" id="gate1-image">
+                <ul>
+                    <li>Entrance/Exit Gate</li>
+                </ul>
+            </div>    
+            <div id="Gate2" class="info">
+                <h2>Gate 1</h2>
+                <img src="Gate 2.png" alt="Gate 2" id="gate2-image">
+                <ul>
+                    <li>Entrance/Exit Gate</li>
+                </ul>
+            </div>   
+            <div id="Gate3" class="info">
+                <h2>Gate 1</h2>
+                <img src="Gate 3.png" alt="Gate 3" id="gate3-image">
+                <ul>
+                    <li>Entrance/Exit Gate</li>
+                </ul>
+            </div>    
+            <div id="Gate4" class="info">
+                <h2>Gate 1</h2>
+                <img src="Gate 4.png" alt="Gate 4" id="gate4-image">
+                <ul>
+                    <li>Entrance/Exit Gate</li>
+                </ul>
+            </div>   
+            <div id="Gate5" class="info">
+                <h2>Gate 1</h2>
+                <img src="Gate 5.png" alt="Gate 5" id="gate5-image">
                 <ul>
                     <li>Entrance/Exit Gate</li>
                 </ul>
             </div>    
 
-
+            <div id="Gate6" class="info">
+                <h2>Gate 1</h2>
+                <img src="Gate 6.png" alt="Gate 6" id="gate6-image">
+                <ul>
+                    <li>Entrance/Exit Gate</li>
+                </ul>
+            </div>  
+            <div id="Gate7" class="info">
+                <h2>Gate 1</h2>
+                <img src="Gate 7.png" alt="Gate 7" id="gate7-image">
+                <ul>
+                    <li>Entrance/Exit Gate</li>
+                </ul>
+            </div>    
         </section>
         <!--About Us Section-->
         <section class="space" id="about-us">
