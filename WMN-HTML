@@ -70,6 +70,41 @@
                         <area target="" alt="University Hostel Building" title="University Hostel Building" href="#university-hostel-building" coords="792,373,838,420" shape="rect">
                         <area target="" alt="Extension Training Laboratory (Tesda Building)" title="Extension Training Laboratory (Tesda Building)" href="#extension-training-laboratory" coords="925,337,959,387" shape="rect">
                         <area target="" alt="Landbank" title="Landbank" href="#landbank" coords="961,337,1000,398" shape="rect">
+
+                         <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                        <area target="" alt="Proposed School Governance Building" title="Proposed School Governance Building" href="#proposed-school-governance-building" coords="909,401,1022,444" shape="rect">
+                        <area target="" alt="Alumni Building" title="Alumni Building" href="#alumni-building" coords="997,472,1025,519" shape="rect">
+                        <area target="" alt="Student Center (College of Nursing)" title="Student Center (College of Nursing)" href="#student-center-nursing" coords="976,463,993,491" shape="rect">
+                        <area target="" alt="College of Nursing Building" title="College of Nursing Building" href="#college-of-nursing-building" coords="784,439,962,471" shape="rect">
+                        <area target="" alt="College of Nursing Building (Annex Building)" title="College of Nursing Building (Annex Building)" href="#college-of-nursing-building-annex" coords="785,476,961,502" shape="rect">
+                        <area target="" alt="Canteen/University Press/Post Office" title="Canteen/University Press/Post Office" href="#canteen-university-press-post-office" coords="625,437,760,485" shape="rect">
+                        <area target="" alt="Commercial Building" title="Commercial Building" href="#commercial-building" coords="605,449,623,471" shape="rect">
+                        <area target="" alt="College of Teachers Education (Main Building) " title="College of Teachers Education (Main Building) " href="#college-of-teachers-education" coords="585,402,449,314" shape="rect">
+                        <area target="" alt="Proposed Renovation of AZOTEA" title="Proposed Renovation of AZOTEA" href="#proposed-renovation-of-azotea" coords="487,290,551,314" shape="rect">
+                        <area target="" alt="Public CR and Computer Center Building" title="Public CR and Computer Center Building" href="#public-cr-and-computer-center-building" coords="493,260,549,287" shape="rect">
+                           <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                        <area target="" alt="Open Stage" title="Open Stage" href="#open-stage" coords="629,189,701,222" shape="rect">
+                        <area target="" alt="University Registrar Building" title="University Registrar Building" href="#university-registrar-building" coords="344,413,423,450" shape="rect">
+                        <area target="" alt="Campus Ministry Office" title="Campus Ministry Office" href="#campus-ministry-office" coords="367,371,388,396" shape="rect">
+                        <area target="" alt="APA Canteen" title="APA Canteen" href="#apa-canteen" coords="295,409,334,438" shape="rect">
+                        <area target="" alt="Coop Building" title="Coop Building" href="#coop-building" coords="272,407,293,436" shape="rect">
+                        <area target="" alt="MISTO" title="MISTO" href="#misto" coords="212,385,256,427" shape="rect">
+                        <area target="" alt="Pedestrian Overpass" title="Pedestrian Overpass" href="#pedestrian-overpass" coords="758,473,778,557" shape="rect">
+                        <area target="" alt="Transformer Banking" title="Transformer Banking" href="#transformer-banking" coords="784,547,817,566" shape="rect">
+                        <area target="" alt="College of Science and Mathematics" title="College of Science and Mathematics" href="#college-of-science-and-mathematics" coords="730,597,837,709" shape="rect">
+                        <area target="" alt="High School Building" title="High School Building" href="#high-school-building" coords="841,608,891,817" shape="rect">
+
+                         <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                        <area target="" alt="Proposed College of Medicine Building" title="Proposed College of Medicine Building" href="#proposed-college-of-medicine-building" coords="908,606,998,706" shape="rect">
+                        <area target="" alt="Material Science Faculty Building" title="Material Science Faculty Building" href="#material-science-faculty-building" coords="755,710,806,738" shape="rect">
+                        <area target="" alt="College of Criminal Justice Education" title="College of Criminal Justice Education" href="#college-of-criminal-justice-education" coords="750,740,824,779" shape="rect">
+                        <area target="" alt="Elevated Water Tank (Unknown)" title="Elevated Water Tank (Unknown)" href="#elevated-water-tank-unknown" coords="" shape="rect">
+                        <area target="" alt="University Food Service Center" title="University Food Service Center" href="#university-food-service-center" coords="908,736,984,817" shape="rect">
+                        <area target="" alt="Training Center" title="Training Center" href="#training-center" coords="990,729,1033,812" shape="rect">
+                        <area target="" alt="Male and Female CR (Unknown)" title="Male and Female CR (Unknown)" href="#male-and-female-cr-unknown" coords="699,781,717,800" shape="rect">
+                        <area target="" alt="2 Story Lecture Room (College of Science and Mathematics)" title="2 Story Lecture Room (College of Science and Mathematics)" href="#2-story-lecture-room" coords="718,773,749,810" shape="rect">
+                        <area target="" alt="College of Asian and Islamic Studies" title="College of Asian and Islamic Studies" href="#college-of-asian-and-islamic-studies" coords="718,814,742,891" shape="rect">
+                        <area target="" alt="College of Social Welfare and Development Building" title="College of Social Welfare and Development Building" href="#college-of-social-welfare-and-development-building" coords="716,892,743,920" shape="rect">
             <!------------------------------------Building/Department Info------------------------------------------------------->
 
 
