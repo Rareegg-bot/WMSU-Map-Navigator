@@ -59,6 +59,17 @@
                         <area target="" alt="College of Architecture Building" title="College of Architecture Building" href="#architecture" coords="892,43,968,83" shape="rect">
                         <area target="" alt="Storage Room" title="Storage Room" href="#storage-room" coords="964,106,983,121" shape="rect">
                         <area target="" alt="Elementary Faculty Room" title="Elementary Faculty Room" href="#elementary-faculty-room" coords="904,103,953,157" shape="rect">
+                          <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                        <area target="" alt="Student Kiosk College of Architecture" title="Student Kiosk College of Architecture" href="#student-kiosk-architecture" coords="846,95,870,122" shape="rect">
+                        <area target="" alt="Elementary H.E Building" title="Elementary H.E Building" href="#elementary-he-building" coords="797,91,835,151" shape="rect">
+                        <area target="" alt="Proposed DOJO Building" title="Proposed DOJO Building" href="#proposed-dojo-building" coords="794,174,865,199" shape="rect">
+                        <area target="" alt="Covered Court" title="Covered Court" href="#covered-court" coords="794,210,893,284" shape="rect">
+                        <area target="" alt="Elementary Lab Building" title="Elementary Lab Building" href="#elementary-lab-building" coords="897,206,934,308" shape="rect">
+                        <area target="" alt="Elementary School Building" title="Elementary School Building" href="#elementary-school-building" coords="943,198,991,312" shape="rect">
+                        <area target="" alt="College of Home Economics and Dietary Building" title="College of Home Economics and Dietary Building" href="#college-of-home-economics-and-dietary-building" coords="791,334,885,376" shape="rect">
+                        <area target="" alt="University Hostel Building" title="University Hostel Building" href="#university-hostel-building" coords="792,373,838,420" shape="rect">
+                        <area target="" alt="Extension Training Laboratory (Tesda Building)" title="Extension Training Laboratory (Tesda Building)" href="#extension-training-laboratory" coords="925,337,959,387" shape="rect">
+                        <area target="" alt="Landbank" title="Landbank" href="#landbank" coords="961,337,1000,398" shape="rect">
             <!------------------------------------Building/Department Info------------------------------------------------------->
 
 
