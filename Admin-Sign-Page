@@ -185,7 +185,7 @@
                     <a href="#">Forgot password?</a>
                 </div>
 
-                <button type="submit" class="signUpButton"><a href="Admin-Signup-Page.html">Sign Up</a></button>
+                <button type="submit" class="signUpButton"><a href="Admin-Login-Page.html">Sign Up</a></button>
             </form>
             <p>Already Have An <a href="Admin-Login-Page.html" class="accountLogin">Account?</a></p>
         </div>
