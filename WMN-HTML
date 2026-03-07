@@ -105,6 +105,31 @@
                         <area target="" alt="2 Story Lecture Room (College of Science and Mathematics)" title="2 Story Lecture Room (College of Science and Mathematics)" href="#2-story-lecture-room" coords="718,773,749,810" shape="rect">
                         <area target="" alt="College of Asian and Islamic Studies" title="College of Asian and Islamic Studies" href="#college-of-asian-and-islamic-studies" coords="718,814,742,891" shape="rect">
                         <area target="" alt="College of Social Welfare and Development Building" title="College of Social Welfare and Development Building" href="#college-of-social-welfare-and-development-building" coords="716,892,743,920" shape="rect">
+                        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                        <area target="" alt="Student Kiosk (CSWD)" title="Student Kiosk (CSWD)" href="#student-kiosk-cswd" coords="716,924,742,948" shape="rect">
+                        <area target="" alt="Akbayan Building" title="Akbayan Building" href="#akbayan-building" coords="707,970,727,1004" shape="rect">
+                        <area target="" alt="Nursery Room (Unknown)" title="Nursery Room (Unknown)" href="#nursery-room-unknown" coords="" shape="rect">
+                        <area target="" alt="Proposed 1Story Multipurpose Student Center (Unknown)" title="Proposed 1Story Multipurpose Student Center (Unknown)" href="#proposed-1story-multipurpose-student-center-unknown" coords="" shape="rect">
+                        <area target="" alt="Science and Technology Hub" title="Science and Technology Hub" href="#science-and-technology-hub" coords="742,972,802,1004" shape="rect">
+                        <area target="" alt="Muslim Student Association Building" title="Muslim Student Association Building" href="#muslim-student-association-building" coords="858,908,883,939" shape="rect">
+                        <area target="" alt="Medical Facilities Center" title="Medical Facilities Center" href="#medical-facilities-center" coords="859,876,890,900" shape="rect">
+                        <area target="" alt="College of Medicine" title="College of Medicine" href="#college-of-medicine" coords="898,873,1031,909" shape="rect">
+                        <area target="" alt="Practical Arts Building" title="Practical Arts Building" href="#practical-arts-building" coords="899,917,961,950" shape="rect">
+                        <area target="" alt="College of Computing Studies" title="College of Computing Studies" href="#college-of-computing-studies" coords="803,948,919,1009" shape="rect">
+
+                        
+                        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                        <area target="" alt="Gate 1" title="Gate 1" href="#gate-1" coords="145,228,172,268" shape="rect">
+                        <area target="" alt="Gate 2" title="Gate 2" href="#gate-2" coords="465,468,427,440" shape="rect">
+                        <area target="" alt="Gate 3" title="Gate 3" href="#gate-3" coords="563,459,602,483" shape="rect">
+                        <area target="" alt="Gate 4" title="Gate 4" href="#gate-4" coords="850,548,891,578" shape="rect">
+                        <area target="" alt="Gate 5" title="Gate 5" href="#gate-5" coords="1005,294,1037,344" shape="rect">
+                        <area target="" alt="Gate 6" title="Gate 6" href="#gate-6" coords="984,172,1014,218" shape="rect">
+                        <area target="" alt="Gate 7" title="Gate 7" href="#gate-7" coords="1033,832,1064,871" shape="rect">
+                    </map>
+                    </map>
+                </div>
+
             <!------------------------------------Building/Department Info------------------------------------------------------->
 
 
