@@ -129,114 +129,434 @@
                     </map>
                     </map>
                 </div>
+                  </div>
+            <div class="column">
+                    <div id="admin" class="info">
+                        <h2>Administration Building</h2>
+                        <img src="admin.png" alt="Administration Building">
+                    </div>
 
-            <!------------------------------------Building/Department Info------------------------------------------------------->
+                    <div id="library" class="info">
+                        <h2>University Library</h2>
+                        <img src="" alt="">
+                    </div>
 
+                    <div id="motorpool" class="info">
+                        <h2>Motor Pool/Physical Plant Office</h2>
+                        <img src="motorpool.png" alt="Motor Pool/Physical Plant Office">
+                    </div>
 
-            <!-- #4  COLLEGE OF COMPUTING STUDIES  ----------------->
-            <div id="CCS" class="info">
-                <h2>CCS</h2>
-                <img src="CCS-Image.png" alt="College Of Computing Studies" id="ccs-image">
-                <ul>
-                    <li>1st Floor</li>
-                </ul>
-                <ol>
-                    <li>Dean's office</li>
-                    <li>CCS DEP</li>
-                    <li>Lab 1</li>
-                    <li>Lab 2</li>
-                </ol>
-                <br>
-                <ul>
-                    <li>2nd Floor</li>
-                </ul>
-                <ol>
-                    <li>Guidance</li>
-                    <li>LR 1</li>
-                    <li>LR 2</li>
-                </ol>
+                    <div id="transformer" class="info">
+                        <h2>Transformer/Power House & Carpentry Shop</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="guard-house" class="info">
+                        <h2>Guard House</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="gymnasium" class="info">
+                        <h2>Gymnasium</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="proposed-lab" class="info">
+                        <h2>Proposed Sport Exercise and ScienceLaboratory</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="storage" class="info">
+                        <h2>Storage Building</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="executive" class="info">
+                        <h2>Executive Building</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="research-center" class="info">
+                        <h2>Research Center Building</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="social-science" class="info">
+                        <h2>College of Social Science Building</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="liberal-arts" class="info">
+                        <h2>College of Liberal Arts</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="law" class="info">
+                        <h2>College of Law Building</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="cla-graduate" class="info">
+                        <h2>CLA Graduate Program Building</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="public-administration" class="info">
+                        <h2>College of Public Administration Building</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="students-affairs" class="info">
+                        <h2>Office of The Students Affairs</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="engineering-stage" class="info">
+                        <h2>College of Engineering Stage</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="engineering-kiosk" class="info">
+                        <h2>College of Engineering Kiosk</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="health-center" class="info">
+                        <h2>University Health Center</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="education-sped" class="info">
+                        <h2>College of Education SPED Building</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="engineering-innovation" class="info">
+                        <h2>Engineering Innovation Center</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="innovative-center" class="info">
+                        <h2>Innovative Center for Metals and Engineering</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="engineering-technology-new" class="info">
+                        <h2>College of Engineering Technology (New)</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="engineering-technology-old" class="info">
+                        <h2>College of Engineering Technology (Old)</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="engineering-technology-classroom" class="info">
+                        <h2>College of Engineering Technology 2 Classroom</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="elevated-water-tank" class="info">
+                        <h2>Elevated Water Tank</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="architecture" class="info">
+                        <h2>College of Architecture Building</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="storage-room" class="info">
+                        <h2>Storage Room</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="elementary-faculty-room" class="info">
+                        <h2>Elementary Faculty Room</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="student-kiosk-architecture" class="info">
+                        <h2>Student Kiosk College of Architecture</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="elementary-he-building" class="info">
+                        <h2>Elementary H.E Building</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="proposed-dojo-building" class="info">
+                        <h2>Proposed Dojo Building</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="covered-court" class="info">
+                        <h2>Covered Court</h2>
+                        <img src="court.png" alt="Covered Court">
+                    </div>
+
+                    <div id="elementary-lab-building" class="info">
+                        <h2>Elementary Lab Building</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="elementary-school-building" class="info">
+                        <h2>Elementary School Building</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="college-of-home-economics-and-dietary-building" class="info">
+                        <h2>College of Home Economics and Dietary Building</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="university-hostel-building" class="info">
+                        <h2>University Hostel Building</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="extension-training-laboratory" class="info">
+                        <h2>Extension Training Laboratory (Tesda Building)</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="landbank" class="info">
+                        <h2>Landbank</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="executive-parking" class="info">
+                        <h2>Executive Covered Parking</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="executive-parking" class="info">
+                        <h2>Executive Covered Parking</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="executive-parking" class="info">
+                        <h2>Executive Covered Parking</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="executive-parking" class="info">
+                        <h2>Executive Covered Parking</h2>
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="executive-parking" class="info">
+                        <h2>Executive Covered Parking</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="proposed-school-governance-building" class="info">
+                        <h2>Proposed School Governance Building</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="alumni-building" class="info">
+                        <h2>Alumni Building</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="student-center-nursing" class="info">
+                        <h2>Student Center</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="college-of-nursing" class="info">
+                        <h2>College of Nursing</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="college-of-nursing-building" class="info">
+                        <h2>College of Nursing Building</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="college-of-nursing-building-annex" class="info">
+                        <h2>College of Nursing Building Annex</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="canteen-university-press-post-office" class="info">
+                        <h2>Canteen</h2>
+                        <img src="canteen1.png" alt="Canteen">
+                    </div>
+                     <div id="commercial-building" class="info">
+                        <h2>Commercial Building</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="college-of-teachers-education" class="info">
+                        <h2>College of Teacher Education</h2>
+                        <img src="cte1.png" alt="College of Teacher Education">
+                    </div>
+                     <div id="proposed-renovation-of-azotea" class="info">
+                        <h2>Proposed Renovation of Azotea</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="public-cr-and-computer-center-building" class="info">
+                        <h2>Public CR Computer Center Building</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="open-stage" class="info">
+                        <h2>Open Stage</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="university-registrar-building" class="info">
+                        <h2>University Registrar Building</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="campus-ministry-office" class="info">
+                        <h2>Campus Ministry</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="apa-canteen" class="info">
+                        <h2>APA Canteen</h2>
+                        <img src="" alt="APA Canteen">
+                    </div>
+                     <div id="coop-building" class="info">
+                        <h2>Coop Building</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="misto" class="info">
+                        <h2>MISTO</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="pedestrian-overpass" class="info">
+                        <h2>Pedestrian Overpass</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="transformer-banking" class="info">
+                        <h2>Transformer Banking</h2>
+                        <img src="" alt="">
+                    </div>
+                        <div id="college-of-science-and-mathematics" class="info">
+                            <h2>College of Science and Mathematics</h2>
+                            <img src="csm.png" alt="College of Science and Mathematics">
+                  </div>
+                           <div id="high-school-building" class="info">
+                        <h2>High School Building</h2>
+                        <img src="highschool.png" alt="High School Building">
+                    </div>
+                        <div id="proposed-college-of-medicine-building" class="info">
+                            <h2>Proposed College of Medicine Building</h2>
+                            <img src="" alt="Proposed College of Medicine Building">
+              
+                    </div>
+                     <div id="material-science-faculty-building" class="info">
+                        <h2>Material Science Faculty Building</h2>
+                        <img src="" alt="">
+
+                    </div>
+                     <div id="college-of-criminal-justice-education" class="info">
+                        <h2>College of Criminal Justice Education</h2>
+                        <img src="criminology.png" alt="College of Criminal Justice Education">
+                    </div>
+                     <div id="elevated-water-tank-unknown" class="info">
+                        <h2>Elevated Water Tank (Unknown)</h2>
+                        <img src="" alt="">
+                    </div>
+                        <div id="university-food-service-center" class="info">
+                            <h2>University Food Service Center</h2>
+                            <img src="canteen.png" alt="University Food Service Center">
+                    </div>
+                     <div id="training-center" class="info">
+                        <h2>Training Center</h2>
+                        <img src="trainingCenter.png" alt="Training Center">       
+                    </div>
+                        <div id="male-and-female-cr-unknown" class="info">
+                            <h2>Male and Female CR (Unknown)</h2>
+                            <img src="" alt="">
+                
+                    </div>
+                     <div id="2-story-lecture-room" class="info">
+                        <h2>2 Story Lecture Room (College of Science and Mathematics)</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="college-of-asian-and-islamic-studies" class="info">
+                        <h2>College of Asian and Islamic Studies</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="college-of-social-welfare-and-development-building" class="info">
+                        <h2>College of Social Welfare and Development Building</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="student-kiosk-cswd" class="info">
+                        <h2>Student Kiosk (CSWD)</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="akbayan-building" class="info">
+                        <h2>Akbayan Building</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="nursery-room-unknown" class="info">
+                        <h2>Nursery Room (Unknown)</h2>
+                        <img src="" alt="">
+                    </div>
+                        <div id="proposed-1story-multipurpose-student-center-unknown" class="info">
+                            <h2>Proposed 1Story Multipurpose Student Center (Unknown)</h2>
+                            <img src="" alt="">
+                    </div>
+                     <div id="science-and-technology-hub" class="info">
+                        <h2>Science and Technology Hub</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="muslim-student-association-building" class="info">
+                        <h2>Muslim Student Association Building</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="medical-facilities-center" class="info">
+                        <h2>Medical Facilities Center</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="college-of-medicine" class="info">
+                        <h2>College of Medicine</h2>
+                        <img src="lol.png" alt="College of Medicine">
+                    </div>
+                     <div id="practical-arts-building" class="info">
+                        <h2>Practical Arts Building</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="college-of-computing-studies" class="info">
+                        <h2>College of Computing Studies</h2>
+                        <img src="ccs.png" alt="College of Computing Studies">
+                    </div>
+                     <div id="gate-1" class="info">
+                        <h2>Gate 1</h2>
+                        <img src="" alt="">
+                    </div>
+                     <div id="gate-2" class="info">        
+                        <h2>Gate 2</h2>
+                        <img src="" alt="">
+                        </div>
+                        <div id="gate-3" class="info">
+                           <h2>Gate 3</h2>
+                        <img src="" alt="">
+                        </div>  
+                    <div id="gate-4" class="info">
+                           <h2>Gate 4</h2>
+                        <img src="" alt="">
+                        </div>  
+                    <div id="gate-5" class="info">
+                           <h2>Gate 5</h2>
+                             <img src="" alt="">
+                        </div>  
+                    <div id="gate-6" class="info">
+                           <h2>Gate 6</h2>
+                             <img src="" alt="">
+                        </div>  
+                    <div id="gate-7" class="info">
+                           <h2>Gate 7</h2>
+                             <img src="" alt="">
+                        </div>
+                </div>
             </div>
-        <!--  GATE LOCATION IN THE CAMPUS  ------------------------->
-            <div id="Gate1" class="info">
-                <h2>Gate 1</h2>
-                <img src="Gate 1.png" alt="Gate 1" id="gate1-image">
-                <ul>
-                    <li>Entrance/Exit Gate</li>
-                </ul>
-            </div>    
-            <div id="Gate2" class="info">
-                <h2>Gate 1</h2>
-                <img src="Gate 2.png" alt="Gate 2" id="gate2-image">
-                <ul>
-                    <li>Entrance/Exit Gate</li>
-                </ul>
-            </div>   
-            <div id="Gate3" class="info">
-                <h2>Gate 1</h2>
-                <img src="Gate 3.png" alt="Gate 3" id="gate3-image">
-                <ul>
-                    <li>Entrance/Exit Gate</li>
-                </ul>
-            </div>    
-            <div id="Gate4" class="info">
-                <h2>Gate 1</h2>
-                <img src="Gate 4.png" alt="Gate 4" id="gate4-image">
-                <ul>
-                    <li>Entrance/Exit Gate</li>
-                </ul>
-            </div>   
-            <div id="Gate5" class="info">
-                <h2>Gate 1</h2>
-                <img src="Gate 5.png" alt="Gate 5" id="gate5-image">
-                <ul>
-                    <li>Entrance/Exit Gate</li>
-                </ul>
-            </div>    
 
-            <div id="Gate6" class="info">
-                <h2>Gate 1</h2>
-                <img src="Gate 6.png" alt="Gate 6" id="gate6-image">
-                <ul>
-                    <li>Entrance/Exit Gate</li>
-                </ul>
-            </div>  
-            <div id="Gate7" class="info">
-                <h2>Gate 1</h2>
-                <img src="Gate 7.png" alt="Gate 7" id="gate7-image">
-                <ul>
-                    <li>Entrance/Exit Gate</li>
-                </ul>
-            </div>    
-        </section>
-        <!--About Us Section-->
-        <section class="space" id="about-us">
-            <h1 style="text-align: center; font-size: 40px;">About Us</h1>
-            <span class="about-usSpan">
-                We are a group of students here in wmsu pursuing the course of ACT AD, we have created this system to help first year students or visitors locating places around the campus hassle-free.
-            </span>
-        </section>
-    </main>
-    <!--Info on where to contact us-->
-    <footer id="contact-us">
-        <h1>Contact Info</h1>
-        <div>
-            <h2>Email</h2>
-            <p>teamfive@gmail.com</p>
-        </div>
-        <br>
-        <hr>
-        <div>
-            <h2>Contact #</h2>
-            <p>+63 123 4567 890</p>
-        </div>
-        <br>
-        <hr>
-        <div>
-            <h2>Github</h2>
-            <a href="#" style="text-decoration: none; color: white;">Rareegg-bot</a>
-        </div>
-        <br>
-        <textarea name="comments" id="comments" placeholder="Enter your thoughts..."></textarea>
-    </footer>
+
+
+
+         
+        <footer>
+            <p>&copy; 2026 WMSU Map Navigator. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>
+
+
