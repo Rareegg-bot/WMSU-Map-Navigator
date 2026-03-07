@@ -1,139 +1,133 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-html {
+html{
     scroll-behavior: smooth;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    background-color: #3498db;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: 300px auto;
-    grid-template-rows: auto auto;
-    grid-template-areas: 
-    "navbar navbar"
-    "maincontent maincontent"
-    "footer footer";
+    padding: 10px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    overflow: hidden;
+    width: 100%;
 }
 
 header {
-    height: 95vh;
-    background-image: url('wmsuBg.png');
-    background-size: cover;
-    background-position: center;   
-    position: relative;
-}
-
-header::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 0, 0, 0.5);
-    z-index: 1;
-}
-
-.home-description {
-    text-align: center;
+    background: linear-gradient(to right, #2c3e50 0%, #3498db 100%);
     color: white;
-    z-index: 2;
-    position: relative;  
+    padding: 30px 15px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.3em;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 1.05em;
+    opacity: 0.9;
 }
 
 nav {
-    grid-area: navbar;
-    background-color: white;
-    box-shadow: 3px 3px 5px rgba(255, 0, 0, 0.1);
-    padding: 1em;
+    box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.5);
+    padding: 1.2em 1em;
     position: sticky;
     top: 0;
-    z-index: 3;
+    background: linear-gradient(to right, white, rgba(255, 255, 255, 0.8 )50%, white);
+    z-index: 10;
+    border-radius: 12px;
 }
 
 nav ul {
-    width: 100%;
     list-style: none;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-nav li {
-    height: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 nav a {
-    border: none;
-    border-radius: 20px;
-    height: 100%;
-    padding: 0 30px;
+    padding: 12px 20px;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    color: black;
-    font-size: 18px;
+    color: darkblue;
+    font-size: 1.4rem;
     font-weight: bold;
+    border-radius: 6px;
+    transition: all 0.2s;
 }
 
 nav a:hover {
-    background-color: crimson;
+    background-color: #2c3e50;
     color: white;
 }
 
-main {
-    grid-area: maincontent;
-    background: linear-gradient(90deg, 
-        rgba(184, 26, 26, 1) 0%, 
-        rgba(255, 0, 0, 1) 44%, 
-        rgba(255, 255, 255, 1) 100%);
-}
-
-/* ================= CONTAINER MAP ================= */
-
-.container.map {
-    display: flex;
-    flex-direction: column;
-    height: 1000px;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-}
-
-/*******************************************************************************************/
-/**                                IMAGES FOR ANCHOR TAGS                                 **/
-/*******************************************************************************************/
-
-#gate1-image{
-    height: 200px;
-    width: 200px;
-    border: 2px solid white;
+.wmsuMap {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    display: block;
     border-radius: 14px;
 }
 
-/*  BUILDING/COLLEGE DEPARTMENT  */
-
-.Gate1 {
-    background-color: aqua;
-    border-radius: 8px;
-    padding: 4px;
-    text-decoration: none;
+#map.mapNav {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.CCS {
-    background-color: aqua;
-    border-radius: 8px;
-    padding: 4px;
-    text-decoration: none;
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 14px;
+    background-color: lightskyblue;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    min-width: 0;          
 }
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 25px 15px;
+    overflow-x: hidden;
+}
+
+.map-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.content > *,
+.map-content > * {
+    min-width: 0;
+    flex-shrink: 1;
+}
+
+/*              Building Information                   */
 
 .info {
-    background-color: crimson;
-    color: white;
+    background-color: white;
+    color: black;
     display: none;
     border: 1px solid #333;
     border-radius: 14px;
@@ -148,89 +142,20 @@ main {
     display: block;
 }
 
-.gate1{
-    border: 2px solid white;
-    border-radius: 14px;
-    height: 200px;
-    width: 1fr;
-}
-
-/* ================= WMSU MAP ================= */
-
-.wmsuMap {
-    height: 250px;
-    width: 400px;
-}
-
-.space#about-us {
-    background: linear-gradient(180deg, 
-        rgba(184, 26, 26, 1) 0%, 
-        rgba(255, 0, 0, 1) 6%, 
-        rgba(255, 255, 255, 1) 100%);
-    height: 95vh;
-    color: white;
-}
-
-.about-usSpan {
-    font-size: 40px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    display: block;    
-    padding: 0 1rem;
-}
-
-div > h1 {
-    color: crimson;
-    margin-bottom: 60px;
-    text-align: center;
-}
 
 footer {
-    grid-area: footer;
-    background-color: gray;
-    color: white;
-    padding: 2em;
-    text-align: center;
-}
-
-footer div {
-    text-align: center;
-}
-
-footer h2,
-footer p,
-footer a {
-    text-align: center;
-}
-
-footer a {
-    font-size: 22px;
-    text-decoration: none;
-    color: white;
-}
-
-#comments {
-    display: block;
-    width: 90%;
-    max-width: 600px;
-    height: 150px;
-    padding: 10px;
-    margin: 20px auto;
-    font-size: 14px;
-}
-
-.aboutWmsuMap {
-    font-size: 40px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-}
-
-#title {
+    background: #2c3e50;
     color: white;
     text-align: center;
+    padding: 25px;
+    margin-top: auto;       
 }
 
-blockquote {
-    font-size: 50px;
-    text-align: center;
+div>img{
+    width: 100%;
+    height: 20%;
+    border-radius: 14px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
+    
+    
