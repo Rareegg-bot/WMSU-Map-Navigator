@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="container">
-        <header>
             <nav>
                 <ul>
                     <li><a href="#">Home</a></li>
@@ -17,6 +16,7 @@
                     <li><a href="Admin-Login-Page.html">Admin</a></li>
                 </ul>
             </nav>
+        <header>
             <h1>WMSU Map Navigator</h1>
             <p>Explore Western Mindanao State University Campus</p>
         </header>
