@@ -164,7 +164,7 @@
                     <li><a href="#">Dashboard</a></li>
                     <li><a href="#">Settings</a></li>
                     <li><a href="WMSU-Map-Navigator.html">Back to Home</a></li>
-                    <li><a href="adminLogin.html">Log Out</a></li>
+                    <li><a href="Admin-Login-Page.html">Log Out</a></li>
                 </ul>
             </nav>
         </aside>
