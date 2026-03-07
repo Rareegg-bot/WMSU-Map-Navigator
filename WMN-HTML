@@ -47,6 +47,18 @@
                         <area target="" alt="College of Engineering Stage" title="College of Engineering Stage" href="#engineering-stage" coords="620,106,603,87" shape="rect">
                         <area target="" alt="College of Engineering Kiosk" title="College of Engineering Kiosk" href="#engineering-kiosk" coords="747,123,676,106" shape="rect">
                         <area target="" alt="University Health Center" title="University Health Center" href="#health-center" coords="655,145,611,116" shape="rect">
+
+                         <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                        <area target="" alt="College of Education Sped Building" title="College of Education Sped Building" href="#education-sped" coords="743,150,674,127" shape="rect">
+                        <area target="" alt="Engineering Innovation Center" title="Engineering Innovation Center" href="#engineering-innovation" coords="773,129,757,89" shape="rect">
+                        <area target="" alt="Innovative Center for Metals and Engineering (Unknown)" title="Innovative Center for Metals and Engineering (Unknown)" href="#innovative-center" coords="" shape="rect">
+                        <area target="" alt="College of Engineering and Technology Building (New Building)" title="College of Engineering and Technology Building (New Building)" href="#engineering-technology-new" coords="602,79,771,38" shape="rect">
+                        <area target="" alt="College of Engineering and Technology Building (Old Building)" title="College of Engineering and Technology Building (Old Building)" href="#engineering-technology-old" coords="776,71,882,38" shape="rect">
+                        <area target="" alt="College of Engineering and Technology 2 Classroom (Unknown)" title="College of Engineering and Technology 2 Classroom (Unknown)" href="#engineering-technology-classroom" coords="" shape="rect">
+                        <area target="" alt="Elevated Water Tank (Unknown)" title="Elevated Water Tank (Unknown)" href="#elevated-water-tank" coords="" shape="rect">
+                        <area target="" alt="College of Architecture Building" title="College of Architecture Building" href="#architecture" coords="892,43,968,83" shape="rect">
+                        <area target="" alt="Storage Room" title="Storage Room" href="#storage-room" coords="964,106,983,121" shape="rect">
+                        <area target="" alt="Elementary Faculty Room" title="Elementary Faculty Room" href="#elementary-faculty-room" coords="904,103,953,157" shape="rect">
             <!------------------------------------Building/Department Info------------------------------------------------------->
 
 
