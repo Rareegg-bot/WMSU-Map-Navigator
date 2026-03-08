@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMSU Map Navigator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: #3498db;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: visible;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            min-height: 40vh;
+            background: linear-gradient(to right, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 30px 15px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.3em;
+            margin-bottom: 8px;
+            margin-top: 20px;
+        }
+
+        header p {
+            font-size: 1.05em;
+            opacity: 0.9;
+        }
+
+        nav {
+            box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.5);
+            padding: 1.2em 1em;
+            position: sticky;
+            top: 0;
+            background: linear-gradient(to right, white, rgba(255, 255, 255, 0.8) 50%, white);
+            z-index: 10;
+            border-radius: 12px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        nav a {
+            padding: 12px 20px;
+            text-decoration: none;
+            color: darkblue;
+            font-size: 1.4rem;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        nav a:hover {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        nav a.active {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: auto;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: justify;
+            min-height: 100vh;
+            margin: 50px;
+            flex: 1;
+            padding: 30px 20px;
+            color: #333;
+        }
+
+        .about-us {
+            margin-bottom: 50px;
+        }
+
+        .info {
+            margin-bottom: 50px;
+        }
+ 
+        .developers {
+            margin-bottom: 50px;
+        }
+ 
+        .info a {
+            margin-bottom: 15px;
+            text-decoration: none;
+        }
+
+        .developers a{
+            color: black;
+        }
+
+        .developers a:hover {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <nav>
+            <ul>
+                <li><a href="WMSU-Map-Navigator.html">Home</a></li>
+                <li><a href="Contacts.html" class="active">Contacts</a></li>
+                <li><a href="loginUI.html">Login</a></li>
+                <li><a href="Admin-Login-Page.html">Admin</a></li>
+            </ul>
+        </nav>
+
+        <header>
+            <h1>Contact Us</h1>
+        </header>
+
+        <main>
+            <div class="about-us">
+                <h2>About Us</h2>
+                <p>We are a group of passionate students from Western Mindanao State University dedicated to creating useful digital solutions for our campus community. The WMSU Map Navigator was developed to help new students, transferees, visitors, and guests explore and navigate the campus more easily and confidently.</p>
+                <br>
+                <p>We are working on this system for 3 weeks now and this is what we came up so far, we only started learning Web Developing about 2 months ago and we are still learning as we go through this system.</p>
+                <br>
+                <p>Our team is committed to continuously improving the WMSU Map Navigator and welcome any input or ideas you may have.</p>
+            </div>
+
+            <div class="info">
+                <h2>Get in Touch</h2>
+                <p>If you have any questions, suggestions, or feedback, please don't hesitate to reach out!</p>
+                <ul>
+                    <li>Email: <a href="mailto:info@wmsu.edu.ph">info@wmsu.edu.ph</a></li>
+                    <li>Phone: <a href="tel:123-456-7890">123-456-7890</a></li>
+                    <li>Website: <a href="https://www.wmsu.edu.ph" target="_blank">www.wmsu.edu.ph</a></li>
+                </ul>
+            </div>
+
+            <div class="developers">
+                <h2>Developers</h2>
+                <p>Meet the team behind the WMSU Map Navigator and their Github Accounts:</p>
+                <ul>
+                    <li>Ian Gervic Lim - <a href="https://github.com/Rareegg-bot">Rareegg-bot</a></li>
+                    <li>Christian Benedict Jala - <a href="https://github.com/jalachristiaan-a11y">jalachristiaan-a11y</a></li>
+                    <li>Halipa Suaili - <a href="https://github.com/dey-args">dey-args</a></li>
+                    <li>Danica Custodio - <a href="https://github.com/nics-arg">nics-arg</a></li>
+                    <li>Ferdausi Mamiscal - <a href="https://github.com/codewFerd">codewFerd</a></li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2026 WMSU Map Navigator. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
