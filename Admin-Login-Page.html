@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
-    <style>
+    <style> /**  Using Internal CSS To Maximize Styling In One HTML File, Only Used For This Small Project Login Page  **/
+        /**       To Reset Size     **/
         * {
             margin: 0;
             padding: 0;
@@ -20,7 +21,7 @@
             justify-content: center;
             padding: 20px;
         }
-
+        /**     Styling The Login Container (Line 25-50)     **/
         .login-container {
             background: #e6f0fa;
             border-radius: 14px;
@@ -59,7 +60,7 @@
         .accountSignup{
             color: black;
         }
-
+        /**     Styling The Login Form (Line 64-94)     **/
         .form-group {
             margin-bottom: 1.6rem;
             text-align: left;
@@ -91,7 +92,7 @@
         .form-group input::placeholder {
             color: #95a5a6;
         }
-
+        /**     Styling The Options(Forget Password, Remember Me) Section (Line 96-111)     **/
         .options {
             display: flex;
             justify-content: space-between;
@@ -108,7 +109,7 @@
         .options a:hover {
             text-decoration: underline;
         }
-
+        /**     Setting Size and Style For The Login Button (Line 113-135)     **/
         .loginButton {
             width: 100%;
             padding: 20px;
@@ -132,7 +133,7 @@
             text-decoration: none;
             color: white;
         }
-
+        /**     Styling The Footer (Line 137-152)     **/
         .footer {
             padding: 1.5rem;
             background: #f8f9fa;
@@ -152,51 +153,38 @@
     </style>
 </head>
 <body>
-
+    <!--  Main Login Container -->
     <div class="login-container">
-        <div class="login-header">
+        <div class="login-header"> <!--  Main Header Section  -->
             <h1>Admin Login</h1>
             <p>Sign in to access the dashboard</p>
         </div>
 
-        <div class="login-body">
+        <div class="login-body"> <!-- Form Section -->
             <form action="#" method="post">
-                <div class="form-group">
+                <div class="form-group"> <!--  Username / Email Field  -->
                     <label for="username">Username or Email</label>
-                    <input 
-                        type="text" 
-                        id="username" 
-                        name="username" 
-                        placeholder="admin@yourdomain.com" 
-                        required 
-                        autofocus
-                    >
+                    <input type="text" id="username" name="username" placeholder="admin@yourdomain.com" required autofocu>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group"> <!--  Password Field  -->
                     <label for="password">Password</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        name="password" 
-                        placeholder="Password" 
-                        required
-                    >
+                    <input type="password" id="password" name="password" placeholder="Password" required>
                 </div>
 
-                <div class="options">
+                <div class="options"> <!--  Remember me + Forgot Password Options  -->
                     <label>
                         <input type="checkbox" name="remember"> Remember me
                     </label>
                     <a href="#">Forgot password?</a>
                 </div>
-
+                <!--  Login Button  -->
                 <button type="submit" class="loginButton"><a href="Admin-Panel.html">Login</a></button>
             </form>
-            <p>Didn't <a href="Admin-Signup-Page.html" class="accountSignup">Sign Up</a> Yet?</p>
+            <p>Didn't <a href="Admin-Signup-Page.html" class="accountSignup">Sign Up</a> Yet?</p> <!--  Signup Link For New Users  -->
         </div>
 
-        <div class="footer">
+        <div class="footer"> <!--  Footer Back Link  -->
             Back to <a href="WMSU-Map-Navigator.html">Home</a>
         </div>
     </div>
