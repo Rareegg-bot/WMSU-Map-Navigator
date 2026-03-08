@@ -92,7 +92,6 @@ nav ul li a:hover::after {
   z-index: 1;
 }
 
-/* Hero Text Styling */
 .hero h1 {
   font-size: 53px;
   margin-bottom: 20px;
@@ -220,4 +219,6 @@ footer {
   .card {
     width: 80%;
   }
+html{
+    scroll-behavior: smooth;
 }
