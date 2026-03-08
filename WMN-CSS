@@ -83,7 +83,7 @@ nav a.active {
     }
 
 .wmsuMap {
-    width: 100% !important;
+    width: 98% !important;
     max-width: 100%;
     height: auto !important;
     display: block;
