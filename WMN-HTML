@@ -10,7 +10,7 @@
     <div class="container">
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="#" class="active">Home</a></li>
                     <li><a href="Contacts">Contact Us</a></li>
                     <li><a href="loginUI.html">Login</a></li>
                     <li><a href="Admin-Login-Page.html">Admin</a></li>
