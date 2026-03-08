@@ -54,7 +54,7 @@
             padding: 1.5rem;
             position: sticky;
             top: 0;
-            height: 100vh;
+            height: auto;
             overflow-y: auto;
         }
 
@@ -104,7 +104,7 @@
 
         .column{
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             grid-template-areas: "column1" "column2" "column3";  
             justify-content: space-between;
             gap: 20px;
