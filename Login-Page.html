@@ -1,34 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="loginUI.css"> 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User System</title>
+
+  <link rel="stylesheet" href="Login-Page.css">
+
+  <style>
+    .section {
+      display: none;
+    }
+    #home:target,
+    #login:target,
+    #signup:target {
+      display: block;
+    }
+    
+    #home {
+      display: block;
+    }
+    #login:target ~ #home,
+    #signup:target ~ #home {
+      display: none;
+    }
+  </style>
 </head>
+
 <body>
-    <nav>
-        <ul>
-            <li><a href="WmsuMapNavigator.html">Back to Home</a></li>
-        </ul>
-    </nav>
-    <form action="WmsuMapNavigator.html" method="post">
-        <div class="container">
-            <h1 id="loginHeader">Login</h1>
-            <label for="uname"><b>Username</b></label><br>
-            <input type="text" placeholder="Enter Username" name="uname" required>
-            <br>            
-            <br>            
-            <label for="psw"><b>Password</b></label><br>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-            <br>   
-            <span id="FP" class="psw">Forgot <a href="#" id="FP">password?</a></span>         
-            <br>
-            <br>
-            <br>
-            <button id="loginButton" type="submit">Login</button><br><br>
-        </div>
+
+  <div id="login" class="section container">
+    <h2>User Login</h2>
+
+    <form action="#" method="post">
+      <input type="text" name="username" placeholder="Username or Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
     </form>
-    <footer style="color: white;">Copyright © 2026 Ian Lim.</footer>
+
+    <div class="link">
+      <p>No account? <a href="#signup">Sign Up</a></p>
+      <p><a href="#home">⬅ Back Home</a></p>
+    </div>
+  </div>
+
+
+  <div id="signup" class="section container">
+    <h2>Register</h2>
+
+    <form action="#" method="post">
+      <input type="text" name="fullname" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Create Account</button>
+    </form>
+
+    <div class="link">
+      <p>Already have account? <a href="#login">Login</a></p>
+      <p><a href="#home">⬅ Back Home</a></p>
+    </div>
+  </div>
+
+
+  <div id="home" class="section container" style="text-align:center;">
+    <h1>Welcome</h1>
+    <br>
+    <a href="#login"><button>Login</button></a>
+    <br><br>
+    <a href="#signup"><button>Sign Up</button></a>
+  </div>
+
+
 </body>
 </html>
