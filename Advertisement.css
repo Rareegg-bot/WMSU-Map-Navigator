@@ -1,0 +1,183 @@
+/* style.css */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #050505; /* Deep black base */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Main Advertisement Container */
+.ad-trailer {
+    width: 95%;
+    max-width: 1200px;
+    background-color: #0f0f0f;
+    padding: 80px 40px;
+    border-radius: 30px;
+    position: relative; /* Required for the background image overlay */
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.6);
+    border: 1px solid #222;
+}
+
+/* LANDSCAPE BACKGROUND IMAGE WITH LOW OPACITY */
+.ad-trailer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* REPLACE 'landscape.jpg' with your WMSU School Picture */
+    background-image: url('landscape.jpg'); 
+    background-size: cover;
+    background-position: center;
+    opacity: 0.12; /* Adjust this (0.1 to 0.2) to make it more or less visible */
+    z-index: 0;
+    filter: brightness(0.6);
+}
+
+/* Content Container (Ensures text stays on top of background) */
+.ad-header, .trailer-grid, .ad-footer {
+    position: relative;
+    z-index: 10;
+}
+
+/* Header Text */
+.badge {
+    background-color: #800000; /* WMSU Crimson */
+    color: white;
+    padding: 6px 15px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: white;
+    margin: 25px 0;
+    line-height: 1.1;
+}
+
+.gold-text {
+    color: #ffd700; /* WMSU Gold */
+}
+
+.ad-header p {
+    color: #aaa;
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Trailer Grid */
+.trailer-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 60px 0;
+    flex-wrap: wrap;
+}
+
+/* Individual Cards */
+.trailer-card {
+    background: rgba(25, 25, 25, 0.8);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    width: 320px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.4s ease;
+    overflow: hidden;
+}
+
+.trailer-card:hover {
+    transform: translateY(-15px);
+    border-color: #ffd700;
+    box-shadow: 0 20px 40px rgba(128, 0, 0, 0.3);
+}
+
+.image-container {
+    height: 180px;
+    position: relative;
+    background: #222;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.step-number {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #ffd700;
+    color: black;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.trailer-card h3 {
+    color: #ffd700;
+    margin: 20px 0 10px;
+}
+
+.trailer-card p {
+    color: #888;
+    padding: 0 20px 25px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Footer & Button */
+.launch-btn {
+    background: linear-gradient(135deg, #800000, #500000);
+    color: white;
+    border: 2px solid #ffd700;
+    padding: 16px 45px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.launch-btn:hover {
+    background: #ffd700;
+    color: #800000;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+    transform: scale(1.05);
+}
+
+.footer-note {
+    margin-top: 20px;
+    color: #444;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .trailer-grid { flex-direction: column; align-items: center; }
+}
