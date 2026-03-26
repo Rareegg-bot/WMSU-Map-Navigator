@@ -4,17 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WMSU MAP CAMPUS NAVIGATION LANDING PAGE</title>
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" /> <!-- Links to the updated CSS file -->
+  <!-- External CSS -->
+  <link rel="stylesheet" href="Landing-Page.css" />
 </head>
 <body>
 
-<!-- Navbar stays fixed at top; Hero section includes navbar height in 100vh -->
+<!-- Navbar -->
 <header class="navbar" id="home">
   <h1 class="logo">WMSU Map Navigator</h1>
   <nav>
     <ul>
-      <li><a href="#home">Home</a></li>
+      <li><a href="#">Home</a></li>
       <li><a href="#features">Features</a></li>
       <li><a href="#about">About us</a></li>
       <li><a href="#how">How this works</a></li>
@@ -23,14 +25,16 @@
   </nav>
 </header>
 
-<section class="hero">
+<!-- Hero Section with blurred background -->
+<section class="hero" id="home">
   <h1>Welcome To WMSU Campus Map Navigation</h1>
   <p>
     Western Mindanao State University's official campus map and navigation system. Find buildings, offices, facilities, and get directions — all in one place.
   </p>
-  <a href="#features" class="btn">Get Started</a>
+  <a href="fillOutForm.html" class="btn">Get Started</a>
 </section>
 
+<!-- Features Section -->
 <section id="features">
   <h2>Features</h2>
   <div class="cards-container">
@@ -49,6 +53,7 @@
   </div>
 </section>
 
+<!-- About Us -->
 <section id="about">
   <h2>About Us</h2>
   <p>
@@ -59,6 +64,7 @@
   </p>
 </section>
 
+<!-- How This Works -->
 <section id="how">
   <h2>How this works</h2>
   <div class="steps-container">
@@ -77,64 +83,13 @@
   </div>
 </section>
 
+<!-- Contact -->
 <section id="contact">
   <h2>Contact</h2>
-  <p>Questions? Reach out to us through the form below or via our official channels.</p>
-
-  <div class="contact-section">
-    <!-- Contact Information Panel -->
-    <div class="contact-info">
-      <h3>Contact Information</h3>
-      <p>Reach out to us through any of the channels below, or send a message directly using the form on the right.</p>
-      <ul>
-        <li>📧 <a href="mailto:info@wmsu.edu.ph">info@wmsu.edu.ph</a></li>
-        <li>📞 <a href="tel:123-456-7890">123-456-7890</a></li>
-        <li>🌐 <a href="https://www.wmsu.edu.ph" target="_blank">www.wmsu.edu.ph</a></li>
-        <li>📍 Western Mindanao State University, Zamboanga City</li>
-      </ul>
-      <p>For developer-specific queries, you can reach out to individual team members via their GitHub profiles below.</p>
-    </div>
-
-    <!-- Contact Form -->
-    <div class="contact-form">
-      <form action="mailto:info@wmsu.edu.ph" 
-            method="post" 
-            enctype="text/plain">
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" required placeholder="Enter your full name">
-        </div>
-        <div class="form-group">
-          <label for="email">Your Email</label>
-          <input type="email" id="email" name="email" required placeholder="Enter your email address">
-        </div>
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" required placeholder="What is this about?">
-        </div>
-        <div class="form-group">
-          <label for="message">Your Message</label>
-          <textarea id="message" name="message" required placeholder="Share your thoughts, feedback, or questions here..."></textarea>
-        </div>
-        <button type="submit" class="submit-btn">Send Message</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Developers Section -->
-  <div class="developers">
-    <h3>Developers</h3>
-    <p>Meet the team behind the WMSU Map Navigator and connect with them on GitHub:</p>
-    <ul>
-      <li>Ian Gervic Lim - <a href="https://github.com/Rareegg-bot" target="_blank">Rareegg-bot</a></li>
-      <li>Christian Benedict Jala - <a href="https://github.com/jalachristiaan-a11y" target="_blank">jalachristiaan-a11y</a></li>
-      <li>Halipa Suaili Jr. - <a href="https://github.com/dey-args" target="_blank">dey-args</a></li>
-      <li>Danica Custodio - <a href="https://github.com/nics-arg" target="_blank">nics-arg</a></li>
-      <li>Ferdausi Mamiscal - <a href="https://github.com/codewFerd" target="_blank">codewFerd</a></li>
-    </ul>
-  </div>
+  <p>Questions? Reach out to us at contact@wmsumap.edu.ph.</p>
 </section>
 
+<!-- Footer -->
 <footer>
   &copy; 2026 WMSU Map Navigator
 </footer>
