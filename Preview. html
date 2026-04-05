@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WMSU Map Navigator — Preview</title>
+  <link rel="stylesheet" href="preview.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Inter:wght@400;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="wmsu-map-preview">
+    <header id="wmsu-map-header">
+      <h1>WMSU Map Navigator</h1>
+      <p>Explore our campus with ease and convenience.</p>
+    </header>
+
+    <aside id="wmsu-map-sidebar">
+      <div class="section">
+        <h2>Features</h2>
+        <p>• Interactive Campus Map<br>• Real-Time Navigation<br>• Facility Finder</p>
+      </div>
+
+      <div class="section">
+        <h2>Our Goal</h2>
+        <p>Providing a great navigation experience to help you find offices and facilities across both campuses easily.</p>
+      </div>
+
+      <div class="section">
+        <h2>How It Works</h2>
+        <p>1. Select your destination.<br>2. Receive directions.<br>3. Follow step-by-step guidance.</p>
+      </div>
+
+      <div class="section">
+        <h2>About Us</h2>
+        <p>Developed to enhance student and visitor experience by providing efficient campus navigation for everyone.</p>
+      </div>
+
+      <div class="section">
+        <h2>Navigation</h2>
+        <a class="wmsu-btn" href="#">Get Started</a>
+        <a class="wmsu-btn secondary" href="#">View Details</a>
+      </div>
+    </aside>
+
+    <main id="wmsu-map-content">
+      <div class="map-placeholder" role="img" aria-label="WMSU campus map placeholder">
+        <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <!-- Map Background -->
+          <rect x="0" y="0" width="1200" height="800" fill="#000000" rx="12" ry="12"/>
+          
+          <!-- Building Structures -->
+          <g fill="#4a0000" stroke="#ffd700" stroke-width="3">
+            <!-- Top Row -->
+            <rect x="100" y="100" width="350" height="150" rx="10"/> <!-- Administration -->
+            <rect x="750" y="100" width="350" height="150" rx="10"/> <!-- Library -->
+            
+            <!-- Middle Row -->
+            <rect x="100" y="350" width="350" height="150" rx="10"/> <!-- Gymnasium -->
+            <rect x="750" y="350" width="350" height="150" rx="10"/> <!-- Nursing -->
+             
+            <!-- Bottom Row (Garments) -->
+            <rect x="750" y="600" width="350" height="150" rx="10"/> <!-- Garments -->
+          </g>
+
+          <!-- Building Labels Inside Structures -->
+          <g fill="#ffd700" font-family="Inter, sans-serif" font-weight="800" font-size="26" text-anchor="middle" dominant-baseline="middle">
+            <text x="275" y="175">Administration</text>
+            <text x="925" y="175">University Library</text>
+            <text x="275" y="425">WMSU Gymnasium</text>
+            <text x="925" y="425">College of Nursing</text>
+            <text x="925" y="675">Garments Building</text>
+          </g>
+
+          <g fill="#ffd700" font-family="Cinzel, serif" font-size="22" font-weight="800" opacity="0.4">
+            <text x="40" y="50">WMSU CAMPUS TEASER</text>
+          </g>
+        </svg>
+      </div>
+    </main>
+
+    <footer id="wmsu-map-footer">
+      <p>&copy; 2026 Western Mindanao State University — Providing Quality Education & Innovation - TEAM 5 HCI</p>
+    </footer>
+  </div>
+</body>
+</html>
