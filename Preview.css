@@ -1,0 +1,165 @@
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+  color: #ffffff;
+  background-color: #1a0000;
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#wmsu-map-preview {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 0;
+  background: #200000;
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+  border: 1px solid #222;
+  position: relative;
+  overflow: hidden;
+}
+
+#wmsu-map-preview::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url('landscape.jpg'); 
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#wmsu-map-header {
+  grid-column: 1 / -1;
+  padding: 30px;
+  background: linear-gradient(135deg, #8b0000 0%, #3a0000 100%);
+  color: #ffffff;
+  text-align: center;
+  border-bottom: 3px solid #ffd700;
+  position: relative; z-index: 1;
+}
+
+#wmsu-map-header h1 { 
+  margin: 0; 
+  font-family: 'Cinzel', serif; 
+  font-size: 2.2rem; 
+  font-weight: 800;
+  color: #ffd700;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+#wmsu-map-header p { 
+  margin: 8px 0 0; 
+  font-size: 1rem; 
+  color: #ffffff; 
+  opacity: 0.9;
+}
+
+#wmsu-map-sidebar { 
+  padding: 24px; 
+  background: rgba(30, 0, 0, 0.8); 
+  border-right: 1px solid #222; 
+  position: relative; z-index: 1;
+}
+
+#wmsu-map-sidebar .section { 
+  margin-bottom: 22px; 
+}
+
+#wmsu-map-sidebar .section h2 { 
+  margin: 0 0 12px; 
+  font-size: 0.85rem; 
+  font-family: 'Cinzel', serif;
+  color: #ffd700; 
+  text-transform: uppercase; 
+  letter-spacing: 2px;
+}
+
+#wmsu-map-sidebar .section p {
+  font-size: 0.85rem;
+  color: #aaaaaa;
+  line-height: 1.5;
+}
+
+.wmsu-btn { 
+  display: block; 
+  width: 100%; 
+  padding: 12px; 
+  background: linear-gradient(to bottom, #990000, #700000); 
+  color: #fff; 
+  text-decoration: none; 
+  border-radius: 50px; 
+  text-align: center; 
+  margin-bottom: 10px; 
+  font-weight: bold; 
+  border: 2px solid #ffd700;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.wmsu-btn.secondary { 
+  background: transparent; 
+  color: #ffd700; 
+}
+
+#wmsu-map-content { 
+  padding: 30px; 
+  background: #050505; 
+  position: relative; z-index: 1;
+}
+
+.map-placeholder { 
+  width: 100%; 
+  min-height: 480px; 
+  border-radius: 15px; 
+  background: #000000; 
+  border: 1px solid #333; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  overflow: hidden;
+}
+
+.map-placeholder svg { 
+  width: 95%; 
+  height: auto; 
+  max-height: 420px; 
+}
+
+.map-placeholder text {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+}
+
+#wmsu-map-footer { 
+  grid-column: 1 / -1; 
+  padding: 15px 30px; 
+  background: #1a0000; 
+  text-align: center; 
+  color: #888; 
+  font-size: 0.8rem; 
+  border-top: 2px solid #ffd700; 
+  letter-spacing: 1px;
+  position: relative; z-index: 1;
+}
+
+a { color: #ffd700; text-decoration: none; }
+
+@media (max-width: 768px) {
+  #wmsu-map-preview { grid-template-columns: 1fr; }
+  #wmsu-map-sidebar { border-right: none; border-bottom: 1px solid #222; }
+}
