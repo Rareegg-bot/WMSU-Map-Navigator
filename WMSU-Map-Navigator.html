@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="alternativeMapNav.css">
-    <title>alt map nav</title>
+    <title>WMSU Map Navigator | Premium Edition</title>
 </head>
 <body>
     <div class="container">
             <nav>
                 <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="Contacts">Contact Us</a></li>
-                    <li><a href="loginUI.html">Login</a></li>
+                    <li><a href="Landing-Page.html" class="active">Home</a></li>
+                    <li><a href="Preview.html">Preview</a></li>
+                    <li><a href="loginPage.html">Login</a></li>
                     <li><a href="Admin-Login-Page.html">Admin</a></li>
                 </ul>
             </nav>
         <header>
-            <h1>WMSU Map Navigator</h1>
-            <p>Explore Western Mindanao State University Campus</p>
+            <h1>The Crimson Navigator</h1>
+            <p>Experience the spirit of WMSU across every corner of our historic campus.</p>
         </header>
+
+        <div class="search-container">
+            <input type="text" id="buildingSearch" class="search-input" placeholder="Search for a building (e.g., Library, CCS, Gate 1)...">
+            <div id="search-results"></div>
+        </div>
         
         <div class="content">
             <div class="map-content">
@@ -122,12 +128,18 @@
                         <area target="" alt="Gate 6" title="Gate 6" href="#gate-6" coords="984,172,1014,218" shape="rect">
                         <area target="" alt="Gate 7" title="Gate 7" href="#gate-7" coords="1033,832,1064,871" shape="rect">
                     </map>
-                    </map>
                 </div>
                   </div>
             <div class="column">
+                    <!-- Default state message -->
+                    <div class="placeholder-content">
+                        <h2>Where to, Normalite?</h2>
+                        <p>Click on any building to uncover the stories, photos, and history behind our campus landmarks.</p>
+                    </div>
+
                     <div id="admin" class="info">
                         <h2>Administration Building</h2>
+                        <p>The central hub for university operations, housing the offices of the President and academic administration.</p>
                         <img src="admin.png" alt="Administration Building">
                     </div>
 
@@ -138,6 +150,7 @@
 
                     <div id="motorpool" class="info">
                         <h2>Motor Pool/Physical Plant Office</h2>
+                        <p>Responsible for the maintenance of campus facilities and the university vehicle fleet.</p>
                         <img src="motorpool.png" alt="Motor Pool/Physical Plant Office">
                     </div>
 
@@ -288,6 +301,7 @@
 
                     <div id="covered-court" class="info">
                         <h2>Covered Court</h2>
+                        <p>A multi-purpose facility used for sports activities, university gatherings, and events.</p>
                         <img src="court.png" alt="Covered Court">
                     </div>
 
@@ -323,26 +337,7 @@
 
                     <div id="executive-parking" class="info">
                         <h2>Executive Covered Parking</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="executive-parking" class="info">
-                        <h2>Executive Covered Parking</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="executive-parking" class="info">
-                        <h2>Executive Covered Parking</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="executive-parking" class="info">
-                        <h2>Executive Covered Parking</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="executive-parking" class="info">
-                        <h2>Executive Covered Parking</h2>
+                        <p>Secure designated parking area for university staff and official transport.</p>
                         <img src="" alt="">
                     </div>
                      <div id="proposed-school-governance-building" class="info">
@@ -371,10 +366,12 @@
                     </div>
                      <div id="canteen-university-press-post-office" class="info">
                         <h2>Canteen</h2>
+                        <p>Main dining area for students and faculty, also housing the university press services.</p>
                         <img src="canteen1.png" alt="Canteen">
                     </div>
                      <div id="commercial-building" class="info">
                         <h2>Commercial Building</h2>
+                        <p>Features various services and retail kiosks for the campus community.</p>
                         <img src="" alt="">
                     </div>
                      <div id="college-of-teachers-education" class="info">
@@ -423,6 +420,7 @@
                     </div>
                         <div id="college-of-science-and-mathematics" class="info">
                             <h2>College of Science and Mathematics</h2>
+                            <p>Home to the various science laboratories and the mathematics department.</p>
                             <img src="csm.png" alt="College of Science and Mathematics">
                   </div>
                            <div id="high-school-building" class="info">
@@ -441,6 +439,7 @@
                     </div>
                      <div id="college-of-criminal-justice-education" class="info">
                         <h2>College of Criminal Justice Education</h2>
+                        <p>Dedicated facility for Criminology and law enforcement studies.</p>
                         <img src="criminology.png" alt="College of Criminal Justice Education">
                     </div>
                      <div id="elevated-water-tank-unknown" class="info">
@@ -449,6 +448,7 @@
                     </div>
                         <div id="university-food-service-center" class="info">
                             <h2>University Food Service Center</h2>
+                            <p>The primary catering and food preparation facility for university-wide events.</p>
                             <img src="canteen.png" alt="University Food Service Center">
                     </div>
                      <div id="training-center" class="info">
@@ -547,5 +547,77 @@
             <p>&copy; 2026 WMSU Map Navigator. All rights reserved.</p>
         </footer>
     </div>
+
+    <!-- Image Map Resizer Script: Fixes the 'location of the building' issue on responsive screens -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // This keeps your clickable area coordinates synchronized with the image size
+            if (typeof imageMapResize === 'function') {
+                imageMapResize();
+            }
+        });
+    </script>
+
+    <!-- Search Functionality Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('buildingSearch');
+            const resultsPanel = document.getElementById('search-results');
+            // Get all areas from the map to use as our database
+            const areas = document.querySelectorAll('map[name="image-map"] area');
+
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                resultsPanel.innerHTML = ''; // Clear previous results
+
+                if (query.length < 1) return;
+
+                let hasResults = false;
+                areas.forEach(area => {
+                    const title = area.getAttribute('title');
+                    
+                    // YouTube-like search: matches phrases (e.g., "college of law") and letters anywhere in the name
+                    if (title && title.toLowerCase().includes(query)) {
+                        hasResults = true;
+                        const div = document.createElement('div');
+                        div.className = 'search-result-item';
+                        div.textContent = title;
+                        
+                        div.addEventListener('click', function() {
+                            // Navigate to the target section
+                            window.location.hash = area.getAttribute('href');
+                            // Clear search
+                            searchInput.value = '';
+                            resultsPanel.innerHTML = '';
+                        });
+                        resultsPanel.appendChild(div);
+                    }
+                });
+
+                if (!hasResults) {
+                    const noResultDiv = document.createElement('div');
+                    noResultDiv.className = 'search-result-item no-results';
+                    noResultDiv.textContent = 'No results found';
+                    resultsPanel.appendChild(noResultDiv);
+                }
+            });
+
+            // Close results when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!searchInput.contains(e.target)) resultsPanel.innerHTML = '';
+            });
+
+            // Add Enter key support to select the first available building match
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    const firstResult = resultsPanel.querySelector('.search-result-item:not(.no-results)');
+                    if (firstResult) {
+                        firstResult.click();
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
