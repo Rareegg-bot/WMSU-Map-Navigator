@@ -1,75 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User System</title>
-
-  <link rel="stylesheet" href="Login-Page.css">
-
-  <style>
-    .section {
-      display: none;
-    }
-    #home:target,
-    #login:target,
-    #signup:target {
-      display: block;
-    }
-    
-    #home {
-      display: block;
-    }
-    #login:target ~ #home,
-    #signup:target ~ #home {
-      display: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMSU Navigator | Login</title>
+    <link rel="stylesheet" href="loginUI.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
-
-  <div id="login" class="section container">
-    <h2>User Login</h2>
-
-    <form action="#" method="post">
-      <input type="text" name="username" placeholder="Username or Email" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
-
-    <div class="link">
-      <p>No account? <a href="#signup">Sign Up</a></p>
-      <p><a href="#home">⬅ Back Home</a></p>
+    <div class="split-screen">
+       <div class="left-side">
+    <img src="CTE.png" alt="WMSU Campus" class="bg-img">
+    <div class="overlay"></div>
+    <div class="content-left">
+        <div class="logo">WMSU <span>NAVIGATOR</span></div>
+        <div class="hero-text">
+            <h1>Welcome Home, <br><span>Normalite.</span></h1>
+            <p>Step back into the heart of the Crimson Frontier. Access your personalized campus guide and stay connected with the WMSU community.</p>
+        </div>
     </div>
-  </div>
+</div>
+        <div class="right-side">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <h2>Welcome Back</h2>
+                    <p>Ready to continue your quest?</p>
+                </div>
 
+                <div class="tab-container">
+                    <span class="tab active">Login</span>
+                    <a href="fillOutForm.html" class="tab">Sign Up</a>
+                </div>
+                
+                <form action="WMSU-Map-Navigator.html" method="post">
+                    <div class="input-box">
+                        <label>Username</label>
+                        <div class="input-field">
+                            <i class="fas fa-envelope"></i>
+                            <input type="text" placeholder="Enter Username" name="uname" required>
+                        </div>
+                    </div>
 
-  <div id="signup" class="section container">
-    <h2>Register</h2>
+                    <div class="input-box">
+                        <div class="label-row">
+                            <label>Password</label>
+                            <a href="#" class="forgot-link">Forgot password?</a>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Enter Password" name="psw" required>
+                        </div>
+                    </div>
 
-    <form action="#" method="post">
-      <input type="text" name="fullname" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <button type="submit">Create Account</button>
-    </form>
+                    <div class="remember-me">
+                        <input type="checkbox" id="keep-logged">
+                        <label for="keep-logged">Keep me logged in</label>
+                    </div>
 
-    <div class="link">
-      <p>Already have account? <a href="#login">Login</a></p>
-      <p><a href="#home">⬅ Back Home</a></p>
+                    <button type="submit" id="loginButton" class="btn-primary">Login</button>
+                    
+                    <div class="form-footer">
+                        <p>Don't have an account? <a href="fillOutForm.html">Create Account</a></p>
+                    </div>
+                </form>
+                <footer class="legal-footer">Copyright © 2026 Ian Lim.</footer>
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  <div id="home" class="section container" style="text-align:center;">
-    <h1>Welcome</h1>
-    <br>
-    <a href="#login"><button>Login</button></a>
-    <br><br>
-    <a href="#signup"><button>Sign Up</button></a>
-  </div>
-
-
 </body>
 </html>
