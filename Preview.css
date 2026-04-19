@@ -1,165 +1,212 @@
-* { 
-  box-sizing: border-box; 
-  margin: 0; 
-  padding: 0; 
+:root {
+    --crimson: #9d0610;
+    --dark: #1a1a1a;
+    --white: #ffffff;
+    --soft-white: rgba(255, 255, 255, 0.9);
 }
 
-body {
-  font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
-  color: #ffffff;
-  background-color: #1a0000;
-  min-height: 100vh;
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+/* Sharp Background Style */
+.page-bg-clear {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
-#wmsu-map-preview {
-  max-width: 1200px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  grid-template-rows: auto 1fr auto;
-  gap: 0;
-  background: #200000;
-  border-radius: 20px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.8);
-  border: 1px solid #222;
-  position: relative;
-  overflow: hidden;
+.page-bg-clear img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Removed Blur and Scale */
 }
 
-#wmsu-map-preview::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-image: url('landscape.jpg'); 
-  background-size: cover;
-  background-position: center;
-  opacity: 0.1;
-  z-index: 0;
-  pointer-events: none;
+/* Subtle overlay to help the "Navigate the Crimson Frontier" text pop */
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 100%);
 }
 
-#wmsu-map-header {
-  grid-column: 1 / -1;
-  padding: 30px;
-  background: linear-gradient(135deg, #8b0000 0%, #3a0000 100%);
-  color: #ffffff;
-  text-align: center;
-  border-bottom: 3px solid #ffd700;
-  position: relative; z-index: 1;
+/* Updated Header Navigation to match landing page exactly */
+.main-nav { 
+    padding: 20px 5%; 
+    position: fixed; 
+    width: 100%; 
+    top: 0; 
+    z-index: 1000; 
+    background: transparent; /* Makes it look integrated with the background */
 }
 
-#wmsu-map-header h1 { 
-  margin: 0; 
-  font-family: 'Cinzel', serif; 
-  font-size: 2.2rem; 
-  font-weight: 800;
-  color: #ffd700;
-  letter-spacing: 1px;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+.nav-logo { 
+    font-weight: 800; 
+    font-size: 1.4rem; 
+    color: white; 
+    letter-spacing: 1px;
 }
 
-#wmsu-map-header p { 
-  margin: 8px 0 0; 
-  font-size: 1rem; 
-  color: #ffffff; 
-  opacity: 0.9;
+.nav-item {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    transition: 0.3s;
 }
 
-#wmsu-map-sidebar { 
-  padding: 24px; 
-  background: rgba(30, 0, 0, 0.8); 
-  border-right: 1px solid #222; 
-  position: relative; z-index: 1;
+.nav-item:hover {
+    color: #ff3d4a;
 }
 
-#wmsu-map-sidebar .section { 
-  margin-bottom: 22px; 
+.page-bg-blur img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: blur(15px) brightness(0.9);
+    transform: scale(1.1); /* Prevents white edges from blur */
 }
 
-#wmsu-map-sidebar .section h2 { 
-  margin: 0 0 12px; 
-  font-size: 0.85rem; 
-  font-family: 'Cinzel', serif;
-  color: #ffd700; 
-  text-transform: uppercase; 
-  letter-spacing: 2px;
+/* Nav */
+.main-nav { padding: 20px 5%; position: fixed; width: 100%; top: 0; z-index: 100; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+.nav-logo { font-weight: 800; font-size: 1.2rem; color: var(--dark); }
+.nav-logo span { color: var(--crimson); }
+.btn-nav { background: var(--crimson); color: white !important; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-weight: 600; }
+
+/* Hero Split */
+.hero-split {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    padding: 0 8%;
+    gap: 40px;
 }
 
-#wmsu-map-sidebar .section p {
-  font-size: 0.85rem;
-  color: #aaaaaa;
-  line-height: 1.5;
+.hero-text { flex: 1; color: var(--white); text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+.hero-text h1 { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+.hero-text h1 span { color: #ff3d4a; /* Brighter crimson for dark bg */ }
+.hero-text p { font-size: 1.1rem; margin-bottom: 30px; max-width: 500px; opacity: 0.9; }
+
+/* Highlight Card */
+.hero-visual { flex: 1; display: flex; justify-content: center; }
+.highlight-card {
+    background: var(--white);
+    width: 100%;
+    max-width: 480px;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    position: relative;
 }
 
-.wmsu-btn { 
-  display: block; 
-  width: 100%; 
-  padding: 12px; 
-  background: linear-gradient(to bottom, #990000, #700000); 
-  color: #fff; 
-  text-decoration: none; 
-  border-radius: 50px; 
-  text-align: center; 
-  margin-bottom: 10px; 
-  font-weight: bold; 
-  border: 2px solid #ffd700;
-  font-size: 0.9rem;
-  transition: 0.3s;
+.highlight-label {
+    display: inline-block;
+    background: #ffebeb;
+    color: var(--crimson);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
-.wmsu-btn.secondary { 
-  background: transparent; 
-  color: #ffd700; 
+.image-frame img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
 }
 
-#wmsu-map-content { 
-  padding: 30px; 
-  background: #050505; 
-  position: relative; z-index: 1;
+.text-frame h3 { font-size: 1.6rem; color: var(--crimson); margin-bottom: 10px; }
+.text-frame p { color: #555; font-size: 0.95rem; line-height: 1.5; height: 60px; }
+
+.nav-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
 }
 
-.map-placeholder { 
-  width: 100%; 
-  min-height: 480px; 
-  border-radius: 15px; 
-  background: #000000; 
-  border: 1px solid #333; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  overflow: hidden;
+.nav-btns button {
+    background: none; border: 1px solid #ddd;
+    width: 40px; height: 40px; border-radius: 50%;
+    cursor: pointer; transition: 0.3s;
 }
 
-.map-placeholder svg { 
-  width: 95%; 
-  height: auto; 
-  max-height: 420px; 
+.nav-btns button:hover { background: var(--crimson); color: white; border-color: var(--crimson); }
+
+/* Buttons */
+.btn { padding: 15px 30px; border-radius: 4px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+.btn-red { background: var(--crimson); color: white; margin-right: 15px; }
+.btn-outline { border: 2px solid white; color: white; }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+/* Animation Classes */
+.content-anim { transition: all 0.35s ease-out; }
+.loader-line { height: 3px; background: var(--crimson); width: 100%; margin-bottom: 15px; transition: width 0.35s; }
+
+@media (max-width: 992px) {
+    .hero-split { flex-direction: column; text-align: center; padding-top: 100px; }
+    .hero-text h1 { font-size: 2.8rem; }
+}
+/* Navbar - High Contrast */
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    background: rgba(0,0,0,0.2);
 }
 
-.map-placeholder text {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  pointer-events: none;
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
 
-#wmsu-map-footer { 
-  grid-column: 1 / -1; 
-  padding: 15px 30px; 
-  background: #1a0000; 
-  text-align: center; 
-  color: #888; 
-  font-size: 0.8rem; 
-  border-top: 2px solid #ffd700; 
-  letter-spacing: 1px;
-  position: relative; z-index: 1;
+.logo { color: var(--white); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+
+nav ul { display: flex; list-style: none; gap: 30px; }
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
 }
 
-a { color: #ffd700; text-decoration: none; }
 
-@media (max-width: 768px) {
-  #wmsu-map-preview { grid-template-columns: 1fr; }
-  #wmsu-map-sidebar { border-right: none; border-bottom: 1px solid #222; }
+/* Enter Map Button - Solid Crimson Style */
+.btn-nav { 
+    background: var(--crimson); 
+    color: #ffffff !important; 
+    padding: 12px 24px; 
+    border-radius: 4px; 
+    text-decoration: none; 
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(157, 6, 16, 0.2);
 }
+
+.btn-nav:hover { 
+    background: #7a040b; /* Slightly darker crimson on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(157, 6, 16, 0.3);
+}
+
