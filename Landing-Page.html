@@ -1,97 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WMSU MAP CAMPUS NAVIGATION LANDING PAGE</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat&display=swap" rel="stylesheet" />
-  <!-- External CSS -->
-  <link rel="stylesheet" href="Landing-Page.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WMSU Map Navigator | Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="Landing-Page.css" />
 </head>
 <body>
 
-<!-- Navbar -->
-<header class="navbar" id="home">
-  <h1 class="logo">WMSU Map Navigator</h1>
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#about">About us</a></li>
-      <li><a href="#how">How this works</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<header class="navbar">
+    <div class="nav-container">
+        <h1 class="logo">WMSU Navigator</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="WMSU-Map-Navigator.html">Map</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
-<!-- Hero Section with blurred background -->
 <section class="hero" id="home">
-  <h1>Welcome To WMSU Campus Map Navigation</h1>
-  <p>
-    Western Mindanao State University's official campus map and navigation system. Find buildings, offices, facilities, and get directions — all in one place.
-  </p>
-  <a href="fillOutForm.html" class="btn">Get Started</a>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Better Campus <br><span>Navigation Experiences</span></h1>
+        <p>Western Mindanao State University's official campus map system. Find buildings, offices, and get real-time directions — all in one place.</p>
+        <div class="hero-btns">
+            <a href="WMSU-Map-Navigator.html" class="btn btn-red">Launch Map</a>
+            <a href="#about" class="btn btn-outline">Learn More</a>
+        </div>
+    </div>
 </section>
 
-<!-- Features Section -->
-<section id="features">
-  <h2>Features</h2>
-  <div class="cards-container">
-    <div class="card">
-      <h3>Interactive Campus Map</h3>
-      <p>Explore the campus with a user-friendly interactive map highlighting buildings and landmarks.</p>
+<section class="red-bar">
+    <div class="bar-content">
+        <h2>Navigate with Confidence</h2>
+        <p>Effortlessly explore the WMSU campus with our new digital interactive tool.</p>
+        <a href="fillOutForm.html" class="btn btn-white">Get Started</a>
     </div>
-    <div class="card">
-      <h3>Real-Time Navigation</h3>
-      <p>Get real-time directions to your destination within campus, minimizing walking time.</p>
-    </div>
-    <div class="card">
-      <h3>Facility Finder</h3>
-      <p>Easily locate offices, libraries, cafeterias, and other important facilities.</p>
-    </div>
-  </div>
 </section>
 
-<!-- About Us -->
-<section id="about">
-  <h2>About Us</h2>
-  <p>
-    Western Mindanao State University is dedicated to providing quality education and fostering innovation in Mindanao and beyond. Our campus navigation system was developed to enhance student and visitor experience by helping everyone easily find what they need and get around campus efficiently.
-  </p>
-  <p>
-    We constantly improve our digital tools and welcome feedback from our community to keep making navigation smooth and accessible to all.
-  </p>
+<section id="features" class="features">
+    <div class="section-header">
+        <h2>Our Services</h2>
+    </div>
+    <div class="cards-container">
+        <div class="card">
+            <div class="icon">🗺️</div>
+            <h3>Interactive Map</h3>
+            <p>Explore with a user-friendly map highlighting landmarks.</p>
+        </div>
+        <div class="card">
+            <div class="icon">📍</div>
+            <h3>Real-Time Navigation</h3>
+            <p>Get instant directions to minimize walking time.</p>
+        </div>
+        <div class="card">
+            <div class="icon">🏢</div>
+            <h3>Facility Finder</h3>
+            <p>Easily locate offices, libraries, and cafeterias.</p>
+        </div>
+    </div>
 </section>
 
-<!-- How This Works -->
-<section id="how">
-  <h2>How this works</h2>
-  <div class="steps-container">
-    <div class="step">
-      <div class="circle">1</div>
-      <p>Select your destination on the campus map or list.</p>
+<section id="about" class="about-split">
+    <div class="about-text">
+        <span class="sub-label">About WMSU</span>
+        <h2>Innovative Solutions for a <br><span>Smarter Campus</span></h2>
+        <p>Western Mindanao State University is dedicated to innovation. Our navigation system was developed to enhance the visitor experience by helping everyone find what they need efficiently.</p>
     </div>
-    <div class="step">
-      <div class="circle">2</div>
-      <p>Receive real-time directions and guidance.</p>
-    </div>
-    <div class="step">
-      <div class="circle">3</div>
-      <p>Follow the step-by-step instructions to reach your destination.</p>
-    </div>
-  </div>
 </section>
 
-<!-- Contact -->
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Questions? Reach out to us at contact@wmsumap.edu.ph.</p>
-</section>
-
-<!-- Footer -->
 <footer>
-  &copy; 2026 WMSU Map Navigator
+    <p>&copy; 2026 WMSU Map Navigator. All rights reserved.</p>
 </footer>
 
 </body>
