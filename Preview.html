@@ -1,86 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>WMSU Map Navigator — Preview</title>
-  <link rel="stylesheet" href="preview.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Inter:wght@400;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WMSU Map Navigator — Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Preview.css">
 </head>
 <body>
-  <div id="wmsu-map-preview">
-    <header id="wmsu-map-header">
-      <h1>WMSU Map Navigator</h1>
-      <p>Explore our campus with ease and convenience.</p>
+<div class="page-bg-clear">
+    <img src="CTE.png" alt="WMSU Campus">
+    <div class="bg-overlay"></div> </div>
+
+<header class="navbar">
+    <div class="nav-container">
+        <h1 class="logo">WMSU Navigator</h1>
+        <nav>
+            <ul>
+                <li><a href="Landing-Page.html">Home</a></li>
+                <li><a href="WMSU-Map-Navigator.html">Map</a></li>
+             
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <header class="hero-split">
+        <div class="hero-text">
+            <span class="badge">Legacy of Excellence</span>
+            <h1>Navigate the <br><span>Crimson Frontier</span></h1>
+            <p>Step into the heart of Western Mindanao State University. Experience our campus through a modern digital lens.</p>
+            <div class="hero-actions">
+                <a class="btn btn-red" href="WMSU-Map-Navigator.html">Start Journey</a>
+                <a class="btn btn-outline" href="Landing-Page.html">Our Story</a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="highlight-card">
+                <div class="highlight-label">Campus Highlight</div>
+                <div class="slideshow-wrapper">
+                    <div class="loader-line" id="loader"></div>
+                    <div id="slideshow-content-root" class="content-anim">
+                        <div class="image-frame">
+                            <img src="admin.png" id="building-thumb" alt="Campus Building">
+                        </div>
+                        <div class="text-frame">
+                            <h3 id="building-name">Administration Building</h3>
+                            <p id="building-desc">The administrative heart of WMSU, handling campus-wide operations.</p>
+                            
+                            <div class="nav-footer">
+                                <span id="slide-number">01 / 03</span>
+                                <div class="nav-btns">
+                                    <button onclick="changeSlide(-1)"><i class="fas fa-arrow-left"></i></button>
+                                    <button onclick="changeSlide(1)"><i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <aside id="wmsu-map-sidebar">
-      <div class="section">
-        <h2>Features</h2>
-        <p>• Interactive Campus Map<br>• Real-Time Navigation<br>• Facility Finder</p>
-      </div>
+    <script>
+        const buildings = [
+            { name: "Administration Building", desc: "The heart of WMSU, housing executive offices and student support services.", img: "admin.png" },
+            { name: "College of Teacher Education", desc: "A modern facility providing vast resources for all WMSU students.", img: "CTE.png" },
+            { name: "College of Computing Studies", desc: "The hub of technology and innovation at Western Mindanao State University.", img: "ccs.png" }
+        ];
 
-      <div class="section">
-        <h2>Our Goal</h2>
-        <p>Providing a great navigation experience to help you find offices and facilities across both campuses easily.</p>
-      </div>
+        let currentIndex = 0;
 
-      <div class="section">
-        <h2>How It Works</h2>
-        <p>1. Select your destination.<br>2. Receive directions.<br>3. Follow step-by-step guidance.</p>
-      </div>
+        function changeSlide(n) {
+            const content = document.getElementById('slideshow-content-root');
+            const loader = document.getElementById('loader');
 
-      <div class="section">
-        <h2>About Us</h2>
-        <p>Developed to enhance student and visitor experience by providing efficient campus navigation for everyone.</p>
-      </div>
+            content.style.opacity = '0';
+            content.style.transform = 'translateY(10px)';
+            loader.style.width = '0%';
 
-      <div class="section">
-        <h2>Navigation</h2>
-        <a class="wmsu-btn" href="#">Get Started</a>
-        <a class="wmsu-btn secondary" href="#">View Details</a>
-      </div>
-    </aside>
+            setTimeout(() => {
+                currentIndex = (currentIndex + n + buildings.length) % buildings.length;
+                const b = buildings[currentIndex];
 
-    <main id="wmsu-map-content">
-      <div class="map-placeholder" role="img" aria-label="WMSU campus map placeholder">
-        <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-          <!-- Map Background -->
-          <rect x="0" y="0" width="1200" height="800" fill="#000000" rx="12" ry="12"/>
-          
-          <!-- Building Structures -->
-          <g fill="#4a0000" stroke="#ffd700" stroke-width="3">
-            <!-- Top Row -->
-            <rect x="100" y="100" width="350" height="150" rx="10"/> <!-- Administration -->
-            <rect x="750" y="100" width="350" height="150" rx="10"/> <!-- Library -->
-            
-            <!-- Middle Row -->
-            <rect x="100" y="350" width="350" height="150" rx="10"/> <!-- Gymnasium -->
-            <rect x="750" y="350" width="350" height="150" rx="10"/> <!-- Nursing -->
-             
-            <!-- Bottom Row (Garments) -->
-            <rect x="750" y="600" width="350" height="150" rx="10"/> <!-- Garments -->
-          </g>
+                document.getElementById('building-name').innerText = b.name;
+                document.getElementById('building-desc').innerText = b.desc;
+                document.getElementById('building-thumb').src = b.img;
+                document.getElementById('slide-number').innerText = `0${currentIndex + 1} / 0${buildings.length}`;
 
-          <!-- Building Labels Inside Structures -->
-          <g fill="#ffd700" font-family="Inter, sans-serif" font-weight="800" font-size="26" text-anchor="middle" dominant-baseline="middle">
-            <text x="275" y="175">Administration</text>
-            <text x="925" y="175">University Library</text>
-            <text x="275" y="425">WMSU Gymnasium</text>
-            <text x="925" y="425">College of Nursing</text>
-            <text x="925" y="675">Garments Building</text>
-          </g>
-
-          <g fill="#ffd700" font-family="Cinzel, serif" font-size="22" font-weight="800" opacity="0.4">
-            <text x="40" y="50">WMSU CAMPUS TEASER</text>
-          </g>
-        </svg>
-      </div>
-    </main>
-
-    <footer id="wmsu-map-footer">
-      <p>&copy; 2026 Western Mindanao State University — Providing Quality Education & Innovation - TEAM 5 HCI</p>
-    </footer>
-  </div>
+                content.style.opacity = '1';
+                content.style.transform = 'translateY(0)';
+                loader.style.width = '100%';
+            }, 350);
+        }
+    </script>
 </body>
 </html>
