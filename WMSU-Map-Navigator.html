@@ -3,621 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="alternativeMapNav.css">
-    <title>WMSU Map Navigator | Premium Edition</title>
+    <!-- Connecting the external CSS file -->
+    <link rel="stylesheet" href="WMSU-Map-Navigator.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>WMSU Map Navigator</title>
 </head>
 <body>
-    <div class="container">
+    <div class="page-wrapper">
+        <!-- Header Hero Section -->
+        <header class="hero">
             <nav>
+                <h1>WMSU <span>Navigator</span></h1>
                 <ul>
-                    <li><a href="Landing-Page.html" class="active">Home</a></li>
+                    <li><a href="Landing-Page.html">Home</a></li>
                     <li><a href="Preview.html">Preview</a></li>
-                    <li><a href="loginPage.html">Login</a></li>
+                    <li><a href="WMSU-Map-Navigator.html" class="active">Map</a></li>
+                    <li><a href="Contacts.html">Contact</a></li>
                     <li><a href="Admin-Login-Page.html">Admin</a></li>
                 </ul>
+                <div class="user-icon">WM</div>
             </nav>
-        <header>
-            <h1>The Crimson Navigator</h1>
-            <p>Experience the spirit of WMSU across every corner of our historic campus.</p>
+            <h1>Campus Directory</h1>
+            <p>Explore Western Mindanao State University Campus</p>
         </header>
 
-        <div class="search-container">
-            <input type="text" id="buildingSearch" class="search-input" placeholder="Search for a building (e.g., Library, CCS, Gate 1)...">
-            <div id="search-results"></div>
-        </div>
-        
-        <div class="content">
-            <div class="map-content">
-                <div class="wmsuMap">
-                    <img src="WmsuMap.jpg" usemap="#image-map" alt="WMSU Campus Map" class="wmsuMap">
-                    <map name="image-map">
-                        <area target="" alt="Administration Building" title="Administration Building" href="#admin" coords="364,398,284,298" shape="rect">
-                        <area target="" alt="University Library" title="University Library" href="#library" coords="320,243,290,137" shape="rect">
-                        <area target="" alt="Executive Covered Parking" title="Executive Covered Parking" href="#executive-parking" coords="281,227,270,134" shape="rect">
-                        <area target="" alt="Motorpool/Physical Plant Office" title="Motorpool/Physical Plant Office" href="#motorpool" coords="226,375,170,291" shape="rect">
-                        <area target="" alt="Security Office/Guard House" title="Security Office/Guard House" href="#guard-house" coords="187,282,166,261" shape="rect">
-                        <area target="" alt="Transformer/Powerhouse &amp; Carpentry Shop" title="Transformer/Powerhouse &amp; Carpentry Shop" href="#transformer" coords="159,53,120,12" shape="rect">
-                        <area target="" alt="Gymnasium" title="Gymnasium" href="#gymnasium" coords="258,179,167,30" shape="rect">
-                        <area target="" alt="Proposed Sport Exercise and Science Laboratory " title="Proposed Sport Exercise and Science Laboratory " href="#proposed-lab" coords="151,172,118,62" shape="rect">
-                        <area target="" alt="Storage Building" title="Storage Building" href="#storage" coords="317,35,283,19" shape="rect">
-                        <area target="" alt="Executive Building" title="Executive Building" href="#executive" coords="329,125,280,45" shape="rect">
-                        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                        <area target="" alt="Research Center Building" title="Research Center Building" href="#research-center" coords="394,127,340,83" shape="rect">
-                        <area target="" alt="College of Social Science Building" title="College of Social Science Building" href="#social-science" coords="450,72,340,28" shape="rect">
-                        <area target="" alt="College of Liberal Arts" title="College of Liberal Arts" href="#liberal-arts" coords="591,60,463,34" shape="rect">
-                        <area target="" alt="College of Law" title="College of Law" href="#law" coords="463,137,413,99" shape="rect">
-                        <area target="" alt="CLA Graduate Program Building" title="CLA Graduate Program Building" href="#cla-graduate" coords="551,108,489,63" shape="rect">
-                        <area target="" alt="College of Public Administration Building" title="College of Public Administration Building" href="#public-administration" coords="549,141,489,113" shape="rect">
-                        <area target="" alt="Office of The Students Affair" title="Office of The Students Affair" href="#students-affairs" coords="603,137,569,107" shape="rect">
-                        <area target="" alt="College of Engineering Stage" title="College of Engineering Stage" href="#engineering-stage" coords="620,106,603,87" shape="rect">
-                        <area target="" alt="College of Engineering Kiosk" title="College of Engineering Kiosk" href="#engineering-kiosk" coords="747,123,676,106" shape="rect">
-                        <area target="" alt="University Health Center" title="University Health Center" href="#health-center" coords="655,145,611,116" shape="rect">
-                        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                        <area target="" alt="College of Education Sped Building" title="College of Education Sped Building" href="#education-sped" coords="743,150,674,127" shape="rect">
-                        <area target="" alt="Engineering Innovation Center" title="Engineering Innovation Center" href="#engineering-innovation" coords="773,129,757,89" shape="rect">
-                        <area target="" alt="Innovative Center for Metals and Engineering (Unknown)" title="Innovative Center for Metals and Engineering (Unknown)" href="#innovative-center" coords="" shape="rect">
-                        <area target="" alt="College of Engineering and Technology Building (New Building)" title="College of Engineering and Technology Building (New Building)" href="#engineering-technology-new" coords="602,79,771,38" shape="rect">
-                        <area target="" alt="College of Engineering and Technology Building (Old Building)" title="College of Engineering and Technology Building (Old Building)" href="#engineering-technology-old" coords="776,71,882,38" shape="rect">
-                        <area target="" alt="College of Engineering and Technology 2 Classroom (Unknown)" title="College of Engineering and Technology 2 Classroom (Unknown)" href="#engineering-technology-classroom" coords="" shape="rect">
-                        <area target="" alt="Elevated Water Tank (Unknown)" title="Elevated Water Tank (Unknown)" href="#elevated-water-tank" coords="" shape="rect">
-                        <area target="" alt="College of Architecture Building" title="College of Architecture Building" href="#architecture" coords="892,43,968,83" shape="rect">
-                        <area target="" alt="Storage Room" title="Storage Room" href="#storage-room" coords="964,106,983,121" shape="rect">
-                        <area target="" alt="Elementary Faculty Room" title="Elementary Faculty Room" href="#elementary-faculty-room" coords="904,103,953,157" shape="rect">
-                        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                        <area target="" alt="Student Kiosk College of Architecture" title="Student Kiosk College of Architecture" href="#student-kiosk-architecture" coords="846,95,870,122" shape="rect">
-                        <area target="" alt="Elementary H.E Building" title="Elementary H.E Building" href="#elementary-he-building" coords="797,91,835,151" shape="rect">
-                        <area target="" alt="Proposed DOJO Building" title="Proposed DOJO Building" href="#proposed-dojo-building" coords="794,174,865,199" shape="rect">
-                        <area target="" alt="Covered Court" title="Covered Court" href="#covered-court" coords="794,210,893,284" shape="rect">
-                        <area target="" alt="Elementary Lab Building" title="Elementary Lab Building" href="#elementary-lab-building" coords="897,206,934,308" shape="rect">
-                        <area target="" alt="Elementary School Building" title="Elementary School Building" href="#elementary-school-building" coords="943,198,991,312" shape="rect">
-                        <area target="" alt="College of Home Economics and Dietary Building" title="College of Home Economics and Dietary Building" href="#college-of-home-economics-and-dietary-building" coords="791,334,885,376" shape="rect">
-                        <area target="" alt="University Hostel Building" title="University Hostel Building" href="#university-hostel-building" coords="792,373,838,420" shape="rect">
-                        <area target="" alt="Extension Training Laboratory (Tesda Building)" title="Extension Training Laboratory (Tesda Building)" href="#extension-training-laboratory" coords="925,337,959,387" shape="rect">
-                        <area target="" alt="Landbank" title="Landbank" href="#landbank" coords="961,337,1000,398" shape="rect">
-                        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                        <area target="" alt="Proposed School Governance Building" title="Proposed School Governance Building" href="#proposed-school-governance-building" coords="909,401,1022,444" shape="rect">
-                        <area target="" alt="Alumni Building" title="Alumni Building" href="#alumni-building" coords="997,472,1025,519" shape="rect">
-                        <area target="" alt="Student Center (College of Nursing)" title="Student Center (College of Nursing)" href="#student-center-nursing" coords="976,463,993,491" shape="rect">
-                        <area target="" alt="College of Nursing Building" title="College of Nursing Building" href="#college-of-nursing-building" coords="784,439,962,471" shape="rect">
-                        <area target="" alt="College of Nursing Building (Annex Building)" title="College of Nursing Building (Annex Building)" href="#college-of-nursing-building-annex" coords="785,476,961,502" shape="rect">
-                        <area target="" alt="Canteen/University Press/Post Office" title="Canteen/University Press/Post Office" href="#canteen-university-press-post-office" coords="625,437,760,485" shape="rect">
-                        <area target="" alt="Commercial Building" title="Commercial Building" href="#commercial-building" coords="605,449,623,471" shape="rect">
-                        <area target="" alt="College of Teachers Education (Main Building) " title="College of Teachers Education (Main Building) " href="#college-of-teachers-education" coords="585,402,449,314" shape="rect">
-                        <area target="" alt="Proposed Renovation of AZOTEA" title="Proposed Renovation of AZOTEA" href="#proposed-renovation-of-azotea" coords="487,290,551,314" shape="rect">
-                        <area target="" alt="Public CR and Computer Center Building" title="Public CR and Computer Center Building" href="#public-cr-and-computer-center-building" coords="493,260,549,287" shape="rect">
-                           <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                        <area target="" alt="Open Stage" title="Open Stage" href="#open-stage" coords="629,189,701,222" shape="rect">
-                        <area target="" alt="University Registrar Building" title="University Registrar Building" href="#university-registrar-building" coords="344,413,423,450" shape="rect">
-                        <area target="" alt="Campus Ministry Office" title="Campus Ministry Office" href="#campus-ministry-office" coords="367,371,388,396" shape="rect">
-                        <area target="" alt="APA Canteen" title="APA Canteen" href="#apa-canteen" coords="295,409,334,438" shape="rect">
-                        <area target="" alt="Coop Building" title="Coop Building" href="#coop-building" coords="272,407,293,436" shape="rect">
-                        <area target="" alt="MISTO" title="MISTO" href="#misto" coords="212,385,256,427" shape="rect">
-                        <area target="" alt="Pedestrian Overpass" title="Pedestrian Overpass" href="#pedestrian-overpass" coords="758,473,778,557" shape="rect">
-                        <area target="" alt="Transformer Banking" title="Transformer Banking" href="#transformer-banking" coords="784,547,817,566" shape="rect">
-                        <area target="" alt="College of Science and Mathematics" title="College of Science and Mathematics" href="#college-of-science-and-mathematics" coords="730,597,837,709" shape="rect">
-                        <area target="" alt="High School Building" title="High School Building" href="#high-school-building" coords="841,608,891,817" shape="rect">
-                         <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                        <area target="" alt="Proposed College of Medicine Building" title="Proposed College of Medicine Building" href="#proposed-college-of-medicine-building" coords="908,606,998,706" shape="rect">
-                        <area target="" alt="Material Science Faculty Building" title="Material Science Faculty Building" href="#material-science-faculty-building" coords="755,710,806,738" shape="rect">
-                        <area target="" alt="College of Criminal Justice Education" title="College of Criminal Justice Education" href="#college-of-criminal-justice-education" coords="750,740,824,779" shape="rect">
-                        <area target="" alt="Elevated Water Tank (Unknown)" title="Elevated Water Tank (Unknown)" href="#elevated-water-tank-unknown" coords="" shape="rect">
-                        <area target="" alt="University Food Service Center" title="University Food Service Center" href="#university-food-service-center" coords="908,736,984,817" shape="rect">
-                        <area target="" alt="Training Center" title="Training Center" href="#training-center" coords="990,729,1033,812" shape="rect">
-                        <area target="" alt="Male and Female CR (Unknown)" title="Male and Female CR (Unknown)" href="#male-and-female-cr-unknown" coords="699,781,717,800" shape="rect">
-                        <area target="" alt="2 Story Lecture Room (College of Science and Mathematics)" title="2 Story Lecture Room (College of Science and Mathematics)" href="#2-story-lecture-room" coords="718,773,749,810" shape="rect">
-                        <area target="" alt="College of Asian and Islamic Studies" title="College of Asian and Islamic Studies" href="#college-of-asian-and-islamic-studies" coords="718,814,742,891" shape="rect">
-                        <area target="" alt="College of Social Welfare and Development Building" title="College of Social Welfare and Development Building" href="#college-of-social-welfare-and-development-building" coords="716,892,743,920" shape="rect">
-                        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                        <area target="" alt="Student Kiosk (CSWD)" title="Student Kiosk (CSWD)" href="#student-kiosk-cswd" coords="716,924,742,948" shape="rect">
-                        <area target="" alt="Akbayan Building" title="Akbayan Building" href="#akbayan-building" coords="707,970,727,1004" shape="rect">
-                        <area target="" alt="Nursery Room (Unknown)" title="Nursery Room (Unknown)" href="#nursery-room-unknown" coords="" shape="rect">
-                        <area target="" alt="Proposed 1Story Multipurpose Student Center (Unknown)" title="Proposed 1Story Multipurpose Student Center (Unknown)" href="#proposed-1story-multipurpose-student-center-unknown" coords="" shape="rect">
-                        <area target="" alt="Science and Technology Hub" title="Science and Technology Hub" href="#science-and-technology-hub" coords="742,972,802,1004" shape="rect">
-                        <area target="" alt="Muslim Student Association Building" title="Muslim Student Association Building" href="#muslim-student-association-building" coords="858,908,883,939" shape="rect">
-                        <area target="" alt="Medical Facilities Center" title="Medical Facilities Center" href="#medical-facilities-center" coords="859,876,890,900" shape="rect">
-                        <area target="" alt="College of Medicine" title="College of Medicine" href="#college-of-medicine" coords="898,873,1031,909" shape="rect">
-                        <area target="" alt="Practical Arts Building" title="Practical Arts Building" href="#practical-arts-building" coords="899,917,961,950" shape="rect">
-                        <area target="" alt="College of Computing Studies" title="College of Computing Studies" href="#college-of-computing-studies" coords="803,948,919,1009" shape="rect">
-                        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                        <area target="" alt="Gate 1" title="Gate 1" href="#gate-1" coords="145,228,172,268" shape="rect">
-                        <area target="" alt="Gate 2" title="Gate 2" href="#gate-2" coords="465,468,427,440" shape="rect">
-                        <area target="" alt="Gate 3" title="Gate 3" href="#gate-3" coords="563,459,602,483" shape="rect">
-                        <area target="" alt="Gate 4" title="Gate 4" href="#gate-4" coords="850,548,891,578" shape="rect">
-                        <area target="" alt="Gate 5" title="Gate 5" href="#gate-5" coords="1005,294,1037,344" shape="rect">
-                        <area target="" alt="Gate 6" title="Gate 6" href="#gate-6" coords="984,172,1014,218" shape="rect">
-                        <area target="" alt="Gate 7" title="Gate 7" href="#gate-7" coords="1033,832,1064,871" shape="rect">
-                    </map>
-                </div>
-                  </div>
-            <div class="column">
-                    <!-- Default state message -->
-                    <div class="placeholder-content">
-                        <h2>Where to, Normalite?</h2>
-                        <p>Click on any building to uncover the stories, photos, and history behind our campus landmarks.</p>
-                    </div>
+        <main class="main-content">
+            <!-- Left Side: Building Listing Cards -->
+            <section class="buildings-section">
+                <div class="section-header">Best options</div>
 
-                    <div id="admin" class="info">
-                        <h2>Administration Building</h2>
-                        <p>The central hub for university operations, housing the offices of the President and academic administration.</p>
+                <div class="building-card" data-building="admin">
+                    <div class="image-container">
+                        <span class="badge">NEW</span>
                         <img src="admin.png" alt="Administration Building">
                     </div>
+                    <div class="details">
+                        <h2>Administration Building</h2>
+                        <div class="meta">
+                            <span class="location-tag">Main Campus</span>
+                            <button class="view-btn">View on Map</button>
+                        </div>
+                    </div>
+                </div>
 
-                    <div id="library" class="info">
-                        <h2>University Library</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="motorpool" class="info">
-                        <h2>Motor Pool/Physical Plant Office</h2>
-                        <p>Responsible for the maintenance of campus facilities and the university vehicle fleet.</p>
-                        <img src="motorpool.png" alt="Motor Pool/Physical Plant Office">
-                    </div>
-
-                    <div id="transformer" class="info">
-                        <h2>Transformer/Power House & Carpentry Shop</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="guard-house" class="info">
-                        <h2>Guard House</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="gymnasium" class="info">
-                        <h2>Gymnasium</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="proposed-lab" class="info">
-                        <h2>Proposed Sport Exercise and ScienceLaboratory</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="storage" class="info">
-                        <h2>Storage Building</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="executive" class="info">
-                        <h2>Executive Building</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="research-center" class="info">
-                        <h2>Research Center Building</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="social-science" class="info">
-                        <h2>College of Social Science Building</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="liberal-arts" class="info">
-                        <h2>College of Liberal Arts</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="law" class="info">
-                        <h2>College of Law Building</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="cla-graduate" class="info">
-                        <h2>CLA Graduate Program Building</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="public-administration" class="info">
-                        <h2>College of Public Administration Building</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="students-affairs" class="info">
-                        <h2>Office of The Students Affairs</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="engineering-stage" class="info">
-                        <h2>College of Engineering Stage</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="engineering-kiosk" class="info">
-                        <h2>College of Engineering Kiosk</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="health-center" class="info">
-                        <h2>University Health Center</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="education-sped" class="info">
-                        <h2>College of Education SPED Building</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="engineering-innovation" class="info">
-                        <h2>Engineering Innovation Center</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="innovative-center" class="info">
-                        <h2>Innovative Center for Metals and Engineering</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="engineering-technology-new" class="info">
-                        <h2>College of Engineering Technology (New)</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="engineering-technology-old" class="info">
-                        <h2>College of Engineering Technology (Old)</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="engineering-technology-classroom" class="info">
-                        <h2>College of Engineering Technology 2 Classroom</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="elevated-water-tank" class="info">
-                        <h2>Elevated Water Tank</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="architecture" class="info">
-                        <h2>College of Architecture Building</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="storage-room" class="info">
-                        <h2>Storage Room</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="elementary-faculty-room" class="info">
-                        <h2>Elementary Faculty Room</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="student-kiosk-architecture" class="info">
-                        <h2>Student Kiosk College of Architecture</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="elementary-he-building" class="info">
-                        <h2>Elementary H.E Building</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="proposed-dojo-building" class="info">
-                        <h2>Proposed Dojo Building</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="covered-court" class="info">
-                        <h2>Covered Court</h2>
-                        <p>A multi-purpose facility used for sports activities, university gatherings, and events.</p>
-                        <img src="court.png" alt="Covered Court">
-                    </div>
-
-                    <div id="elementary-lab-building" class="info">
-                        <h2>Elementary Lab Building</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="elementary-school-building" class="info">
-                        <h2>Elementary School Building</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="college-of-home-economics-and-dietary-building" class="info">
-                        <h2>College of Home Economics and Dietary Building</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="university-hostel-building" class="info">
-                        <h2>University Hostel Building</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="extension-training-laboratory" class="info">
-                        <h2>Extension Training Laboratory (Tesda Building)</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="landbank" class="info">
-                        <h2>Landbank</h2>
-                        <img src="" alt="">
-                    </div>
-
-                    <div id="executive-parking" class="info">
-                        <h2>Executive Covered Parking</h2>
-                        <p>Secure designated parking area for university staff and official transport.</p>
-                        <img src="" alt="">
-                    </div>
-                     <div id="proposed-school-governance-building" class="info">
-                        <h2>Proposed School Governance Building</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="alumni-building" class="info">
-                        <h2>Alumni Building</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="student-center-nursing" class="info">
-                        <h2>Student Center</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="college-of-nursing" class="info">
-                        <h2>College of Nursing</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="college-of-nursing-building" class="info">
-                        <h2>College of Nursing Building</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="college-of-nursing-building-annex" class="info">
-                        <h2>College of Nursing Building Annex</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="canteen-university-press-post-office" class="info">
-                        <h2>Canteen</h2>
-                        <p>Main dining area for students and faculty, also housing the university press services.</p>
-                        <img src="canteen1.png" alt="Canteen">
-                    </div>
-                     <div id="commercial-building" class="info">
-                        <h2>Commercial Building</h2>
-                        <p>Features various services and retail kiosks for the campus community.</p>
-                        <img src="" alt="">
-                    </div>
-                     <div id="college-of-teachers-education" class="info">
-                        <h2>College of Teacher Education</h2>
-                        <img src="cte1.png" alt="College of Teacher Education">
-                    </div>
-                     <div id="proposed-renovation-of-azotea" class="info">
-                        <h2>Proposed Renovation of Azotea</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="public-cr-and-computer-center-building" class="info">
-                        <h2>Public CR Computer Center Building</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="open-stage" class="info">
-                        <h2>Open Stage</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="university-registrar-building" class="info">
-                        <h2>University Registrar Building</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="campus-ministry-office" class="info">
-                        <h2>Campus Ministry</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="apa-canteen" class="info">
-                        <h2>APA Canteen</h2>
-                        <img src="" alt="APA Canteen">
-                    </div>
-                     <div id="coop-building" class="info">
-                        <h2>Coop Building</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="misto" class="info">
-                        <h2>MISTO</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="pedestrian-overpass" class="info">
-                        <h2>Pedestrian Overpass</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="transformer-banking" class="info">
-                        <h2>Transformer Banking</h2>
-                        <img src="" alt="">
-                    </div>
-                        <div id="college-of-science-and-mathematics" class="info">
-                            <h2>College of Science and Mathematics</h2>
-                            <p>Home to the various science laboratories and the mathematics department.</p>
-                            <img src="csm.png" alt="College of Science and Mathematics">
-                  </div>
-                           <div id="high-school-building" class="info">
-                        <h2>High School Building</h2>
-                        <img src="highschool.png" alt="High School Building">
-                    </div>
-                        <div id="proposed-college-of-medicine-building" class="info">
-                            <h2>Proposed College of Medicine Building</h2>
-                            <img src="" alt="Proposed College of Medicine Building">
-              
-                    </div>
-                     <div id="material-science-faculty-building" class="info">
-                        <h2>Material Science Faculty Building</h2>
-                        <img src="" alt="">
-
-                    </div>
-                     <div id="college-of-criminal-justice-education" class="info">
-                        <h2>College of Criminal Justice Education</h2>
-                        <p>Dedicated facility for Criminology and law enforcement studies.</p>
-                        <img src="criminology.png" alt="College of Criminal Justice Education">
-                    </div>
-                     <div id="elevated-water-tank-unknown" class="info">
-                        <h2>Elevated Water Tank (Unknown)</h2>
-                        <img src="" alt="">
-                    </div>
-                        <div id="university-food-service-center" class="info">
-                            <h2>University Food Service Center</h2>
-                            <p>The primary catering and food preparation facility for university-wide events.</p>
-                            <img src="canteen.png" alt="University Food Service Center">
-                    </div>
-                     <div id="training-center" class="info">
-                        <h2>Training Center</h2>
-                        <img src="trainingCenter.png" alt="Training Center">       
-                    </div>
-                        <div id="male-and-female-cr-unknown" class="info">
-                            <h2>Male and Female CR (Unknown)</h2>
-                            <img src="" alt="">
-                
-                    </div>
-                     <div id="2-story-lecture-room" class="info">
-                        <h2>2 Story Lecture Room (College of Science and Mathematics)</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="college-of-asian-and-islamic-studies" class="info">
-                        <h2>College of Asian and Islamic Studies</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="college-of-social-welfare-and-development-building" class="info">
-                        <h2>College of Social Welfare and Development Building</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="student-kiosk-cswd" class="info">
-                        <h2>Student Kiosk (CSWD)</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="akbayan-building" class="info">
-                        <h2>Akbayan Building</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="nursery-room-unknown" class="info">
-                        <h2>Nursery Room (Unknown)</h2>
-                        <img src="" alt="">
-                    </div>
-                        <div id="proposed-1story-multipurpose-student-center-unknown" class="info">
-                            <h2>Proposed 1Story Multipurpose Student Center (Unknown)</h2>
-                            <img src="" alt="">
-                    </div>
-                     <div id="science-and-technology-hub" class="info">
-                        <h2>Science and Technology Hub</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="muslim-student-association-building" class="info">
-                        <h2>Muslim Student Association Building</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="medical-facilities-center" class="info">
-                        <h2>Medical Facilities Center</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="college-of-medicine" class="info">
-                        <h2>College of Medicine</h2>
-                        <img src="lol.png" alt="College of Medicine">
-                    </div>
-                     <div id="practical-arts-building" class="info">
-                        <h2>Practical Arts Building</h2>
-                        <img src="" alt="">
-                    </div>
-                     <div id="college-of-computing-studies" class="info">
-                        <h2>College of Computing Studies</h2>
+                <div class="building-card" data-building="ccs">
+                    <div class="image-container">
                         <img src="ccs.png" alt="College of Computing Studies">
                     </div>
-                     <div id="gate-1" class="info">
-                        <h2>Gate 1</h2>
-                        <img src="" alt="">
+                    <div class="details">
+                        <h2>College of Computing Studies</h2>
+                        <div class="meta">
+                            <span class="location-tag">Science & Tech Hub</span>
+                            <button class="view-btn">View on Map</button>
+                        </div>
                     </div>
-                     <div id="gate-2" class="info">        
-                        <h2>Gate 2</h2>
-                        <img src="" alt="">
-                        </div>
-                        <div id="gate-3" class="info">
-                           <h2>Gate 3</h2>
-                        <img src="" alt="">
-                        </div>  
-                    <div id="gate-4" class="info">
-                           <h2>Gate 4</h2>
-                        <img src="" alt="">
-                        </div>  
-                    <div id="gate-5" class="info">
-                           <h2>Gate 5</h2>
-                             <img src="" alt="">
-                        </div>  
-                    <div id="gate-6" class="info">
-                           <h2>Gate 6</h2>
-                             <img src="" alt="">
-                        </div>  
-                    <div id="gate-7" class="info">
-                           <h2>Gate 7</h2>
-                             <img src="" alt="">
-                        </div>
                 </div>
-            </div>
-         
+            </section>
+
+            <!-- Right Side: Interactive Mappedin Map -->
+            <aside class="map-panel">
+                <div class="map-container">
+                    <iframe id="map-iframe" src="https://app.mappedin.com/map/69f6ef88e8e8c7000b332940" allowfullscreen></iframe>
+                    
+                    <!-- Dynamic Building Info Display -->
+                    <div id="building-info" class="building-info-display">
+                        <button class="back-to-map" id="close-info">← Back to Map</button>
+                        <img id="info-img" src="" alt="Building Image">
+                        <h2 id="info-title">Building Name</h2>
+                        <p id="info-description">Building Description goes here...</p>
+                        <button class="view-btn" id="get-directions-btn">Get Directions</button>
+                        <button class="view-btn" style="background: #eee; color: #333; margin-top: 10px; width: 100%;" onclick="document.getElementById('close-info').click()">Close Details</button>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
         <footer>
             <p>&copy; 2026 WMSU Map Navigator. All rights reserved.</p>
         </footer>
     </div>
 
-    <!-- Image Map Resizer Script: Fixes the 'location of the building' issue on responsive screens -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // This keeps your clickable area coordinates synchronized with the image size
-            if (typeof imageMapResize === 'function') {
-                imageMapResize();
+        // Data for the buildings
+        // Note: 'mappedinName' should match exactly what you named the location in the Mappedin CMS
+        const buildingData = {
+            "admin": {
+                title: "Administration Building",
+                mappedinName: "ADMINISTRATION BUILDING",
+                img: "admin.png",
+                desc: "The administrative heart of WMSU. This building houses the executive offices, student admission services, and the University Registrar. It serves as the main gateway for official university transactions."
+            },
+            "ccs": {
+                title: "College of Computing Studies",
+                mappedinName: "CCS",
+                img: "ccs.png",
+                desc: "The center for technology and innovation. CCS provides state-of-the-art computer laboratories and research spaces for students pursuing excellence in IT, Computer Science, and Information Systems."
+            }
+        };
+
+        const infoPanel = document.getElementById('building-info');
+        const mapIframe = document.getElementById('map-iframe');
+        const infoImg = document.getElementById('info-img');
+        const infoTitle = document.getElementById('info-title');
+        const infoDesc = document.getElementById('info-description');
+        const closeBtn = document.getElementById('close-info');
+        let currentBuildingId = null;
+
+        // Function to show building details
+        function showBuildingDetail(buildingId) {
+            const data = buildingData[buildingId];
+            if (data) {
+                currentBuildingId = buildingId;
+                // Update content
+                infoImg.src = data.img;
+                infoTitle.innerText = data.title;
+                infoDesc.innerText = data.desc;
+
+                infoPanel.classList.add('active');
+            }
+        }
+
+        // Get Directions button logic: Sends a message to the Mappedin iframe
+        document.getElementById('get-directions-btn').addEventListener('click', () => {
+            if (currentBuildingId && buildingData[currentBuildingId]) {
+                const destinationName = buildingData[currentBuildingId].mappedinName;
+                
+                // This tells the Mappedin Web App to select the location, 
+                // which opens the directions prompt inside the map itself.
+                mapIframe.contentWindow.postMessage({
+                    type: 'mappedin-get-directions',
+                    locationName: destinationName
+                }, '*');
+                
+                console.log("Sent request to Mappedin for:", destinationName);
             }
         });
-    </script>
 
-    <!-- Search Functionality Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('buildingSearch');
-            const resultsPanel = document.getElementById('search-results');
-            // Get all areas from the map to use as our database
-            const areas = document.querySelectorAll('map[name="image-map"] area');
-
-            searchInput.addEventListener('input', function() {
-                const query = this.value.toLowerCase().trim();
-                resultsPanel.innerHTML = ''; // Clear previous results
-
-                if (query.length < 1) return;
-
-                let hasResults = false;
-                areas.forEach(area => {
-                    const title = area.getAttribute('title');
-                    
-                    // YouTube-like search: matches phrases (e.g., "college of law") and letters anywhere in the name
-                    if (title && title.toLowerCase().includes(query)) {
-                        hasResults = true;
-                        const div = document.createElement('div');
-                        div.className = 'search-result-item';
-                        div.textContent = title;
-                        
-                        div.addEventListener('click', function() {
-                            // Navigate to the target section
-                            window.location.hash = area.getAttribute('href');
-                            // Clear search
-                            searchInput.value = '';
-                            resultsPanel.innerHTML = '';
-                        });
-                        resultsPanel.appendChild(div);
-                    }
-                });
-
-                if (!hasResults) {
-                    const noResultDiv = document.createElement('div');
-                    noResultDiv.className = 'search-result-item no-results';
-                    noResultDiv.textContent = 'No results found';
-                    resultsPanel.appendChild(noResultDiv);
-                }
-            });
-
-            // Close results when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!searchInput.contains(e.target)) resultsPanel.innerHTML = '';
-            });
-
-            // Add Enter key support to select the first available building match
-            searchInput.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    const firstResult = resultsPanel.querySelector('.search-result-item:not(.no-results)');
-                    if (firstResult) {
-                        firstResult.click();
-                    }
-                }
+        // Add click listeners to all building cards
+        document.querySelectorAll('.building-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const buildingId = this.getAttribute('data-building');
+                showBuildingDetail(buildingId);
             });
         });
+
+        // Close button logic
+        closeBtn.addEventListener('click', () => {
+            infoPanel.classList.remove('active');
+        });
+
+        // Listen for messages from the Mappedin Iframe
+        window.addEventListener('message', (event) => {
+            // Check if the message is from Mappedin
+            if (event.data && event.data.type === 'mappedin-location-selected') {
+                // This log will show you the exact name sent by the map in the browser console
+                console.log("Mappedin Selection Data:", event.data);
+
+                const locationName = event.data.locationName.toLowerCase();
+                
+                // Mapping Mappedin location names to our building IDs
+                // You can add more mappings here based on what you named them in Mappedin
+                let targetId = '';
+                
+                if (locationName.includes('computing') || locationName.includes('ccs')) {
+                    targetId = 'ccs';
+                } else if (locationName.includes('administration') || locationName.includes('admin')) {
+                    targetId = 'admin';
+                }
+
+                if (targetId) {
+                    showBuildingDetail(targetId);
+                }
+            }
+        }, false);
     </script>
 </body>
 </html>
