@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="Preview.css">
 </head>
 <body>
+
 <div class="page-bg-clear">
     <img src="CTE.png" alt="WMSU Campus">
-    <div class="bg-overlay"></div> </div>
+    <div class="bg-overlay"></div> 
+</div>
 
 <header class="navbar">
     <div class="nav-container">
@@ -19,82 +21,127 @@
         <nav>
             <ul>
                 <li><a href="Landing-Page.html">Home</a></li>
-                <li><a href="WMSU-Map-Navigator.html">Map</a></li>
-             
+                <li><a href="#Preview" class="active">Preview</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
-    <header class="hero-split">
-        <div class="hero-text">
-            <span class="badge">Legacy of Excellence</span>
-            <h1>Navigate the <br><span>Crimson Frontier</span></h1>
-            <p>Step into the heart of Western Mindanao State University. Experience our campus through a modern digital lens.</p>
-            <div class="hero-actions">
-                <a class="btn btn-red" href="WMSU-Map-Navigator.html">Start Journey</a>
-                <a class="btn btn-outline" href="Landing-Page.html">Our Story</a>
-            </div>
+<section class="hero-split">
+    <div class="hero-text">
+        <span class="badge-legacy">Legacy of Excellence</span>
+        <h1>Navigate the <br><span>Crimson Frontier</span></h1>
+        <p>Step into the heart of Western Mindanao State University. Experience our campus through a modern digital lens.</p>
+        <div class="hero-actions">
+            <a class="btn btn-red" href="loginPage.html">Get Started</a>
+            <a class="btn btn-outline" href="Landing-Page.html">Our Story</a>
         </div>
+    </div>
 
-        <div class="hero-visual">
-            <div class="highlight-card">
-                <div class="highlight-label">Campus Highlight</div>
-                <div class="slideshow-wrapper">
-                    <div class="loader-line" id="loader"></div>
-                    <div id="slideshow-content-root" class="content-anim">
-                        <div class="image-frame">
-                            <img src="admin.png" id="building-thumb" alt="Campus Building">
-                        </div>
-                        <div class="text-frame">
-                            <h3 id="building-name">Administration Building</h3>
-                            <p id="building-desc">The administrative heart of WMSU, handling campus-wide operations.</p>
-                            
-                            <div class="nav-footer">
-                                <span id="slide-number">01 / 03</span>
-                                <div class="nav-btns">
-                                    <button onclick="changeSlide(-1)"><i class="fas fa-arrow-left"></i></button>
-                                    <button onclick="changeSlide(1)"><i class="fas fa-arrow-right"></i></button>
-                                </div>
+    <div class="hero-visual">
+        <div class="highlight-card">
+            <div class="highlight-label">Campus Highlight</div>
+            <div class="slideshow-wrapper">
+                <div class="loader-line" id="loader"></div>
+                <div id="slideshow-content-root" class="content-anim">
+                    <div class="image-frame">
+                        <img src="Map1.png" id="building-thumb" alt="Campus Building">
+                    </div>
+                    <div class="text-frame">
+                        <h3 id="building-name">Interactive Campus Map</h3>
+                        <p id="building-desc">A high-fidelity digital overview of the WMSU campus, designed for seamless navigation and discovery.</p>
+                        
+                        <div class="nav-footer">
+                            <span id="slide-number">01 / 04</span>
+                            <div class="nav-btns">
+                                <button onclick="changeSlide(-1)"><i class="fas fa-arrow-left"></i></button>
+                                <button onclick="changeSlide(1)"><i class="fas fa-arrow-right"></i></button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</section>
 
-    <script>
-        const buildings = [
-            { name: "Administration Building", desc: "The heart of WMSU, housing executive offices and student support services.", img: "admin.png" },
-            { name: "College of Teacher Education", desc: "A modern facility providing vast resources for all WMSU students.", img: "CTE.png" },
-            { name: "College of Computing Studies", desc: "The hub of technology and innovation at Western Mindanao State University.", img: "ccs.png" }
-        ];
+<!-- ADDED SECTION: MOST VIEWED -->
+<section class="most-viewed-section">
+    <h2 class="section-title">Most Visited</h2>
+    <p class="section-subtitle">Discover the most frequented landmarks on our campus.</p>
+    
+    <div class="viewed-grid">
+        <div class="viewed-card">
+            <img src="admin.png" class="viewed-img" alt="Admin">
+            <div class="viewed-content">
+                <div class="stats"><i class="fas fa-eye"></i> 1,240 Visits</div>
+                <h4>Administration Building</h4>
+                <p>The central hub for student services and university executive offices.</p>
+                <a href="loginPage.html" class="btn btn-red" style="padding: 8px 15px; font-size: 0.75rem;">Log In to View</a>
+            </div>
+        </div>
 
-        let currentIndex = 0;
+        <div class="viewed-card">
+            <img src="CTE.png" class="viewed-img" alt="CTE">
+            <div class="viewed-content">
+                <div class="stats"><i class="fas fa-eye"></i> 980 Visits</div>
+                <h4>Teacher Education</h4>
+                <p>One of the most distinguished colleges, shaping future educators.</p>
+                <a href="loginPage.html" class="btn btn-red" style="padding: 8px 15px; font-size: 0.75rem;">Log In to View</a>
+            </div>
+        </div>
 
-        function changeSlide(n) {
-            const content = document.getElementById('slideshow-content-root');
-            const loader = document.getElementById('loader');
+        <div class="viewed-card">
+            <img src="ccs.png" class="viewed-img" alt="CCS">
+            <div class="viewed-content">
+                <div class="stats"><i class="fas fa-eye"></i> 850 Visits</div>
+                <h4>Computing Studies</h4>
+                <p>The center for technological growth and innovation at WMSU.</p>
+                <a href="loginPage.html" class="btn btn-red" style="padding: 8px 15px; font-size: 0.75rem;">Log In to View</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-            content.style.opacity = '0';
-            content.style.transform = 'translateY(10px)';
-            loader.style.width = '0%';
+<script>
+    const buildings = [
+        { name: "Interactive Campus Map", desc: "A high-fidelity digital overview of the WMSU campus, designed for seamless navigation and discovery.", img: "Map1.png", link: "map" },
+        { name: "College of Teacher Education", desc: "A modern facility providing vast resources for all WMSU students.", img: "CTE.png", link: "college-of-teachers-education" },
+        { name: "College of Computing Studies", desc: "The hub of technology and innovation at Western Mindanao State University.", img: "ccs.png", link: "college-of-computing-studies" },
+        { name: "Administration Building", desc: "The heart of WMSU, housing executive offices and student support services.", img: "admin.png", link: "admin" }
+    ];
 
-            setTimeout(() => {
-                currentIndex = (currentIndex + n + buildings.length) % buildings.length;
-                const b = buildings[currentIndex];
+    let currentIndex = 0;
+    let slideInterval = setInterval(() => changeSlide(1), 2000);
 
-                document.getElementById('building-name').innerText = b.name;
-                document.getElementById('building-desc').innerText = b.desc;
-                document.getElementById('building-thumb').src = b.img;
-                document.getElementById('slide-number').innerText = `0${currentIndex + 1} / 0${buildings.length}`;
+    function changeSlide(n) {
+        resetTimer();
+        const content = document.getElementById('slideshow-content-root');
+        const loader = document.getElementById('loader');
 
-                content.style.opacity = '1';
-                content.style.transform = 'translateY(0)';
-                loader.style.width = '100%';
-            }, 350);
-        }
-    </script>
+        content.style.opacity = '0';
+        content.style.transform = 'translateY(10px)';
+        loader.style.width = '0%';
+
+        setTimeout(() => {
+            currentIndex = (currentIndex + n + buildings.length) % buildings.length;
+            const b = buildings[currentIndex];
+
+            document.getElementById('building-name').innerText = b.name;
+            document.getElementById('building-desc').innerText = b.desc;
+            document.getElementById('building-thumb').src = b.img;
+            document.getElementById('slide-number').innerText = `0${currentIndex + 1} / 0${buildings.length}`;
+
+            content.style.opacity = '1';
+            content.style.transform = 'translateY(0)';
+            loader.style.width = '100%';
+        }, 350);
+    }
+
+    function resetTimer() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(() => changeSlide(1), 2000);
+    }
+</script>
 </body>
 </html>
