@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMSU Navigator | Super Admin Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --crimson: #9d0610;
+            --crimson-hover: #7a040b;
+            --accent-gold: #ffcc00;
+            --dark-bg: #0b0c10;
+            --input-bg: #1a1c22;
+            --text-gray: #9499a1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+        body, html { height: 100%; margin: 0; background-color: var(--dark-bg); }
+
+        .split-screen { display: flex; height: 100vh; width: 100%; overflow: hidden; }
+
+        /* Left Side Branding */
+        .left-side { 
+            flex: 1.1; 
+            position: relative; 
+            display: flex; 
+            align-items: flex-end; 
+            padding: 80px; 
+            min-width: 50%;
+        }
+
+        .bg-img { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            z-index: 1; 
+        }
+
+        .overlay { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: linear-gradient(to top, rgba(11, 12, 16, 1) 15%, transparent 100%); 
+            z-index: 2; 
+        }
+
+        .logo { position: absolute; top: 40px; left: 60px; font-family: 'Montserrat', sans-serif; color: white; font-weight: 800; z-index: 3; }
+        .logo span { color: var(--crimson); }
+
+        .content-left { position: relative; z-index: 3; }
+        .hero-text h1 { font-family: 'Montserrat', sans-serif; color: white; font-size: 3.2rem; line-height: 1.1; margin-bottom: 20px; }
+        .hero-text h1 span { color: var(--accent-gold); }
+        .hero-text p { color: rgba(255,255,255,0.7); max-width: 480px; line-height: 1.6; }
+
+        /* Right Side Admin Form */
+        .right-side { flex: 0.9; display: flex; align-items: center; justify-content: center; padding: 40px; background-color: var(--dark-bg); }
+        .form-wrapper { width: 100%; max-width: 400px; }
+
+        .admin-badge { 
+            background: rgba(255, 204, 0, 0.1); 
+            color: var(--accent-gold); 
+            padding: 5px 12px; 
+            border-radius: 4px; 
+            font-size: 0.7rem; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+
+        .form-header h2 { color: white; font-family: 'Montserrat', sans-serif; font-size: 2.4rem; margin: 15px 0 10px; }
+        .form-header h2 span { color: var(--crimson); }
+        .form-header p { color: var(--text-gray); margin-bottom: 40px; font-size: 0.95rem; }
+
+        /* Inputs */
+        .input-box { margin-bottom: 20px; }
+        .label-row { display: flex; justify-content: space-between; align-items: center; }
+        .input-box label { color: #eee; display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; }
+        .forgot-link { color: var(--crimson); font-size: 0.8rem; text-decoration: none; }
+
+        .input-field { position: relative; }
+        .input-field i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-gray); font-size: 0.9rem; }
+        .input-field input {
+            width: 100%;
+            background: var(--input-bg);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 15px 15px 15px 45px;
+            border-radius: 8px;
+            color: white;
+            transition: 0.3s;
+        }
+        .input-field input:focus { border-color: var(--crimson); outline: none; background: #23272f; }
+
+        /* Options */
+        .options-row { margin-bottom: 30px; display: flex; align-items: center; gap: 10px; }
+        .options-row label { color: var(--text-gray); font-size: 0.85rem; cursor: pointer; }
+        .options-row input { accent-color: var(--crimson); }
+
+        /* Crimson Login Button */
+        .btn-primary {
+            width: 100%;
+            padding: 16px;
+            background: var(--crimson);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 20px rgba(157, 6, 16, 0.4);
+        }
+        .btn-primary:hover { background: var(--crimson-hover); transform: translateY(-2px); }
+
+        .form-footer { text-align: center; margin-top: 30px; }
+        .form-footer p { color: var(--text-gray); font-size: 0.85rem; margin-bottom: 20px; }
+        .form-footer a { color: white; text-decoration: none; font-weight: 600; }
+        .form-footer a:hover { color: var(--crimson); }
+
+        .back-home { display: block; font-size: 0.8rem; color: var(--text-gray); text-decoration: none; margin-top: 15px; transition: 0.3s; opacity: 0.6; }
+        .back-home:hover { opacity: 1; transform: translateX(-5px); }
+
+        @media (max-width: 768px) {
+            .left-side { display: none; }
+            .right-side { flex: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="split-screen">
+        <div class="left-side">
+            <img src="CTE.png" alt="WMSU Campus" class="bg-img">
+            <div class="overlay"></div>
+            <div class="content-left">
+                <div class="logo">WMSU <span>NAVIGATOR</span></div>
+                <div class="hero-text">
+                    <h1>Super Admin <br><span>Access Portal.</span></h1>
+                    <p>This portal grants full control over the WMSU Map Navigator system. Proceed with caution.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-side">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <span class="admin-badge">Restricted Access</span>
+                    <h2>Super Admin Login<span>.</span></h2>
+                    <p>Enter your Super Admin credentials to access system controls.</p>
+                </div>
+                
+                <form action="Admin-Panel.html?role=super_admin" method="post">
+                    <div class="input-box">
+                        <label>Super Admin Username</label>
+                        <div class="input-field">
+                            <i class="fas fa-user-shield"></i>
+                            <input type="text" placeholder="superadmin" name="username" required>
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <div class="label-row">
+                            <label>Password</label>
+                            <a href="#" class="forgot-link">Forgot?</a>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-key"></i>
+                            <input type="password" placeholder="••••••••" name="password" required>
+                        </div>
+                    </div>
+
+                    <div class="options-row">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Login as Super Admin</button>
+                    
+                    <div class="form-footer">
+                        <a href="Admin-Login-Page.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Admin Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
