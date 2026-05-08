@@ -3,179 +3,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Connecting the external CSS file -->
+    <title>WMSU Navigator | Campus Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="WMSU-Map-Navigator.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <title>WMSU Map Navigator</title>
 </head>
 <body>
-    <div class="page-wrapper">
-        <!-- Header Hero Section -->
-        <header class="hero">
+
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="showStage(1)" style="cursor:pointer">
+                WMSU <span>Navigator</span>
+            </div>
             <nav>
-                <h1>WMSU <span>Navigator</span></h1>
                 <ul>
-                    <li><a href="Landing-Page.html">Home</a></li>
-                    <li><a href="Preview.html">Preview</a></li>
-                    <li><a href="WMSU-Map-Navigator.html" class="active">Map</a></li>
+                    <li><a href="Landing-Page.html" id="nav-home">Home</a></li>
+                    <li><a href="Preview.html" id="nav-preview">Preview</a></li>
+                    <li><a href="#" id="nav-map" onclick="showStage(3)">Map</a></li>
                     <li><a href="Contacts.html">Contact</a></li>
                     <li><a href="Admin-Login-Page.html">Admin</a></li>
                 </ul>
-                <div class="user-icon">WM</div>
             </nav>
-            <h1>Campus Directory</h1>
-            <p>Explore Western Mindanao State University Campus</p>
-        </header>
+            <button class="nav-btn" onclick="showStage(3)">Explore Campus</button>
+        </div>
+    </header>
 
-        <main class="main-content">
-            <!-- Left Side: Building Listing Cards -->
-            <section class="buildings-section">
-                <div class="section-header">Best options</div>
+    <section id="stage-1" class="stage active">
+        <div class="hero-simple">
+            <div style="max-width: 600px; margin: 0 auto; text-align: left;">
+                <a href="Landing-Page.html" class="back-btn" style="text-decoration: none;">
+                    <i class="fa-solid fa-arrow-left"></i> Exit Navigator
+                </a>
+            </div>
+            <span class="hero-tag">Smart Campus Navigation</span>
+            <h1>Navigate WMSU <span>Smarter</span></h1>
+        </div>
+        <div class="global-search">
+            <input type="text" placeholder="Search any building (e.g. CCS, CTE)..." id="global-search-input" autocomplete="off" oninput="handleGlobalInput()" onkeydown="if(event.key === 'Enter') globalSearch()">
+            <i class="fa-solid fa-xmark clear-btn" id="clear-global" style="display:none;" onclick="clearSearch('global-search-input', 'clear-global')"></i>
+            <button onclick="globalSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <div id="global-results" class="search-results-dropdown"></div>
+        </div>
 
-                <div class="building-card" data-building="admin">
-                    <div class="image-container">
-                        <span class="badge">NEW</span>
-                        <img src="admin.png" alt="Administration Building">
-                    </div>
-                    <div class="details">
-                        <h2>Administration Building</h2>
-                        <div class="meta">
-                            <span class="location-tag">Main Campus</span>
-                            <button class="view-btn">View on Map</button>
-                        </div>
-                    </div>
+        <div class="campus-grid">
+            <div class="campus-card" onclick="selectCampus('Campus A')">
+                <img src="A.png" alt="Campus A">
+                <div class="campus-overlay">
+                    <h2>Campus A</h2>
+                    
+                </div>
+            </div>
+            <div class="campus-card" onclick="selectCampus('Campus B')">
+                <img src="B.png" alt="Campus B">
+                <div class="campus-overlay">
+                    <h2>Campus B</h2>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="direct-map-link">
+            <button class="secondary-btn" onclick="showStage(3)">
+                <i class="fa-solid fa-map-location-dot"></i> Show Map with Direction
+            </button>
+        </div>
+    </section>
+
+    <section id="stage-2" class="stage">
+        <main class="app-layout">
+            <aside class="sidebar">
+                <button class="back-btn" onclick="showStage(1)">
+                    <i class="fa-solid fa-arrow-left"></i> Change Campus
+                </button>
+                <h2 id="selected-campus-title">Campus Directory</h2>
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="dir-search" placeholder="Search building..." oninput="handleDirInput()" onkeydown="if(event.key === 'Enter') filterDirectory()">
+                    <i class="fa-solid fa-circle-xmark clear-btn" id="clear-dir" style="display:none;" onclick="clearSearch('dir-search', 'clear-dir')"></i>
                 </div>
 
-                <div class="building-card" data-building="ccs">
-                    <div class="image-container">
-                        <img src="ccs.png" alt="College of Computing Studies">
+                <div class="filter-group">
+                    <label>Building Type</label>
+                    <select id="type-filter" onchange="filterDirectory()">
+                        <option value="All">All Types</option>
+                        <option value="Academic">Academic Buildings</option>
+                        <option value="Facility">Campus Facilities</option>
+                    </select>
+                </div>
+
+                <div id="directory-list" class="scroll-list">
                     </div>
-                    <div class="details">
-                        <h2>College of Computing Studies</h2>
-                        <div class="meta">
-                            <span class="location-tag">Science & Tech Hub</span>
-                            <button class="view-btn">View on Map</button>
-                        </div>
+            </aside>
+
+            <section class="preview-area">
+                <div class="static-map-box">
+                    <img src="Map1.png" alt="Campus Layout">
+                </div>
+                <div id="building-detail-card" class="detail-card hidden">
+                    <img id="detail-img" src="" alt="">
+                    <div class="detail-info">
+                        <span class="panel-badge" id="detail-badge">Academic</span>
+                        <h3 id="detail-name">Building Name</h3>
+                        <p id="detail-desc">Description goes here.</p>
+                        <button class="primary-btn" onclick="showStage(3)">
+                            <i class="fa-solid fa-route"></i> Show Path
+                        </button>
                     </div>
                 </div>
             </section>
-
-            <!-- Right Side: Interactive Mappedin Map -->
-            <aside class="map-panel">
-                <div class="map-container">
-                    <iframe id="map-iframe" src="https://app.mappedin.com/map/69f6ef88e8e8c7000b332940" allowfullscreen></iframe>
-                    
-                    <!-- Dynamic Building Info Display -->
-                    <div id="building-info" class="building-info-display">
-                        <button class="back-to-map" id="close-info">← Back to Map</button>
-                        <img id="info-img" src="" alt="Building Image">
-                        <h2 id="info-title">Building Name</h2>
-                        <p id="info-description">Building Description goes here...</p>
-                        <button class="view-btn" id="get-directions-btn">Get Directions</button>
-                        <button class="view-btn" style="background: #eee; color: #333; margin-top: 10px; width: 100%;" onclick="document.getElementById('close-info').click()">Close Details</button>
-                    </div>
-                </div>
-            </aside>
         </main>
+    </section>
 
-        <footer>
-            <p>&copy; 2026 WMSU Map Navigator. All rights reserved.</p>
-        </footer>
-    </div>
+    <section id="stage-3" class="stage">
+        <div class="map-interface">
+            <div class="map-sidebar">
+                <button class="back-btn" onclick="showStage(2)">
+                    <i class="fa-solid fa-arrow-left"></i> Back to List
+                </button>
+                <h3>Mappedin Navigator</h3>
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="map-search" placeholder="Find on map..." oninput="handleMapInput()" onkeydown="if(event.key === 'Enter') renderMapList()">
+                    <i class="fa-solid fa-circle-xmark clear-btn" id="clear-map" style="display:none;" onclick="clearSearch('map-search', 'clear-map')"></i>
+                </div>
+                <div id="map-list" class="scroll-list">
+                    </div>
+            </div>
+            <div class="map-viewer-full">
+                <iframe id="main-map-iframe" src="https://app.mappedin.com/map/69f69fcd441acd000b7c2d23" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
 
     <script>
-        // Data for the buildings
-        // Note: 'mappedinName' should match exactly what you named the location in the Mappedin CMS
-        const buildingData = {
-            "admin": {
-                title: "Administration Building",
-                mappedinName: "ADMINISTRATION BUILDING",
-                img: "admin.png",
-                desc: "The administrative heart of WMSU. This building houses the executive offices, student admission services, and the University Registrar. It serves as the main gateway for official university transactions."
-            },
-            "ccs": {
-                title: "College of Computing Studies",
-                mappedinName: "CCS",
-                img: "ccs.png",
-                desc: "The center for technology and innovation. CCS provides state-of-the-art computer laboratories and research spaces for students pursuing excellence in IT, Computer Science, and Information Systems."
-            }
+        const buildings = {
+            ccs: { title: "College of Computing Studies", desc: "Center of technology and innovation.", img: "ccs.png", campus: "Campus B", type: "Academic" },
+            cte: { title: "College of Teacher Education", desc: "Center of excellence in teacher education.", img: "CTE.png", campus: "Campus A", type: "Academic" },
+            csm: { title: "College of Science and Mathematics", desc: "Quality education in sciences.", img: "csm.png", campus: "Campus B", type: "Academic" },
+            coe: { title: "College of Engineering", desc: "Engineering disciplines and innovation.", img: "coe.png", campus: "Campus A", type: "Academic" },
+            auditorium: { title: "University Auditorium", desc: "Venue for major events.", img: "auditorium.png", campus: "Campus A", type: "Facility" },
+            canteen: { title: "University Canteen", desc: "Main food facility.", img: "canteen.png", campus: "Campus B", type: "Facility" }
         };
 
-        const infoPanel = document.getElementById('building-info');
-        const mapIframe = document.getElementById('map-iframe');
-        const infoImg = document.getElementById('info-img');
-        const infoTitle = document.getElementById('info-title');
-        const infoDesc = document.getElementById('info-description');
-        const closeBtn = document.getElementById('close-info');
-        let currentBuildingId = null;
+        let selectedCampus = "Campus A";
 
-        // Function to show building details
-        function showBuildingDetail(buildingId) {
-            const data = buildingData[buildingId];
-            if (data) {
-                currentBuildingId = buildingId;
-                // Update content
-                infoImg.src = data.img;
-                infoTitle.innerText = data.title;
-                infoDesc.innerText = data.desc;
+        function showStage(stageNumber) {
+            // Clear search inputs when changing stages to prevent stale filters
+            document.getElementById('global-search-input').value = '';
+            document.getElementById('dir-search').value = '';
+            document.getElementById('map-search').value = '';
+            document.getElementById('global-results').style.display = 'none';
+            
+            // Hide all clear buttons when switching stages
+            document.querySelectorAll('.clear-btn').forEach(btn => btn.style.display = 'none');
 
-                infoPanel.classList.add('active');
+            document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
+            document.getElementById(`stage-${stageNumber}`).classList.add('active');
+            
+            // Update active nav link
+            document.querySelectorAll('.navbar a').forEach(a => a.classList.remove('active'));
+            const navIds = ['nav-home', 'nav-preview', 'nav-map'];
+            if(navIds[stageNumber-1]) document.getElementById(navIds[stageNumber-1]).classList.add('active');
+
+            // Re-render lists when stages are shown to ensure fresh data/filters
+            if(stageNumber === 1) {
+                // No specific render needed for stage 1, but good to reset if any global search was active
+                // The campus grid is static.
+            }
+            if(stageNumber === 2) renderDirectory();
+            if(stageNumber === 3) renderMapList();
+        }
+
+        function selectCampus(campusName) {
+            selectedCampus = campusName;
+            showStage(2);
+        }
+
+        function renderDirectory() {
+            const list = document.getElementById('directory-list');
+            const typeFilter = document.getElementById('type-filter').value;
+            const searchTerm = document.getElementById('dir-search').value.toLowerCase();
+            
+            document.getElementById('selected-campus-title').innerText = `${selectedCampus} Directory`;
+            list.innerHTML = "";
+
+            Object.keys(buildings).forEach(id => {
+                const b = buildings[id];
+                const matchesCampus = b.campus === selectedCampus;
+                const matchesType = typeFilter === "All" || b.type === typeFilter;
+                const matchesSearch = b.title.toLowerCase().includes(searchTerm);
+
+                if (matchesCampus && matchesType && matchesSearch) {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.onclick = () => showPreview(id);
+                    card.innerHTML = `
+                        <img src="${b.img}" alt="${b.title}">
+                        <div>
+                            <h4>${b.title}</h4>
+                            <p><strong>${b.type}</strong> — ${b.desc}</p>
+                        </div>
+                    `;
+                    list.appendChild(card);
+                }
+            });
+        }
+
+        function filterDirectory() { renderDirectory(); }
+
+        function showPreview(id) {
+            const b = buildings[id];
+            const detailCard = document.getElementById('building-detail-card');
+            detailCard.classList.remove('hidden');
+            document.getElementById('detail-img').src = b.img;
+            document.getElementById('detail-name').innerText = b.title;
+            document.getElementById('detail-desc').innerText = b.desc;
+            document.getElementById('detail-badge').innerText = b.type;
+            // Scroll to detail card on mobile
+            detailCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function globalSearch() {
+            const input = document.getElementById('global-search-input');
+            const searchTerm = input.value.toLowerCase().trim();
+            if (!searchTerm) return;
+
+            // Find the first building that matches the title
+            const matchId = Object.keys(buildings).find(id => 
+                buildings[id].title.toLowerCase().includes(searchTerm)
+            );
+
+            if (matchId) {
+                const b = buildings[matchId];
+                selectedCampus = b.campus; 
+                showStage(2);
+                // Set values after showStage because showStage clears inputs
+                document.getElementById('dir-search').value = b.title;
+                handleDirInput(); 
+                showPreview(matchId);
+            } else {
+                showStage(2);
+                document.getElementById('dir-search').value = searchTerm;
+                handleDirInput();
+            }
+            document.getElementById('global-results').style.display = 'none';
+        }
+
+        function renderMapList() {
+            const list = document.getElementById('map-list');
+            const searchTerm = document.getElementById('map-search').value.toLowerCase();
+            list.innerHTML = "";
+
+            let foundResults = false;
+            Object.keys(buildings).forEach(id => {
+                const b = buildings[id];
+                const matchesSearch = b.title.toLowerCase().includes(searchTerm) ||
+                                      b.desc.toLowerCase().includes(searchTerm) ||
+                                      b.campus.toLowerCase().includes(searchTerm) ||
+                                      b.type.toLowerCase().includes(searchTerm);
+
+                if (matchesSearch) {
+                    const item = document.createElement('div');
+                    item.className = 'card-mini';
+                    item.innerHTML = `<img src="${b.img}" alt="${b.title}"><div><h4>${b.title}</h4><p>${b.campus}</p></div>`;
+                    item.onclick = () => {
+                        selectedCampus = b.campus;
+                        showStage(2);
+                        showPreview(id);
+                    };
+                    list.appendChild(item);
+                    foundResults = true;
+                }
+            });
+        }
+
+        function handleGlobalInput() {
+            const input = document.getElementById('global-search-input');
+            const resultsBox = document.getElementById('global-results');
+            const searchTerm = input.value.toLowerCase();
+
+            toggleClearBtn('global-search-input', 'clear-global');
+
+            if (searchTerm.length < 1) {
+                resultsBox.style.display = 'none';
+                return;
+            }
+
+            resultsBox.innerHTML = "";
+            let matches = Object.keys(buildings).filter(id => 
+                buildings[id].title.toLowerCase().includes(searchTerm)
+            );
+
+            if (matches.length > 0) {
+                matches.forEach(id => {
+                    const b = buildings[id];
+                    const div = document.createElement('div');
+                    div.className = 'search-result-item';
+                    div.innerHTML = `<i class="fa-solid fa-magnifying-glass"></i> <span>${b.title}</span> <small>${b.campus}</small>`;
+                    div.onclick = () => {
+                        input.value = b.title;
+                        globalSearch();
+                    };
+                    resultsBox.appendChild(div);
+                });
+                resultsBox.style.display = 'block';
+            } else {
+                resultsBox.style.display = 'none';
             }
         }
 
-        // Get Directions button logic: Sends a message to the Mappedin iframe
-        document.getElementById('get-directions-btn').addEventListener('click', () => {
-            if (currentBuildingId && buildingData[currentBuildingId]) {
-                const destinationName = buildingData[currentBuildingId].mappedinName;
-                
-                // This tells the Mappedin Web App to select the location, 
-                // which opens the directions prompt inside the map itself.
-                mapIframe.contentWindow.postMessage({
-                    type: 'mappedin-get-directions',
-                    locationName: destinationName
-                }, '*');
-                
-                console.log("Sent request to Mappedin for:", destinationName);
+        // Search Logic Helpers
+        function toggleClearBtn(inputId, btnId) {
+            const input = document.getElementById(inputId);
+            const btn = document.getElementById(btnId);
+            btn.style.display = input.value.length > 0 ? 'block' : 'none';
+        }
+
+        function clearSearch(inputId, btnId) {
+            document.getElementById(inputId).value = '';
+            toggleClearBtn(inputId, btnId);
+            if (inputId === 'dir-search') renderDirectory();
+            if (inputId === 'map-search') renderMapList();
+            document.getElementById(inputId).focus();
+        }
+
+        function handleDirInput() {
+            toggleClearBtn('dir-search', 'clear-dir');
+            filterDirectory();
+        }
+
+        function handleMapInput() {
+            toggleClearBtn('map-search', 'clear-map');
+            renderMapList();
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.global-search')) {
+                document.getElementById('global-results').style.display = 'none';
             }
         });
-
-        // Add click listeners to all building cards
-        document.querySelectorAll('.building-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const buildingId = this.getAttribute('data-building');
-                showBuildingDetail(buildingId);
-            });
-        });
-
-        // Close button logic
-        closeBtn.addEventListener('click', () => {
-            infoPanel.classList.remove('active');
-        });
-
-        // Listen for messages from the Mappedin Iframe
-        window.addEventListener('message', (event) => {
-            // Check if the message is from Mappedin
-            if (event.data && event.data.type === 'mappedin-location-selected') {
-                // This log will show you the exact name sent by the map in the browser console
-                console.log("Mappedin Selection Data:", event.data);
-
-                const locationName = event.data.locationName.toLowerCase();
-                
-                // Mapping Mappedin location names to our building IDs
-                // You can add more mappings here based on what you named them in Mappedin
-                let targetId = '';
-                
-                if (locationName.includes('computing') || locationName.includes('ccs')) {
-                    targetId = 'ccs';
-                } else if (locationName.includes('administration') || locationName.includes('admin')) {
-                    targetId = 'admin';
-                }
-
-                if (targetId) {
-                    showBuildingDetail(targetId);
-                }
-            }
-        }, false);
     </script>
 </body>
 </html>
