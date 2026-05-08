@@ -6,141 +6,39 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-/* Sharp Background Style */
-.page-bg-clear {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
 
-.page-bg-clear img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Removed Blur and Scale */
-}
+/* Background */
+.page-bg-clear { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+.page-bg-clear img { width: 100%; height: 100%; object-fit: cover; }
+.bg-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 100%); }
 
-/* Subtle overlay to help the "Navigate the Crimson Frontier" text pop */
-.bg-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 100%);
-}
+/* Navbar */
+.navbar { position: absolute; top: 0; width: 100%; z-index: 1000; padding: 20px 0; background: rgba(0,0,0,0.2); }
+.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+.logo { color: var(--white); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+nav ul { display: flex; list-style: none; gap: 30px; }
+nav ul li a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; }
+.active { color: crimson !important; }
 
-/* Updated Header Navigation to match landing page exactly */
-.main-nav { 
-    padding: 20px 5%; 
-    position: fixed; 
-    width: 100%; 
-    top: 0; 
-    z-index: 1000; 
-    background: transparent; /* Makes it look integrated with the background */
-}
-
-.nav-logo { 
-    font-weight: 800; 
-    font-size: 1.4rem; 
-    color: white; 
-    letter-spacing: 1px;
-}
-
-.nav-item {
-    text-decoration: none;
-    color: white;
-    font-weight: 700;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
-
-.nav-item:hover {
-    color: #ff3d4a;
-}
-
-.page-bg-blur img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    filter: blur(15px) brightness(0.9);
-    transform: scale(1.1); /* Prevents white edges from blur */
-}
-
-/* Nav */
-.main-nav { padding: 20px 5%; position: fixed; width: 100%; top: 0; z-index: 100; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); }
-.nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
-.nav-logo { font-weight: 800; font-size: 1.2rem; color: var(--dark); }
-.nav-logo span { color: var(--crimson); }
-.btn-nav { background: var(--crimson); color: white !important; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-weight: 600; }
-
-/* Hero Split */
-.hero-split {
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    padding: 0 8%;
-    gap: 40px;
-}
-
+/* Hero */
+.hero-split { display: flex; align-items: center; min-height: 100vh; padding: 0 8%; gap: 40px; }
 .hero-text { flex: 1; color: var(--white); text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
 .hero-text h1 { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
-.hero-text h1 span { color: #ff3d4a; /* Brighter crimson for dark bg */ }
+.hero-text h1 span { color: #ff3d4a; }
 .hero-text p { font-size: 1.1rem; margin-bottom: 30px; max-width: 500px; opacity: 0.9; }
+.badge-legacy { background: var(--crimson); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; display: inline-block; margin-bottom: 15px; }
 
-/* Highlight Card */
+/* Highlight Card & Slideshow */
 .hero-visual { flex: 1; display: flex; justify-content: center; }
-.highlight-card {
-    background: var(--white);
-    width: 100%;
-    max-width: 480px;
-    border-radius: 24px;
-    padding: 30px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-    position: relative;
-}
-
-.highlight-label {
-    display: inline-block;
-    background: #ffebeb;
-    color: var(--crimson);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-.image-frame img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 15px;
-    margin-bottom: 20px;
-}
-
+.highlight-card { background: var(--white); width: 100%; max-width: 480px; border-radius: 24px; padding: 30px; box-shadow: 0 25px 50px rgba(0,0,0,0.2); position: relative; }
+.highlight-label { display: inline-block; background: #ffebeb; color: var(--crimson); padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 20px; }
+.image-frame img { width: 100%; height: 220px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; }
 .text-frame h3 { font-size: 1.6rem; color: var(--crimson); margin-bottom: 10px; }
 .text-frame p { color: #555; font-size: 0.95rem; line-height: 1.5; height: 60px; }
 
-.nav-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-}
-
-.nav-btns button {
-    background: none; border: 1px solid #ddd;
-    width: 40px; height: 40px; border-radius: 50%;
-    cursor: pointer; transition: 0.3s;
-}
-
+/* Footer within card */
+.nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; }
+.nav-btns button { background: none; border: 1px solid #ddd; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: 0.4s; }
 .nav-btns button:hover { background: var(--crimson); color: white; border-color: var(--crimson); }
 
 /* Buttons */
@@ -153,60 +51,20 @@
 .content-anim { transition: all 0.35s ease-out; }
 .loader-line { height: 3px; background: var(--crimson); width: 100%; margin-bottom: 15px; transition: width 0.35s; }
 
+/* NEW: MOST VIEWED SECTION STYLES */
+.most-viewed-section { padding: 80px 8%; background: var(--white); text-align: center; position: relative; z-index: 1; }
+.section-title { color: var(--dark); font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; }
+.section-subtitle { color: #777; margin-bottom: 50px; font-size: 1rem; }
+.viewed-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+.viewed-card { background: #fff; border-radius: 20px; overflow: hidden; transition: 0.3s; border: 1px solid #eee; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.viewed-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+.viewed-img { width: 100%; height: 200px; object-fit: cover; }
+.viewed-content { padding: 25px; }
+.viewed-content h4 { color: var(--crimson); font-size: 1.2rem; margin-bottom: 10px; }
+.viewed-content p { color: #666; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.4; height: 40px; overflow: hidden; }
+.stats { font-size: 0.8rem; font-weight: 700; color: #999; text-transform: uppercase; display: flex; align-items: center; gap: 5px; margin-bottom: 10px; }
+
 @media (max-width: 992px) {
     .hero-split { flex-direction: column; text-align: center; padding-top: 100px; }
     .hero-text h1 { font-size: 2.8rem; }
 }
-/* Navbar - High Contrast */
-.navbar {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 20px 0;
-    background: rgba(0,0,0,0.2);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.logo { color: var(--white); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
-
-nav ul { display: flex; list-style: none; gap: 30px; }
-
-nav ul li a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-}
-
-
-/* Enter Map Button - Solid Crimson Style */
-.btn-nav { 
-    background: var(--crimson); 
-    color: #ffffff !important; 
-    padding: 12px 24px; 
-    border-radius: 4px; 
-    text-decoration: none; 
-    font-weight: 700;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(157, 6, 16, 0.2);
-}
-
-.btn-nav:hover { 
-    background: #7a040b; /* Slightly darker crimson on hover */
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(157, 6, 16, 0.3);
-}
-
