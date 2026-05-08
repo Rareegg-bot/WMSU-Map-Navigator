@@ -62,11 +62,20 @@
                     
                     <div class="form-footer">
                         <p>Don't have an account? <a href="fillOutForm.html">Create Account</a></p>
+                        <p><a href="Landing-Page.html" class="back-link">← Back To Landing Page</a></p>
+
                     </div>
                 </form>
                 <footer class="legal-footer">Copyright © 2026 Ian Lim.</footer>
             </div>
         </div>
     </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function() {
+            // Simulate a session by setting a flag in local storage
+            localStorage.setItem('isLoggedIn', 'true');
+        });
+    </script>
 </body>
 </html>
