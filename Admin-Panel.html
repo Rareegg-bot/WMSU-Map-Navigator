@@ -22,8 +22,30 @@
             height: 300px;
         }
 
+        .notif-badge {
+            background: var(--crimson);
+            color: white;
+            font-size: 0.65rem;
+            padding: 2px 7px;
+            border-radius: 10px;
+            margin-left: 8px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
         .status-active { color: #27ae60; font-weight: bold; }
         .status-inactive { color: #e74c3c; font-weight: bold; }
+
+        /* Style for the relocate modal specifically */
+        .modal-relocate-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 25px;
+            border-radius: 12px;
+            width: 400px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
     </style>
 </head>
 <body>
@@ -36,7 +58,10 @@
                 <li><a href="#profile"><i class="fas fa-user-circle"></i> Profile</a></li>
                 <li><a href="#buildings"><i class="fas fa-building"></i> Manage Buildings</a></li>
                 <li><a href="#people"><i class="fas fa-users"></i> Manage People</a></li>
-                <li><a href="#notifications"><i class="fas fa-bell"></i> Notifications</a></li>
+                <li><a href="#notifications"><i class="fas fa-bell"></i> Notifications <span id="notif-badge" class="notif-badge">0</span></a></li> 
+                <li><a href="#deleted-items"><i class="fas fa-trash-alt"></i> Recently Deleted</a></li>
+                <li id="super-admin-login-link"><a href="Super-Admin-Login-Page.html" style="color: var(--accent-gold);"><i class="fas fa-user-shield"></i> Log in as Super Admin</a></li>
+                <li id="super-admin-section-link" style="display: none;"><a href="#system-control" style="color: var(--accent-gold);"><i class="fas fa-shield-alt"></i> System Control</a></li>
                 <li><hr style="border: 0.5px solid #333; margin: 15px 0;"></li>
                 <li><a href="Landing-Page.html"><i class="fas fa-arrow-left"></i> Back to Home</a></li>
                 <li><a href="Admin-Login-Page.html"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
@@ -98,21 +123,85 @@
             <section id="buildings" class="management-view">
                 <div class="view-header" style="display:flex; justify-content:space-between; align-items:center;">
                     <h2>Manage Buildings</h2>
-                    <button class="btn btn-add btn-trigger-building">Add Building +</button>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn btn-add btn-trigger-building">Add Building +</button>
+                        <button class="btn" id="btn-trigger-relocate" style="background: #3498db; color: white; border: none; padding: 0 15px; border-radius: 5px; cursor: pointer;"><i class="fas fa-exchange-alt"></i> Relocate</button>
+                    </div>
                     <div class="search-box"><i class="fas fa-search"></i><input type="text" id="buildingSearchInput" placeholder="Search buildings..."></div>
                 </div>
                 <div class="data-table">
                     <table>
                         <thead><tr><th>ID</th><th>Name</th><th>Location</th><th>Actions</th></tr></thead>
                         <tbody>
-                            <tr><td>B001</td><td>CCS</td><td>Campus B</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete">Delete</button></td></tr>
-                            <tr><td>B002</td><td>CLA</td><td>Campus A</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete">Delete</button></td></tr>
-                            <tr><td>B003</td><td>CAIS</td><td>Campus B</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete">Delete</button></td></tr>
-                            <tr><td>B004</td><td>GYMNASIUM</td><td>Campus A</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete">Delete</button></td></tr>
-                            <tr><td>B005</td><td>CSM</td><td>Campus B</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete">Delete</button></td></tr>
-                            <tr><td>B006</td><td>COE</td><td>Campus A</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete">Delete</button></td></tr>
+                            <tr><td>B001</td><td>CCS</td><td>Campus B</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B001', 'CCS', this)">Delete</button></td></tr>
+                            <tr><td>B002</td><td>CLA</td><td>Campus A</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B002', 'CLA', this)">Delete</button></td></tr>
+                            <tr><td>B003</td><td>CAIS</td><td>Campus B</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B003', 'CAIS', this)">Delete</button></td></tr>
+                            <tr><td>B004</td><td>GYMNASIUM</td><td>Campus A</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B004', 'GYMNASIUM', this)">Delete</button></td></tr>
+                            <tr><td>B005</td><td>CSM</td><td>Campus B</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B005', 'CSM', this)">Delete</button></td></tr>
+                            <tr><td>B006</td><td>COE</td><td>Campus A</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B006', 'COE', this)">Delete</button></td></tr>
                         </tbody>
                     </table>
+                </div>
+            </section>
+
+            <section id="system-control" class="management-view" style="display: none;">
+                <div class="view-header"><h2>System Control & Authority</h2></div>
+                
+                <div class="system-health-grid">
+                    <div class="health-widget"><i class="fas fa-server"></i><h4>Server Status</h4><p>Operational</p></div>
+                    <div class="health-widget"><i class="fas fa-database"></i><h4>Storage</h4><p>12.4 GB / 50GB</p></div>
+                    <div class="health-widget"><i class="fas fa-microchip"></i><h4>CPU Load</h4><p>14%</p></div>
+                    <div class="health-widget"><i class="fas fa-history"></i><h4>Last Backup</h4><p>04:00 AM Today</p></div>
+                </div>
+
+                <div class="data-table" style="margin-bottom: 30px;">
+                    <h3 style="margin-bottom:15px; font-family:'Montserrat'; color: var(--crimson);">Admin Account Management</h3>
+                    <table>
+                        <thead><tr><th>Admin ID</th><th>Username</th><th>Role</th><th>Access Level</th><th>Actions</th></tr></thead>
+                        <tbody>
+                            <tr><td>A-001</td><td>super_admin</td><td>Super Admin</td><td>Level 1</td><td><em>Owner</em></td></tr>
+                            <tr><td>A-002</td><td>registrar_admin</td><td>Admin</td><td>Level 2</td><td><button class="btn-table-edit" onclick="resetSpecificAccount('registrar_admin')">Reset</button> <button class="btn-table-delete">Revoke</button></td></tr>
+                            <tr><td>A-005</td><td>misto_staff</td><td>Admin</td><td>Level 2</td><td><button class="btn-table-edit" onclick="resetSpecificAccount('misto_staff')">Reset</button> <button class="btn-table-delete">Revoke</button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="data-table">
+                        <h3 style="margin-bottom:15px; font-family:'Montserrat';">System Configurations</h3>
+                        <div class="form-group"><label>Maintenance Mode</label>
+                            <button class="btn" id="maintenance-toggle" style="background: #7f8c8d; color: white;">Deactivated</button>
+                        </div>
+                        <div class="form-group" style="margin-top: 20px;">
+                            <label>Master Data Export</label>
+                            <button class="btn btn-add" style="width: 100%;"><i class="fas fa-download"></i> Download Full SQL Backup</button>
+                        </div>
+                        <div class="form-group" style="margin-top: 20px;">
+                            <label>Master Recovery Key</label>
+                            <button class="btn btn-add" style="width: 100%; background: #e67e22;" onclick="generateMasterRecoveryKey()"><i class="fas fa-key"></i> Generate Master Recovery Key</button>
+                        </div>
+                    </div>
+                    
+                    <div class="data-table">
+                        <h3 style="margin-bottom:15px; font-family:'Montserrat';">Audit Logs</h3>
+                        <div style="max-height: 200px; overflow-y: auto; background: #0b0c10; color: #00ff00; padding: 15px; font-family: 'Courier New', monospace; font-size: 0.8rem; border-radius: 8px;">
+                            [08:22:11] Admin A-002 logged in.<br>
+                            [09:45:03] Database query optimization complete.<br>
+                            [10:12:44] New building entry B001 validated by System.<br>
+                            [11:00:00] Automatic daily backup created.<br>
+                            [12:30:15] Security alert: IP 192.168.1.1 blocked after 5 attempts.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="danger-zone">
+                    <h3>The Danger Zone</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">Actions here are irreversible. Please proceed with extreme caution.</p>
+                    <div style="display: flex; gap: 15px;">
+                        <button class="btn btn-danger" onclick="confirm('Reset all analytics data?')">Clear All Traffic Data</button>
+                        <button class="btn btn-danger" onclick="resetUserAccounts()">Reset All User Accounts</button>
+                        <button class="btn btn-danger" onclick="confirm('WIPE ENTIRE DATABASE? This cannot be undone.')">Factory System Reset</button>
+                    </div>
                 </div>
             </section>
 
@@ -147,23 +236,72 @@
                     <table>
                         <thead><tr><th>User ID</th><th>Full Name</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead>
                         <tbody>
-                            <tr><td>P011</td><td>Christiaan Jala</td><td>Student</td><td><span class="status-active">Active</span></td><td><button class="btn-table-edit">Deactivate</button></td></tr>
-                            <tr><td>P012</td><td>Ian Belmonte</td><td>Visitor</td><td><span class="status-inactive">Inactive</span></td><td><button class="btn-table-edit">Reactivate</button></td></tr>
-                            <tr><td>P013</td><td>Ferdausi Mamiscal</td><td>Student</td><td><span class="status-active">Active</span></td><td><button class="btn-table-edit">Deactivate</button></td></tr>
-                            <tr><td>P014</td><td>Halipa Suaili Jr.</td><td>Visitor</td><td><span class="status-inactive">Inactive</span></td><td><button class="btn-table-edit">Reactivate</button></td></tr>
-                            <tr><td>P015</td><td>Danica Custodio</td><td>Student</td><td><span class="status-active">Active</span></td><td><button class="btn-table-edit">Deactivate</button></td></tr>
+                            <tr><td>P011</td><td>Christiaan Jala</td><td>Student</td><td><span class="status-active">Active</span></td><td><button class="btn-table-edit">Deactivate</button><button class="btn-table-delete" onclick="deleteItem('User', 'P011', 'Christiaan Jala', this)">Delete</button></td></tr>
+                            <tr><td>P012</td><td>Ian Belmonte</td><td>Visitor</td><td><span class="status-inactive">Inactive</span></td><td><button class="btn-table-edit">Reactivate</button><button class="btn-table-delete" onclick="deleteItem('User', 'P012', 'Ian Belmonte', this)">Delete</button></td></tr>
+                            <tr><td>P013</td><td>Ferdausi Mamiscal</td><td>Student</td><td><span class="status-active">Active</span></td><td><button class="btn-table-edit">Deactivate</button><button class="btn-table-delete" onclick="deleteItem('User', 'P013', 'Ferdausi Mamiscal', this)">Delete</button></td></tr>
+                            <tr><td>P014</td><td>Halipa Suaili Jr.</td><td>Visitor</td><td><span class="status-inactive">Inactive</span></td><td><button class="btn-table-edit">Reactivate</button><button class="btn-table-delete" onclick="deleteItem('User', 'P014', 'Halipa Suaili Jr.', this)">Delete</button></td></tr>
+                            <tr><td>P015</td><td>Danica Custodio</td><td>Student</td><td><span class="status-active">Active</span></td><td><button class="btn-table-edit">Deactivate</button><button class="btn-table-delete" onclick="deleteItem('User', 'P015', 'Danica Custodio', this)">Delete</button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="deleted-items" class="management-view">
+                <div class="view-header"><h2>Recently Deleted</h2></div>
+                <div class="data-table">
+                    <p style="margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem;">Records moved to trash can be restored or wiped permanently.</p>
+                    <table>
+                        <thead><tr><th>Type</th><th>Name / ID</th><th>Deleted Date</th><th>Actions</th></tr></thead>
+                        <tbody id="deleted-items-table">
+                            <tr><td colspan="4" style="text-align:center; padding:30px; color:var(--text-muted);">Trash is empty.</td></tr>
                         </tbody>
                     </table>
                 </div>
             </section>
 
             <section id="notifications" class="management-view">
-                <div class="view-header"><h2>Settings</h2></div>
-                <div class="data-table" style="padding:20px;">
-                    <h3>System Alerts</h3>
-                    <label><input type="checkbox" checked> New Registration Emails</label><br><br>
-                    <label><input type="checkbox"> Weekly Analytics Report</label><br><br>
-                    <button class="btn btn-add">Save Settings</button>
+                <div class="view-header"><h2>Notifications & Settings</h2></div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="data-table" style="padding:20px;">
+                        <h3 style="margin-bottom:15px; font-family:'Cinzel'; color: var(--crimson);">Preference Settings</h3>
+                        <div style="margin-bottom: 15px;">
+                            <label><input type="checkbox" checked> New User Registration Alerts</label>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label><input type="checkbox" checked> Weekly Traffic Analytics</label>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label><input type="checkbox"> Push Notifications (Browser)</label>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label><input type="checkbox"> Critical System Failure SMS</label>
+                        </div>
+                        
+                        <h3 style="margin: 25px 0 15px; font-family:'Cinzel'; color: var(--crimson);">Security Alerts</h3>
+                        <div style="margin-bottom: 15px;">
+                            <label><input type="checkbox" checked> Unusual Login Attempts</label>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label><input type="checkbox"> Password Change Confirmations</label>
+                        </div>
+                        <button class="btn btn-add" style="margin-top: 10px; width: 100%;" onclick="alert('Configuration Saved!')">Save Configuration</button>
+                    </div>
+
+                    <div class="data-table" style="padding:20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                            <h3 style="margin:0; font-family:'Cinzel'; color: var(--crimson);">System Log History</h3>
+                            <div>
+                                <button id="clear-logs-btn" class="btn" style="padding: 4px 10px; font-size: 0.7rem; background: #7f8c8d; color: white;">Clear All</button>
+                                <button id="undo-logs-btn" class="btn" style="padding: 4px 10px; font-size: 0.7rem; background: #34495e; color: white; display: none;">Undo Clear</button>
+                            </div>
+                        </div>
+                        <ul class="activity-list" id="main-log-list">
+                            <li class="activity-item"><i class="fas fa-check-circle" style="color: #27ae60;"></i> Database backup successful <span class="activity-time">5h ago</span></li>
+                            <li class="activity-item"><i class="fas fa-info-circle" style="color: #3498db;"></i> SSL Certificate renewed <span class="activity-time">1d ago</span></li>
+                            <li class="activity-item"><i class="fas fa-exclamation-circle" style="color: #e67e22;"></i> 3 failed login attempts detected <span class="activity-time">2d ago</span></li>
+                            <li class="activity-item"><i class="fas fa-sync"></i> Map cache cleared manually <span class="activity-time">3d ago</span></li>
+                        </ul>
+                    </div>
                 </div>
             </section>
         </main>
@@ -195,7 +333,54 @@
         </div>
     </div>
 
+    <!-- Relocate Modal -->
+    <div id="relocateModal" class="modal">
+        <div class="modal-relocate-content">
+            <span class="close-relocate" style="float:right; cursor:pointer; font-size:20px;">&times;</span>
+            <h2 style="font-family:'Cinzel'; color: var(--crimson); margin-bottom:15px;">Relocate Department</h2>
+            <div id="relocate-message" style="color: green; margin-bottom: 10px; display: none;"></div>
+            <form id="relocateForm">
+                <div class="form-group" style="margin-bottom:15px;">
+                    <label>Select Office/Dept</label>
+                    <select id="relocate-dept" style="width:100%; padding:8px;" required>
+                        <option value="CCS">CCS</option>
+                        <option value="CLA">CLA</option>
+                        <option value="COE">COE</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom:15px;">
+                    <label>Transfer to Building</label>
+                    <select id="relocate-target" style="width:100%; padding:8px;" required>
+                        <option value="COE Building">COE Building (Campus A)</option>
+                        <option value="CCS Building">CCS Building (Campus B)</option>
+                        <option value="Main Library">Main Library</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; background:#3498db; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer;">Update Location</button>
+            </form>
+        </div>
+    </div>
+
     <script>
+        // --- Role Simulation Logic ---
+        // Check URL for role parameter (e.g., Admin-Panel.html?role=super_admin)
+        const urlParams = new URLSearchParams(window.location.search);
+        let currentUserRole = urlParams.get('role') || 'admin'; // Default to 'admin' if no role specified
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            if(currentUserRole === 'super_admin') {
+                // Hide the login link and show the actual management tab
+                document.getElementById('super-admin-login-link').style.display = 'none';
+                document.getElementById('super-admin-section-link').style.display = 'block';
+                
+                // If logged in as super_admin, automatically show the System Control section
+                document.getElementById('system-control').classList.add('active-view');
+                document.getElementById('current-view-title').innerText = 'System Control & Authority';
+                document.querySelector('.sidebar ul li.active').classList.remove('active'); // Deactivate dashboard
+                console.log("Super Admin Access Granted.");
+            }
+        });
+
         // Tab switching logic
         const links = document.querySelectorAll('.sidebar ul li a');
         const views = document.querySelectorAll('.management-view, .dashboard-overview');
@@ -206,6 +391,9 @@
                 const target = this.getAttribute('href');
                 if(target.startsWith('#')) {
                     e.preventDefault();
+                    // Only switch views if it's not the super admin login link
+                    if (this.parentElement.id === 'super-admin-login-link') return; 
+
                     links.forEach(l => l.parentElement.classList.remove('active'));
                     views.forEach(v => v.classList.remove('active-view'));
                     this.parentElement.classList.add('active');
@@ -244,16 +432,38 @@
 
         closeBtn.onclick = () => modal.style.display = 'none';
 
+        // Relocate Modal Logic
+        const relocateModal = document.getElementById('relocateModal');
+        const relocateBtn = document.getElementById('btn-trigger-relocate');
+        const closeRelocate = document.querySelector('.close-relocate');
+
+        relocateBtn.onclick = () => relocateModal.style.display = 'block';
+        closeRelocate.onclick = () => relocateModal.style.display = 'none';
+
         window.onclick = (event) => {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
+            if (event.target == modal) modal.style.display = 'none';
+            if (event.target == relocateModal) relocateModal.style.display = 'none';
         };
 
         document.getElementById('addBuildingForm').onsubmit = (e) => {
             e.preventDefault();
             alert('New building added to the navigator!');
             modal.style.display = 'none';
+        };
+
+        document.getElementById('relocateForm').onsubmit = (e) => {
+            e.preventDefault();
+            const dept = document.getElementById('relocate-dept').value;
+            const target = document.getElementById('relocate-target').value;
+            addSystemLog(`Relocated ${dept} to ${target}`);
+            // Replaced blocking alert with a non-blocking UI message
+            const relocateMessage = document.getElementById('relocate-message');
+            relocateMessage.innerText = `${dept} has been successfully transferred to ${target}`;
+            relocateMessage.style.display = 'block';
+            setTimeout(() => {
+                relocateMessage.style.display = 'none';
+                relocateModal.style.display = 'none';
+            }, 2000); // Hide message and modal after 2 seconds
         };
 
         // Building Search Filter Functionality
@@ -294,6 +504,151 @@
             headerAvatar.src = profilePreview.src;
             alert('Profile updated successfully!');
         };
+
+        // Notification Badge & Real-time Log Logic
+        const notifBadge = document.getElementById('notif-badge');
+        const notifLink = document.querySelector('a[href="#notifications"]');
+        let unreadCount = 0;
+        let deletedLogsCache = [];
+        const MAX_LOG_ENTRIES = 50;
+
+        function addSystemLog(message) {
+            unreadCount++;
+            notifBadge.innerText = unreadCount;
+            notifBadge.style.display = 'inline-block';
+            
+            const logList = document.getElementById('main-log-list');
+            if (logList) {
+                const li = document.createElement('li');
+                li.className = 'activity-item';
+                li.innerHTML = `
+                    <i class="fas fa-info-circle" style="color: #3498db;"></i> 
+                    <span style="flex:1">${message}</span> 
+                    <span class="activity-time">Just now</span>
+                    <i class="fas fa-trash delete-log-item" style="margin-left:10px; color:#e74c3c; cursor:pointer; font-size:0.8rem;" title="Delete"></i>
+                `;
+                logList.prepend(li);
+
+                if (logList.children.length > MAX_LOG_ENTRIES) {
+                    logList.removeChild(logList.lastElementChild);
+                }
+            }
+        }
+
+        // Handle Individual Deletes (Event Delegation)
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('delete-log-item')) {
+                e.target.closest('.activity-item').remove();
+            }
+        });
+
+        // Clear All and Undo/Redo Logic
+        const clearBtn = document.getElementById('clear-logs-btn');
+        const undoBtn = document.getElementById('undo-logs-btn');
+        const logList = document.getElementById('main-log-list');
+
+        clearBtn.onclick = () => {
+            deletedLogsCache = Array.from(logList.children);
+            if (deletedLogsCache.length === 0) return;
+            logList.innerHTML = '';
+            undoBtn.style.display = 'inline-block';
+            setTimeout(() => { undoBtn.style.display = 'none'; }, 10000); // Hide undo after 10s
+        };
+
+        undoBtn.onclick = () => {
+            deletedLogsCache.forEach(item => logList.appendChild(item));
+            undoBtn.style.display = 'none';
+            deletedLogsCache = [];
+        };
+
+        notifLink.addEventListener('click', () => {
+            unreadCount = 0;
+            notifBadge.style.display = 'none';
+        });
+
+        function resetUserAccounts() {
+            if (confirm('CRITICAL ACTION: This will delete all registered student and visitor accounts. Continue?')) {
+                addSystemLog("SYSTEM: User database wiped by Super Admin.");
+                alert('All user accounts have been reset successfully.');
+            }
+        }
+
+        function resetSpecificAccount(name) {
+            if (confirm(`Reset credentials for admin account: ${name}?`)) {
+                addSystemLog(`Admin action: Account reset for ${name}`);
+                alert(`Account for ${name} has been reset to default credentials.`);
+            }
+        }
+
+        function generateMasterRecoveryKey() {
+            const recoveryKey = 'WMSU-NAV-RECOVERY-' + Math.random().toString(36).substring(2, 15).toUpperCase();
+            alert(`Master Recovery Key Generated:\n\n${recoveryKey}\n\nStore this key securely. It can be used for emergency system access.`);
+            addSystemLog("SYSTEM: Master Recovery Key generated by Super Admin.");
+        }
+
+        // --- Recently Deleted Logic ---
+        let deletedItemsStore = [];
+
+        function deleteItem(type, id, name, element) {
+            if (confirm(`Move ${type} "${name}" to Recently Deleted?`)) {
+                const row = element.closest('tr');
+                deletedItemsStore.push({
+                    type, id, name, 
+                    dateDeleted: new Date().toLocaleDateString()
+                });
+                row.remove();
+                renderDeletedItems();
+                addSystemLog(`Deleted ${type}: ${name}`);
+            }
+        }
+
+        function renderDeletedItems() {
+            const tbody = document.getElementById('deleted-items-table');
+            if (deletedItemsStore.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:30px; color:var(--text-muted);">Trash is empty.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = deletedItemsStore.map((item, index) => `
+                <tr>
+                    <td><span class="status-badge" style="background:#f4f4f4; color:#666;">${item.type}</span></td>
+                    <td>${item.name} (${item.id})</td>
+                    <td>${item.dateDeleted}</td>
+                    <td>
+                        <button class="btn-table-edit" onclick="restoreDeletedItem(${index})">Restore</button>
+                        <button class="btn-table-delete" onclick="permanentlyWipeItem(${index})">Wipe</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function restoreDeletedItem(index) {
+            const item = deletedItemsStore[index];
+            deletedItemsStore.splice(index, 1);
+            renderDeletedItems();
+            addSystemLog(`Restored ${item.type}: ${item.name}`);
+            alert(`${item.name} has been restored to its section.`);
+        }
+
+        function permanentlyWipeItem(index) {
+            if (confirm("Permanently wipe this record? This cannot be undone.")) {
+                deletedItemsStore.splice(index, 1);
+                renderDeletedItems();
+            }
+        }
+
+        setTimeout(() => addSystemLog("Security patch applied to map server"), 5000);
+    </script>
+</body>
+</html>
+        function generateMasterRecoveryKey() {
+            const recoveryKey = 'WMSU-NAV-RECOVERY-' + Math.random().toString(36).substring(2, 15).toUpperCase();
+            alert(`Master Recovery Key Generated:\n\n${recoveryKey}\n\nStore this key securely. It can be used for emergency system access.`);
+            addSystemLog("SYSTEM: Master Recovery Key generated by Super Admin.");
+        }
+
+
+        setTimeout(() => addSystemLog("Security patch applied to map server"), 5000);
     </script>
 </body>
 </html>
