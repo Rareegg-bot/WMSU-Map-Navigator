@@ -17,7 +17,7 @@ html { scroll-behavior: smooth; }
 
 /* Navbar - High Contrast */
 .navbar {
-    position: absolute;
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -46,10 +46,14 @@ nav ul li a {
     text-transform: uppercase;
 }
 
+.active {
+    color: crimson;
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: url('CTE.png') no-repeat center center/cover;
+    background: url('../images/CTE.png') no-repeat center center/cover;
     display: flex;
     align-items: center;
     padding: 0 10%;
@@ -138,7 +142,7 @@ nav ul li a {
 .card .icon { font-size: 3rem; margin-bottom: 20px; }
 
 /* About Section Split */
-.about-split { padding: 100px 10%; background: var(--white); }
+.about-split { padding: 100px 10%; background: var(--gray); }
 
 .sub-label { color: var(--crimson); font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 10px; }
 
@@ -147,3 +151,64 @@ nav ul li a {
 .about-text span { color: var(--crimson); }
 
 footer { background: #111; color: #777; padding: 40px; text-align: center; }
+
+/* How-to-Use Section */
+.how-to-use {
+    background: var(--white);
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.how-to-use .section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+}
+
+.steps-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.step {
+    background: var(--gray);
+    padding: 40px 25px;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+    border-bottom: 4px solid transparent;
+}
+
+.step:hover {
+    transform: translateY(-10px);
+    border-bottom: 4px solid var(--crimson);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.step-number {
+    background: var(--crimson);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.step p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
