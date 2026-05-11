@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMSU Map Admin Panel</title>
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="../assets/css/Admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -132,13 +132,13 @@
                 <div class="data-table">
                     <table>
                         <thead><tr><th>ID</th><th>Name</th><th>Location</th><th>Actions</th></tr></thead>
-                        <tbody>
-                            <tr><td>B001</td><td>CCS</td><td>Campus B</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B001', 'CCS', this)">Delete</button></td></tr>
-                            <tr><td>B002</td><td>CLA</td><td>Campus A</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B002', 'CLA', this)">Delete</button></td></tr>
-                            <tr><td>B003</td><td>CAIS</td><td>Campus B</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B003', 'CAIS', this)">Delete</button></td></tr>
-                            <tr><td>B004</td><td>GYMNASIUM</td><td>Campus A</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B004', 'GYMNASIUM', this)">Delete</button></td></tr>
-                            <tr><td>B005</td><td>CSM</td><td>Campus B</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B005', 'CSM', this)">Delete</button></td></tr>
-                            <tr><td>B006</td><td>COE</td><td>Campus A</td><td><button class="btn-table-edit">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B006', 'COE', this)">Delete</button></td></tr>
+                        <tbody id="buildings-tbody">
+                            <tr><td>B001</td><td>CCS</td><td>Campus B</td><td><button class="btn-table-edit" onclick="editBuilding(this)">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B001', 'CCS', this)">Delete</button></td></tr>
+                            <tr><td>B002</td><td>CLA</td><td>Campus A</td><td><button class="btn-table-edit" onclick="editBuilding(this)">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B002', 'CLA', this)">Delete</button></td></tr>
+                            <tr><td>B003</td><td>CAIS</td><td>Campus B</td><td><button class="btn-table-edit" onclick="editBuilding(this)">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B003', 'CAIS', this)">Delete</button></td></tr>
+                            <tr><td>B004</td><td>GYMNASIUM</td><td>Campus A</td><td><button class="btn-table-edit" onclick="editBuilding(this)">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B004', 'GYMNASIUM', this)">Delete</button></td></tr>
+                            <tr><td>B005</td><td>CSM</td><td>Campus B</td><td><button class="btn-table-edit" onclick="editBuilding(this)">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B005', 'CSM', this)">Delete</button></td></tr>
+                            <tr><td>B006</td><td>COE</td><td>Campus A</td><td><button class="btn-table-edit" onclick="editBuilding(this)">Edit</button><button class="btn-table-delete" onclick="deleteItem('Building', 'B006', 'COE', this)">Delete</button></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -160,8 +160,8 @@
                         <thead><tr><th>Admin ID</th><th>Username</th><th>Role</th><th>Access Level</th><th>Actions</th></tr></thead>
                         <tbody>
                             <tr><td>A-001</td><td>super_admin</td><td>Super Admin</td><td>Level 1</td><td><em>Owner</em></td></tr>
-                            <tr><td>A-002</td><td>registrar_admin</td><td>Admin</td><td>Level 2</td><td><button class="btn-table-edit" onclick="resetSpecificAccount('registrar_admin')">Reset</button> <button class="btn-table-delete">Revoke</button></td></tr>
-                            <tr><td>A-005</td><td>misto_staff</td><td>Admin</td><td>Level 2</td><td><button class="btn-table-edit" onclick="resetSpecificAccount('misto_staff')">Reset</button> <button class="btn-table-delete">Revoke</button></td></tr>
+                            <tr><td>A-002</td><td>registrar_admin</td><td>Admin</td><td>Level 2</td><td><button class="btn-table-edit" onclick="resetSpecificAccount('registrar_admin')">Reset</button> <button class="btn-table-delete" onclick="revokeAdmin(this, 'registrar_admin')">Revoke</button></td></tr>
+                            <tr><td>A-005</td><td>misto_staff</td><td>Admin</td><td>Level 2</td><td><button class="btn-table-edit" onclick="resetSpecificAccount('misto_staff')">Reset</button> <button class="btn-table-delete" onclick="revokeAdmin(this, 'misto_staff')">Revoke</button></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -236,11 +236,11 @@
                     <table>
                         <thead><tr><th>User ID</th><th>Full Name</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead>
                         <tbody>
-                            <tr><td>P011</td><td>Christiaan Jala</td><td>Student</td><td><span class="status-active">Active</span></td><td><button class="btn-table-edit">Deactivate</button><button class="btn-table-delete" onclick="deleteItem('User', 'P011', 'Christiaan Jala', this)">Delete</button></td></tr>
-                            <tr><td>P012</td><td>Ian Belmonte</td><td>Visitor</td><td><span class="status-inactive">Inactive</span></td><td><button class="btn-table-edit">Reactivate</button><button class="btn-table-delete" onclick="deleteItem('User', 'P012', 'Ian Belmonte', this)">Delete</button></td></tr>
-                            <tr><td>P013</td><td>Ferdausi Mamiscal</td><td>Student</td><td><span class="status-active">Active</span></td><td><button class="btn-table-edit">Deactivate</button><button class="btn-table-delete" onclick="deleteItem('User', 'P013', 'Ferdausi Mamiscal', this)">Delete</button></td></tr>
-                            <tr><td>P014</td><td>Halipa Suaili Jr.</td><td>Visitor</td><td><span class="status-inactive">Inactive</span></td><td><button class="btn-table-edit">Reactivate</button><button class="btn-table-delete" onclick="deleteItem('User', 'P014', 'Halipa Suaili Jr.', this)">Delete</button></td></tr>
-                            <tr><td>P015</td><td>Danica Custodio</td><td>Student</td><td><span class="status-active">Active</span></td><td><button class="btn-table-edit">Deactivate</button><button class="btn-table-delete" onclick="deleteItem('User', 'P015', 'Danica Custodio', this)">Delete</button></td></tr>
+                            <tr><td>P011</td><td>Christiaan Jala</td><td>Student</td><td><span class="status-active">Active</span></td><td><button class="btn-table-edit" onclick="toggleUserStatus(this)">Deactivate</button><button class="btn-table-delete" onclick="deleteItem('User', 'P011', 'Christiaan Jala', this)">Delete</button></td></tr>
+                            <tr><td>P012</td><td>Ian Belmonte</td><td>Visitor</td><td><span class="status-inactive">Inactive</span></td><td><button class="btn-table-edit" onclick="toggleUserStatus(this)">Reactivate</button><button class="btn-table-delete" onclick="deleteItem('User', 'P012', 'Ian Belmonte', this)">Delete</button></td></tr>
+                            <tr><td>P013</td><td>Ferdausi Mamiscal</td><td>Student</td><td><span class="status-active">Active</span></td><td><button class="btn-table-edit" onclick="toggleUserStatus(this)">Deactivate</button><button class="btn-table-delete" onclick="deleteItem('User', 'P013', 'Ferdausi Mamiscal', this)">Delete</button></td></tr>
+                            <tr><td>P014</td><td>Halipa Suaili Jr.</td><td>Visitor</td><td><span class="status-inactive">Inactive</span></td><td><button class="btn-table-edit" onclick="toggleUserStatus(this)">Reactivate</button><button class="btn-table-delete" onclick="deleteItem('User', 'P014', 'Halipa Suaili Jr.', this)">Delete</button></td></tr>
+                            <tr><td>P015</td><td>Danica Custodio</td><td>Student</td><td><span class="status-active">Active</span></td><td><button class="btn-table-edit" onclick="toggleUserStatus(this)">Deactivate</button><button class="btn-table-delete" onclick="deleteItem('User', 'P015', 'Danica Custodio', this)">Delete</button></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -311,19 +311,19 @@
     <div id="addBuildingModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h2>Add New Building</h2>
+            <h2 id="building-modal-title">Add New Building</h2>
             <form id="addBuildingForm">
                 <div class="form-group">
                     <label>Building ID</label>
-                    <input type="text" placeholder="e.g. B007" required>
+                    <input type="text" id="modal-building-id" placeholder="e.g. B007" required>
                 </div>
                 <div class="form-group">
                     <label>Building Name</label>
-                    <input type="text" placeholder="e.g. Science Lab" required>
+                    <input type="text" id="modal-building-name" placeholder="e.g. Science Lab" required>
                 </div>
                 <div class="form-group">
                     <label>Campus Location</label>
-                    <select required>
+                    <select id="modal-building-campus" required>
                         <option value="Campus A">Campus A</option>
                         <option value="Campus B">Campus B</option>
                     </select>
@@ -425,12 +425,85 @@
         const modal = document.getElementById('addBuildingModal');
         const addBtns = document.querySelectorAll('.btn-trigger-building');
         const closeBtn = document.querySelector('.close-modal');
+        let editingBuildingRow = null;
 
         addBtns.forEach(btn => {
-            btn.onclick = () => modal.style.display = 'block';
+            btn.onclick = () => {
+                editingBuildingRow = null;
+                document.getElementById('building-modal-title').innerText = "Add New Building";
+                document.getElementById('addBuildingForm').reset();
+                modal.style.display = 'block';
+            };
         });
 
         closeBtn.onclick = () => modal.style.display = 'none';
+
+        function editBuilding(btn) {
+            editingBuildingRow = btn.closest('tr');
+            const id = editingBuildingRow.cells[0].innerText;
+            const name = editingBuildingRow.cells[1].innerText;
+            const campus = editingBuildingRow.cells[2].innerText;
+
+            document.getElementById('building-modal-title').innerText = "Edit Building";
+            document.getElementById('modal-building-id').value = id;
+            document.getElementById('modal-building-name').value = name;
+            document.getElementById('modal-building-campus').value = campus;
+            modal.style.display = 'block';
+        }
+
+        document.getElementById('addBuildingForm').onsubmit = (e) => {
+            e.preventDefault();
+            const id = document.getElementById('modal-building-id').value;
+            const name = document.getElementById('modal-building-name').value;
+            const campus = document.getElementById('modal-building-campus').value;
+
+            if (editingBuildingRow) {
+                editingBuildingRow.cells[0].innerText = id;
+                editingBuildingRow.cells[1].innerText = name;
+                editingBuildingRow.cells[2].innerText = campus;
+                addSystemLog(`Updated building: ${name}`);
+            } else {
+                const tbody = document.getElementById('buildings-tbody');
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                    <td>${id}</td>
+                    <td>${name}</td>
+                    <td>${campus}</td>
+                    <td>
+                        <button class="btn-table-edit" onclick="editBuilding(this)">Edit</button>
+                        <button class="btn-table-delete" onclick="deleteItem('Building', '${id}', '${name}', this)">Delete</button>
+                    </td>
+                `;
+                tbody.appendChild(newRow);
+                addSystemLog(`Added new building: ${name}`);
+            }
+            modal.style.display = 'none';
+        };
+
+        // Manage People: Toggle Status
+        function toggleUserStatus(btn) {
+            const row = btn.closest('tr');
+            const statusSpan = row.querySelector('td:nth-child(4) span');
+            if (statusSpan.classList.contains('status-active')) {
+                statusSpan.className = 'status-inactive';
+                statusSpan.innerText = 'Inactive';
+                btn.innerText = 'Reactivate';
+                addSystemLog(`Deactivated user: ${row.cells[1].innerText}`);
+            } else {
+                statusSpan.className = 'status-active';
+                statusSpan.innerText = 'Active';
+                btn.innerText = 'Deactivate';
+                addSystemLog(`Reactivated user: ${row.cells[1].innerText}`);
+            }
+        }
+
+        // System Control: Revoke Admin
+        function revokeAdmin(btn, name) {
+            if (confirm(`Are you sure you want to revoke access for ${name}?`)) {
+                btn.closest('tr').remove();
+                addSystemLog(`Admin Access Revoked: ${name}`);
+            }
+        }
 
         // Relocate Modal Logic
         const relocateModal = document.getElementById('relocateModal');
@@ -443,12 +516,6 @@
         window.onclick = (event) => {
             if (event.target == modal) modal.style.display = 'none';
             if (event.target == relocateModal) relocateModal.style.display = 'none';
-        };
-
-        document.getElementById('addBuildingForm').onsubmit = (e) => {
-            e.preventDefault();
-            alert('New building added to the navigator!');
-            modal.style.display = 'none';
         };
 
         document.getElementById('relocateForm').onsubmit = (e) => {
@@ -586,6 +653,14 @@
             addSystemLog("SYSTEM: Master Recovery Key generated by Super Admin.");
         }
 
+        // Maintenance Toggle
+        document.getElementById('maintenance-toggle').onclick = function() {
+            const isActive = this.innerText === 'Activated';
+            this.innerText = isActive ? 'Deactivated' : 'Activated';
+            this.style.background = isActive ? '#7f8c8d' : '#27ae60';
+            addSystemLog(`Maintenance Mode ${isActive ? 'Disabled' : 'Enabled'}`);
+        };
+
         // --- Recently Deleted Logic ---
         let deletedItemsStore = [];
 
@@ -638,9 +713,8 @@
         }
 
         setTimeout(() => addSystemLog("Security patch applied to map server"), 5000);
-    </script>
-</body>
-</html>
+ 
+
         function generateMasterRecoveryKey() {
             const recoveryKey = 'WMSU-NAV-RECOVERY-' + Math.random().toString(36).substring(2, 15).toUpperCase();
             alert(`Master Recovery Key Generated:\n\n${recoveryKey}\n\nStore this key securely. It can be used for emergency system access.`);
