@@ -1,751 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WMSU Navigator | Campus Guide</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="WMSU-Map-Navigator.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WMSU Navigator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/WMSU-Map-Navigator.css">
 </head>
+
 <body>
 
-    <header class="navbar">
-        <div class="nav-container">
-            <div class="logo" onclick="showStage(1)">WMSU <span>Navigator</span></div>
-            <nav>
-                <ul>
-                    <li><a href="Landing-Page.html" id="nav-home">Home</a></li>
-                    <li><a href="Preview.html" id="nav-preview">Preview</a></li>
-                    <li><a href="#" id="nav-map" onclick="showStage(3)">Map</a></li>
-                    <li><a href="Contacts.html">Contact</a></li>
-                    <li><a href="Admin-Login-Page.html">Admin</a></li>
-                </ul>
-            </nav>
-            <button class="nav-btn" onclick="showStage(3)">Explore Campus</button>
-        </div>
-    </header>
-
-    <!-- STAGE 1: Campus Selection -->
-    <section id="stage-1" class="stage active">
-        <div class="hero-simple">
-            <div style="max-width: 600px; margin: 0 auto; text-align: left;">
-                <a href="Landing-Page.html" class="back-btn" style="text-decoration:none;">
-                    <i class="fa-solid fa-arrow-left"></i> Exit Navigator
-                </a>
-            </div>
-            <span class="hero-tag">Smart Campus Navigation</span>
-            <h1>Navigate WMSU <span>Smarter</span></h1>
-        </div>
-        <div class="global-search">
-            <input type="text" placeholder="Search any building (e.g. Library, CTE, Gymnasium)..." id="global-search-input" autocomplete="off" oninput="handleGlobalInput()" onkeydown="if(event.key==='Enter') globalSearch()">
-            <i class="fa-solid fa-xmark clear-btn" id="clear-global" style="display:none;" onclick="clearSearch('global-search-input','clear-global')"></i>
-            <button onclick="globalSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <div id="global-results" class="search-results-dropdown"></div>
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo" onclick="showStage(1)">
+            WMSU <span>Navigator</span>
         </div>
 
-        <div class="campus-grid">
-            <div class="campus-card" onclick="selectCampus('Campus A')">
-                <img src="A.png" alt="Campus A" onerror="this.style.background='linear-gradient(135deg,#9d0610,#74040b)';this.style.display='block'">
-                <div class="campus-overlay">
-                    <h2>Campus A</h2>
-                    <p style="font-size:0.85rem;opacity:0.8;margin-top:5px;">Main Campus · 20+ Buildings</p>
-                </div>
-            </div>
-            <div class="campus-card" onclick="selectCampus('Campus B')">
-                <img src="B.png" alt="Campus B" onerror="this.style.background='linear-gradient(135deg,#1e293b,#334155)';this.style.display='block'">
-                <div class="campus-overlay">
-                    <h2>Campus B</h2>
-                    <p style="font-size:0.85rem;opacity:0.8;margin-top:5px;">Technology Campus</p>
-                </div>
+        <nav>
+            <ul>
+                <li><button onclick="showStage(1)">Home</button></li>
+                <li><a href="../html/Preview.html">Preview</a></li>
+                <li><button onclick="showStage(2)">Map</button></li>
+                <li><a href="../html/Landing-Page.html">Logout</a></li>
+            </ul>
+        </nav>
+
+        <button class="nav-btn" onclick="showStage(2)">
+            Explore Campus
+        </button>
+    </div>
+</header>
+
+<!-- STAGE 1 -->
+<section id="stage-1" class="stage active">
+
+    <div class="hero-simple">
+        <span class="hero-tag">Smart Campus Navigation</span>
+        <h1>Navigate WMSU <span>Smarter</span></h1>
+    </div>
+
+    <div class="home-intro">
+        <p>Choose your destination to begin. Explore <strong>Campus A</strong> or <strong>Campus B</strong> to access interactive maps and building directories.</p>
+    </div>
+
+    <div class="campus-grid">
+
+        <div class="campus-card" onclick="selectCampus('Campus A')">
+            <img src="../assets/images/A.png">
+            <div class="campus-overlay">
+                <h2>Campus A</h2>
+                <p>Main Campus</p>
             </div>
         </div>
 
-        <div class="direct-map-link">
-            <button class="secondary-btn" onclick="showStage(3)">
-                <i class="fa-solid fa-map-location-dot"></i> Show Map with Direction
+        <div class="campus-card" onclick="selectCampus('Campus B')">
+            <img src="../assets/images/B.png">
+            <div class="campus-overlay">
+                <h2>Campus B</h2>
+                <p>Technology Campus</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STAGE 2 -->
+<section id="stage-2" class="stage">
+
+    <main class="app-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <button class="back-btn" onclick="showStage(1)">
+                <i class="fa-solid fa-arrow-left"></i>
+                Change Campus
             </button>
-        </div>
-    </section>
 
-    <!-- STAGE 2: Directory -->
-    <section id="stage-2" class="stage">
-        <main class="app-layout">
-            <aside class="sidebar">
-                <button class="back-btn" onclick="showStage(1)">
-                    <i class="fa-solid fa-arrow-left"></i> Change Campus
-                </button>
-                <div class="dir-header">
-                    <h2 id="selected-campus-title">Campus Directory</h2>
-                    <span class="count-badge" id="building-count">0</span>
-                </div>
+            <h2 id="selected-campus-title">Campus Directory</h2>
 
-                <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="dir-search" placeholder="Search building..." oninput="handleDirInput()" onkeydown="if(event.key==='Enter') filterDirectory()">
-                    <i class="fa-solid fa-circle-xmark clear-btn" id="clear-dir" style="display:none;" onclick="clearSearch('dir-search','clear-dir')"></i>
-                </div>
-
-                <div class="filter-group">
-                    <label>Building Type</label>
-                    <select id="type-filter" onchange="filterDirectory()">
-                        <option value="All">All Types</option>
-                        <option value="Academic">Academic Buildings</option>
-                        <option value="Facility">Campus Facilities</option>
-                        <option value="Gate">Gates</option>
-                        <option value="Service">Administrative / Service</option>
-                    </select>
-                </div>
-
-                <div class="legend">
-                    <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div> Academic</div>
-                    <div class="legend-item"><div class="legend-dot" style="background:#10b981"></div> Facility</div>
-                    <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div> Gate</div>
-                    <div class="legend-item"><div class="legend-dot" style="background:#8b5cf6"></div> Service</div>
-                </div>
-
-                <div id="directory-list" class="scroll-list"></div>
-            </aside>
-
-            <section class="preview-area">
-                <div class="static-map-box" style="position:relative;">
-                    <div id="map-container" style="position:relative;display:inline-block;width:100%;">
-                        <img id="campus-map-img" src="Map1.png" alt="Campus Layout" usemap="#campus-map"
-                             style="width:100%;display:block;border-radius:var(--radius);"
-                             onerror="this.parentElement.parentElement.innerHTML='<div class=\'map-placeholder\'><i class=\'fa-solid fa-map\'></i><span>Campus Map</span></div>'">
-                        <map name="campus-map" id="campus-map">
-                            <area data-id="cla"       alt="College of Liberal Arts"                          title="College of Liberal Arts"                          href="#" shape="circle" coords="378,229,22">
-                            <area data-id="carpentry" alt="Carpentry Shop"                                   title="Carpentry Shop"                                   href="#" shape="circle" coords="224,414,18">
-                            <area data-id="gymnasium" alt="Gymnasium"                                        title="Gymnasium"                                        href="#" shape="circle" coords="301,403,22">
-                            <area data-id="auditorium" alt="Gazebo / Auditorium Area"                        title="Gazebo / Auditorium Area"                         href="#" shape="circle" coords="375,452,18">
-                            <area data-id="admin"     alt="Administration Building"                          title="Administration Building"                          href="#" shape="circle" coords="446,434,22">
-                            <area data-id="upres"     alt="UPRESS"                                           title="UPRESS"                                           href="#" shape="circle" coords="653,280,18">
-                            <area data-id="coveredcourt" alt="Covered Court"                                 title="Covered Court"                                    href="#" shape="circle" coords="564,162,18">
-                            <area data-id="elem"      alt="Elementary - ILS Building"                        title="Elementary - ILS Building"                        href="#" shape="circle" coords="614,111,18">
-                            <area data-id="claw"      alt="College of Law"                                   title="College of Law"                                   href="#" shape="circle" coords="476,242,20">
-                            <area data-id="cpads"     alt="College of Public Administration"                 title="College of Public Administration"                 href="#" shape="circle" coords="477,290,18">
-                            <area data-id="misto"     alt="MISTO"                                            title="MISTO"                                            href="#" shape="circle" coords="438,507,16">
-                        </map>
-                        <!-- SVG overlay for animated hotspot rings -->
-                        <svg id="map-hotspot-svg" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;" preserveAspectRatio="none" viewBox="0 0 960 600">
-                            <!-- hotspots injected by JS -->
-                        </svg>
-                        <!-- Tooltip -->
-                        <div id="map-tooltip" style="
-                            position:absolute;display:none;background:var(--primary);color:white;
-                            padding:6px 14px;border-radius:50px;font-size:0.78rem;font-weight:700;
-                            pointer-events:none;white-space:nowrap;z-index:50;
-                            box-shadow:0 4px 15px rgba(157,6,16,0.4);transform:translate(-50%,-130%);
-                        "></div>
-                    </div>
-                </div>
-                <div id="building-detail-card" class="detail-card hidden">
-                    <div class="detail-img-wrap" id="detail-img-wrap">
-                        <i class="fa-solid fa-building" id="detail-icon"></i>
-                    </div>
-                    <div class="detail-info">
-                        <span class="panel-badge" id="detail-badge">Academic</span>
-                        <h3 id="detail-name">Building Name</h3>
-                        <p id="detail-desc">Description goes here.</p>
-                        <div class="detail-meta" id="detail-meta"></div>
-                        <button class="primary-btn" onclick="showStage(3)">
-                            <i class="fa-solid fa-route"></i> Show Path on Map
-                        </button>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </section>
-
-    <!-- STAGE 3: Full Map -->
-    <section id="stage-3" class="stage">
-        <div class="map-interface">
-            <div class="map-sidebar">
-                <button class="back-btn" onclick="showStage(2)">
-                    <i class="fa-solid fa-arrow-left"></i> Back to List
-                </button>
-                <h3 style="margin-bottom:10px;">Mappedin Navigator</h3>
-                <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="map-search" placeholder="Find on map..." oninput="handleMapInput()" onkeydown="if(event.key==='Enter') renderMapList()">
-                    <i class="fa-solid fa-circle-xmark clear-btn" id="clear-map" style="display:none;" onclick="clearSearch('map-search','clear-map')"></i>
-                </div>
-                <div id="map-list" class="scroll-list"></div>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="directory-search" placeholder="Search building...">
             </div>
-            <div class="map-viewer-full">
-                <iframe id="main-map-iframe" src="https://app.mappedin.com/map/69f69fcd441acd000b7c2d23" allowfullscreen></iframe>
+
+            <div id="directory-list" class="scroll-list"></div>
+
+        </aside>
+
+        <!-- PREVIEW -->
+        <section class="preview-area" id="map-nav">
+
+            <!-- IFRAME MAP -->
+            <div class="static-map-box">
+
+                <iframe
+                    id="main-map-iframe"
+                    src="https://app.mappedin.com/map/69f69fcd441acd000b7c2d23"
+                    allowfullscreen>
+                </iframe>
+
             </div>
-        </div>
-    </section>
 
-    <script>
-        const buildings = {
-            // ─── CAMPUS A ───
-            cte: {
-                title: "College of Teacher Education",
-                shortName: "CTE",
-                desc: "The College of Teacher Education is the center of excellence in pre-service and in-service teacher training programs, nurturing future educators across all levels.",
-                img: "CTE.png",
-                campus: "Campus A",
-                type: "Academic",
-                location: "Central Campus A",
-                icon: "fa-chalkboard-teacher"
-            },
-            coe: {
-                title: "College of Engineering",
-                shortName: "COE",
-                desc: "Offering engineering disciplines including Civil, Mechanical, Electrical, and Chemical Engineering, driving innovation and infrastructure development.",
-                img: "coe.png",
-                campus: "Campus A",
-                type: "Academic",
-                location: "Northwest Area, Campus A",
-                icon: "fa-gear"
-            },
-            coe2: {
-                title: "College of Engineering Annex",
-                shortName: "COE Annex",
-                desc: "Extension facility of the College of Engineering, providing additional laboratory spaces and classrooms for engineering students.",
-                img: "coe.png",
-                campus: "Campus A",
-                type: "Academic",
-                location: "Northwest Area, Campus A",
-                icon: "fa-gear"
-            },
-            cla: {
-                title: "College of Liberal Arts",
-                shortName: "CLA",
-                desc: "The College of Liberal Arts offers programs in Social Sciences, Humanities, Communication, and Political Science, fostering critical thinking and cultural awareness.",
-                img: "cla.png",
-                campus: "Campus A",
-                type: "Academic",
-                location: "West Side, Campus A",
-                icon: "fa-book-open"
-            },
-            claw: {
-                title: "College of Law",
-                shortName: "College of Law",
-                desc: "The College of Law provides rigorous legal education, producing competent lawyers and legal professionals committed to justice and public service.",
-                img: "law.png",
-                campus: "Campus A",
-                type: "Academic",
-                location: "West Area, Campus A",
-                icon: "fa-scale-balanced"
-            },
-            cpads: {
-                title: "College of Public Administration and Development Studies",
-                shortName: "CPADS",
-                desc: "CPADS prepares students for careers in public administration and governance, emphasizing public service, policy development, and community leadership.",
-                img: "cpads.png",
-                campus: "Campus A",
-                type: "Academic",
-                location: "Central Campus A",
-                icon: "fa-landmark"
-            },
-            elem: {
-                title: "Elementary School & Principal's Office",
-                shortName: "Elementary / Principal",
-                desc: "The Laboratory Elementary School serves as a training ground for student teachers under CTE, supervised by the School Principal's Office.",
-                img: "elem.png",
-                campus: "Campus A",
-                type: "Academic",
-                location: "North Area, Campus A",
-                icon: "fa-school"
-            },
-            research: {
-                title: "Research Building",
-                shortName: "Research Building",
-                desc: "Central facility for university research activities, housing research centers, laboratories, and offices for faculty and student researchers across disciplines.",
-                img: "research.png",
-                campus: "Campus A",
-                type: "Academic",
-                location: "Central Campus A",
-                icon: "fa-flask"
-            },
-            // Facilities
-            library: {
-                title: "University Library",
-                shortName: "Library",
-                desc: "The main university library housing thousands of volumes, journals, digital resources, and study areas serving the entire WMSU community.",
-                img: "library.png",
-                campus: "Campus A",
-                type: "Facility",
-                location: "South-Central, Campus A",
-                icon: "fa-book"
-            },
-            gymnasium: {
-                title: "Gymnasium",
-                shortName: "Gymnasium",
-                desc: "The university gymnasium serves as the venue for sports events, physical education classes, convocations, and large-scale university gatherings.",
-                img: "gymnasium.png",
-                campus: "Campus A",
-                type: "Facility",
-                location: "South Area, Campus A",
-                icon: "fa-person-running"
-            },
-            coveredcourt: {
-                title: "Covered Court",
-                shortName: "Covered Court",
-                desc: "A multi-purpose covered sports court used for basketball, volleyball, and other athletic activities and campus events.",
-                img: "coveredcourt.png",
-                campus: "Campus A",
-                type: "Facility",
-                location: "East Side, Campus A",
-                icon: "fa-basketball"
-            },
-            auditorium: {
-                title: "University Auditorium",
-                shortName: "Auditorium",
-                desc: "The main auditorium serves as the primary venue for major university events, commencement ceremonies, cultural shows, and large assemblies.",
-                img: "auditorium.png",
-                campus: "Campus A",
-                type: "Facility",
-                location: "Central Campus A",
-                icon: "fa-microphone"
-            },
-            canteen: {
-                title: "University Canteen",
-                shortName: "Canteen",
-                desc: "The main food facility on Campus A, offering affordable meals and snacks for students, faculty, and staff throughout the day.",
-                img: "canteen.png",
-                campus: "Campus A",
-                type: "Facility",
-                location: "East-Central, Campus A",
-                icon: "fa-utensils"
-            },
-            // Administrative / Service
-            admin: {
-                title: "Administration Building",
-                shortName: "Admin Building",
-                desc: "The central administrative hub of WMSU, housing the Office of the President, VP offices, registrar, finance, and other key administrative units.",
-                img: "admin.png",
-                campus: "Campus A",
-                type: "Service",
-                location: "Southeast, Campus A",
-                icon: "fa-building-columns"
-            },
-            misto: {
-                title: "MISTO",
-                shortName: "MISTO",
-                desc: "The Management Information Systems and Technology Office (MISTO) handles the university's ICT infrastructure, systems, and technology services.",
-                img: "misto.png",
-                campus: "Campus A",
-                type: "Service",
-                location: "South Area, Campus A",
-                icon: "fa-server"
-            },
-            upres: {
-                title: "UPRESS",
-                shortName: "UPRESS",
-                desc: "The University Press office handles official publications, printing services, and academic journals for the WMSU community.",
-                img: "upress.png",
-                campus: "Campus A",
-                type: "Service",
-                location: "East Side, Campus A",
-                icon: "fa-print"
-            },
-            landbank: {
-                title: "Landbank",
-                shortName: "Landbank",
-                desc: "An on-campus branch of Landbank of the Philippines, providing banking services including payroll, student fees payment, and financial transactions.",
-                img: "landbank.png",
-                campus: "Campus A",
-                type: "Service",
-                location: "North-East, Campus A",
-                icon: "fa-building-columns"
-            },
-            storage: {
-                title: "Storage Building for Different Offices",
-                shortName: "Storage Building",
-                desc: "Centralized storage facility serving various university offices for records management, equipment, and supply storage.",
-                img: "storage.png",
-                campus: "Campus A",
-                type: "Service",
-                location: "West Side, Campus A",
-                icon: "fa-boxes-stacked"
-            },
-            property: {
-                title: "Property Management Office",
-                shortName: "Property Mgmt. Office",
-                desc: "Manages all university properties, assets, and physical resources, overseeing procurement, inventory, and disposal of university assets.",
-                img: "property.png",
-                campus: "Campus A",
-                type: "Service",
-                location: "South Area, Campus A",
-                icon: "fa-clipboard-list"
-            },
-            carpentry: {
-                title: "Carpentry Shop",
-                shortName: "Carpentry Shop",
-                desc: "The university's carpentry and maintenance workshop responsible for furniture fabrication, repairs, and physical plant maintenance.",
-                img: "carpentry.png",
-                campus: "Campus A",
-                type: "Service",
-                location: "Southwest, Campus A",
-                icon: "fa-hammer"
-            },
-            // Gates
-            gate2: {
-                title: "Gate 2",
-                shortName: "Gate 2",
-                desc: "Secondary entrance/exit gate on the east side of Campus A, providing access to the administration and academic buildings.",
-                img: "gate2.png",
-                campus: "Campus A",
-                type: "Gate",
-                location: "East Side, Campus A",
-                icon: "fa-door-open"
-            },
-            gate4: {
-                title: "Gate 4",
-                shortName: "Gate 4",
-                desc: "Northern gate on Campus A providing access from the main road leading towards the elementary school and engineering buildings.",
-                img: "gate4.png",
-                campus: "Campus A",
-                type: "Gate",
-                location: "North, Campus A",
-                icon: "fa-door-open"
-            },
-            gate5: {
-                title: "Gate 5",
-                shortName: "Gate 5",
-                desc: "Northernmost gate of Campus A, serving as an alternate entry/exit point for the campus community.",
-                img: "gate5.png",
-                campus: "Campus A",
-                type: "Gate",
-                location: "North, Campus A",
-                icon: "fa-door-open"
-            },
-            // ─── CAMPUS B ───
-            ccs: {
-                title: "College of Computing Studies",
-                shortName: "CCS",
-                desc: "The College of Computing Studies is the center of technology and innovation, offering programs in Computer Science, Information Technology, and related fields.",
-                img: "ccs.png",
-                campus: "Campus B",
-                type: "Academic",
-                location: "Campus B",
-                icon: "fa-computer"
-            },
-            csm: {
-                title: "College of Science and Mathematics",
-                shortName: "CSM",
-                desc: "Provides quality education in pure and applied sciences including Biology, Chemistry, Physics, and Mathematics.",
-                img: "csm.png",
-                campus: "Campus B",
-                type: "Academic",
-                location: "Campus B",
-                icon: "fa-atom"
-            },
-            canteenB: {
-                title: "University Canteen (Campus B)",
-                shortName: "Canteen B",
-                desc: "Main food facility serving the Campus B community with affordable meals and refreshments throughout the day.",
-                img: "canteen.png",
-                campus: "Campus B",
-                type: "Facility",
-                location: "Campus B",
-                icon: "fa-utensils"
-            }
-        };
+            <!-- BUILDING DETAIL -->
+            <div id="building-detail-card" class="detail-card hidden">
 
-        const typeBadgeClass = { Academic: "badge-academic", Facility: "badge-facility", Gate: "badge-gate", Service: "badge-service" };
-        const typeDotClass   = { Academic: "dot-academic", Facility: "dot-facility", Gate: "dot-gate", Service: "dot-service" };
+                <div class="detail-img-wrap" id="detail-img-wrap">
+                    <img src="../assets/images/CTE.png">
+                </div>
 
-        let selectedCampus = "Campus A";
-        let activeCardId = null;
+                <div class="detail-info">
+                    <h3 id="detail-name">
+                        College of Teacher Education
+                    </h3>
 
-        function showStage(n) {
-            document.getElementById('global-search-input').value = '';
-            document.getElementById('dir-search').value = '';
-            document.getElementById('map-search').value = '';
-            document.getElementById('global-results').style.display = 'none';
-            document.querySelectorAll('.clear-btn').forEach(b => b.style.display = 'none');
-            document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
-            document.getElementById(`stage-${n}`).classList.add('active');
-            document.querySelectorAll('.navbar a').forEach(a => a.classList.remove('active'));
-            const ids = ['nav-home','nav-preview','nav-map'];
-            if (ids[n-1]) document.getElementById(ids[n-1]).classList.add('active');
-            if (n === 2) renderDirectory();
-            if (n === 3) renderMapList();
-        }
+                    <p id="detail-desc">
+                        The College of Teacher Education is the center
+                        of excellence in pre-service and in-service
+                        teacher training programs.
+                    </p>
 
-        function selectCampus(name) {
-            selectedCampus = name;
-            activeCardId = null;
-            showStage(2);
-        }
+                    <button class="primary-btn">
+                        View Building
+                    </button>
+                </div>
 
-        function getBuildingsByFilter() {
-            const type   = document.getElementById('type-filter').value;
-            const search = document.getElementById('dir-search').value.toLowerCase().trim();
-            return Object.keys(buildings).filter(id => {
-                const b = buildings[id];
-                return b.campus === selectedCampus &&
-                    (type === 'All' || b.type === type) &&
-                    (b.title.toLowerCase().includes(search) ||
-                     b.shortName.toLowerCase().includes(search) ||
-                     b.desc.toLowerCase().includes(search));
-            });
-        }
+            </div>
 
-        function renderDirectory() {
-            const list = document.getElementById('directory-list');
-            document.getElementById('selected-campus-title').innerText = `${selectedCampus} Directory`;
-            const matches = getBuildingsByFilter();
-            document.getElementById('building-count').innerText = `${matches.length} building${matches.length !== 1 ? 's' : ''}`;
-            list.innerHTML = '';
+        </section>
 
-            if (matches.length === 0) {
-                list.innerHTML = '<div class="no-results"><i class="fa-solid fa-building-circle-xmark"></i><span>No buildings found</span></div>';
-                return;
-            }
+    </main>
 
-            matches.forEach(id => {
-                const b = buildings[id];
-                const card = document.createElement('div');
-                card.className = 'card' + (id === activeCardId ? ' active-card' : '');
-                card.onclick = () => showPreview(id);
-                card.innerHTML = `
-                    <img src="${b.img}" alt="${b.title}" onerror="this.style.background='#f1f5f9';">
-                    <div class="card-text">
-                        <h4>${b.title}</h4>
-                        <p>${b.type} · ${b.shortName}</p>
-                    </div>
-                    <div class="card-type-dot ${typeDotClass[b.type]}"></div>
-                `;
-                list.appendChild(card);
-            });
-        }
+</section>
 
-        function filterDirectory() { activeCardId = null; renderDirectory(); }
+<script>
+const buildings = {
 
-        function showPreview(id) {
-            const b = buildings[id];
-            activeCardId = id;
+    cte:{
+        title:"College of Teacher Education",
+        shortName:"CTE",
+        desc:"The College of Teacher Education is the center of excellence in pre-service and in-service teacher training programs.",
+        img:"../assets/images/CTE.png",
+        campus:"Campus A"
+    },
 
-            // Update active state on cards
-            document.querySelectorAll('#directory-list .card').forEach(c => c.classList.remove('active-card'));
-            // Re-render will handle it; just scroll
-            renderDirectory();
+    coe:{
+        title:"College of Engineering",
+        shortName:"COE",
+        desc:"Engineering programs including Civil, Mechanical, Electrical and Chemical Engineering.",
+        img:"../assets/images/coe.png",
+        campus:"Campus A"
+    },
 
-            const card = document.getElementById('building-detail-card');
-            card.classList.remove('hidden');
+    coe2:{
+        title:"College of Engineering Annex",
+        shortName:"COE Annex",
+        desc:"Extension facility of the College of Engineering.",
+        img:"../assets/images/coe.png",
+        campus:"Campus A"
+    },
 
-            // Image / icon
-            const wrap = document.getElementById('detail-img-wrap');
-            wrap.innerHTML = `
-                <img src="${b.img}" alt="${b.title}" style="width:100%;height:100%;object-fit:cover;"
-                     onerror="this.style.objectFit='contain';this.style.background='#f1f5f9';">
-            `;
+    cla:{
+        title:"College of Liberal Arts",
+        shortName:"CLA",
+        desc:"Programs in Social Sciences, Humanities and Communication.",
+        img:"../assets/images/cla.png",
+        campus:"Campus A"
+    },
 
-            const badge = document.getElementById('detail-badge');
-            badge.innerText = b.type;
-            badge.className = `panel-badge ${typeBadgeClass[b.type]}`;
+    claw:{
+        title:"College of Law",
+        shortName:"Law",
+        desc:"Provides rigorous legal education.",
+        img:"../assets/images/law.png",
+        campus:"Campus A"
+    },
 
-            document.getElementById('detail-name').innerText = b.title;
-            document.getElementById('detail-desc').innerText = b.desc;
-            document.getElementById('detail-meta').innerHTML = `
-                <div class="meta-item"><i class="fa-solid fa-map-pin"></i> ${b.location}</div>
-                <div class="meta-item"><i class="fa-solid fa-university"></i> ${b.campus}</div>
-            `;
-            card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
+    cpads:{
+        title:"College of Public Administration and Development Studies",
+        shortName:"CPADS",
+        desc:"Focuses on governance and public service.",
+        img:"../assets/images/cpads.png",
+        campus:"Campus A"
+    },
 
-        function globalSearch() {
-            const val = document.getElementById('global-search-input').value.toLowerCase().trim();
-            if (!val) return;
-            const matchId = Object.keys(buildings).find(id =>
-                buildings[id].title.toLowerCase().includes(val) ||
-                buildings[id].shortName.toLowerCase().includes(val)
-            );
-            if (matchId) {
-                selectedCampus = buildings[matchId].campus;
-                showStage(2);
-                setTimeout(() => showPreview(matchId), 100);
-            } else {
-                showStage(2);
-                document.getElementById('dir-search').value = val;
-                handleDirInput();
-            }
-            document.getElementById('global-results').style.display = 'none';
-        }
+    elem:{
+        title:"Elementary School & Principal's Office",
+        shortName:"Elementary",
+        desc:"Laboratory elementary school for teacher education.",
+        img:"../assets/images/elem.png",
+        campus:"Campus A"
+    },
 
-        function handleGlobalInput() {
-            const input = document.getElementById('global-search-input');
-            const box   = document.getElementById('global-results');
-            const term  = input.value.toLowerCase();
-            toggleClearBtn('global-search-input','clear-global');
-            if (!term) { box.style.display = 'none'; return; }
-            box.innerHTML = '';
-            const matches = Object.keys(buildings).filter(id =>
-                buildings[id].title.toLowerCase().includes(term) ||
-                buildings[id].shortName.toLowerCase().includes(term)
-            ).slice(0, 8);
-            if (matches.length) {
-                matches.forEach(id => {
-                    const b = buildings[id];
-                    const div = document.createElement('div');
-                    div.className = 'search-result-item';
-                    div.innerHTML = `<i class="fa-solid fa-magnifying-glass"></i><span>${b.title}</span><small>${b.campus}</small>`;
-                    div.onclick = () => { input.value = b.title; globalSearch(); };
-                    box.appendChild(div);
-                });
-                box.style.display = 'block';
-            } else {
-                box.style.display = 'none';
-            }
-        }
+    research:{
+        title:"Research Building",
+        shortName:"Research",
+        desc:"Research laboratories and research offices.",
+        img:"../assets/images/research.png",
+        campus:"Campus A"
+    },
 
-        function renderMapList() {
-            const list = document.getElementById('map-list');
-            const term = document.getElementById('map-search').value.toLowerCase();
-            list.innerHTML = '';
-            Object.keys(buildings).forEach(id => {
-                const b = buildings[id];
-                if (b.title.toLowerCase().includes(term) || b.campus.toLowerCase().includes(term) ||
-                    b.shortName.toLowerCase().includes(term) || b.type.toLowerCase().includes(term)) {
-                    const item = document.createElement('div');
-                    item.className = 'card-mini';
-                    item.innerHTML = `
-                        <img src="${b.img}" alt="${b.title}" onerror="this.style.display='none'">
-                        <div><h4>${b.shortName}</h4><p>${b.campus} · ${b.type}</p></div>
-                    `;
-                    item.onclick = () => { selectedCampus = b.campus; showStage(2); showPreview(id); };
-                    list.appendChild(item);
-                }
-            });
-        }
+    library:{
+        title:"University Library",
+        shortName:"Library",
+        desc:"Main university library with books and digital resources.",
+        img:"../assets/images/library.png",
+        campus:"Campus A"
+    },
 
-        function toggleClearBtn(inputId, btnId) {
-            document.getElementById(btnId).style.display =
-                document.getElementById(inputId).value.length > 0 ? 'block' : 'none';
-        }
+    gymnasium:{
+        title:"Gymnasium",
+        shortName:"Gymnasium",
+        desc:"Venue for sports events and assemblies.",
+        img:"../assets/images/gymnasium.png",
+        campus:"Campus A"
+    },
 
-        function clearSearch(inputId, btnId) {
-            document.getElementById(inputId).value = '';
-            toggleClearBtn(inputId, btnId);
-            if (inputId === 'dir-search') { activeCardId = null; filterDirectory(); }
-            if (inputId === 'map-search') renderMapList();
-            document.getElementById(inputId).focus();
-        }
+    coveredcourt:{
+        title:"Covered Court",
+        shortName:"Covered Court",
+        desc:"Multi-purpose sports court.",
+        img:"../assets/images/coveredcourt.png",
+        campus:"Campus A"
+    },
 
-        function handleDirInput() { toggleClearBtn('dir-search','clear-dir'); filterDirectory(); }
-        function handleMapInput() { toggleClearBtn('map-search','clear-map'); renderMapList(); }
+    auditorium:{
+        title:"University Auditorium",
+        shortName:"Auditorium",
+        desc:"Venue for university events and ceremonies.",
+        img:"../assets/images/auditorium.png",
+        campus:"Campus A"
+    },
 
-        document.addEventListener('click', e => {
-            if (!e.target.closest('.global-search'))
-                document.getElementById('global-results').style.display = 'none';
-        });
+    canteen:{
+        title:"University Canteen",
+        shortName:"Canteen",
+        desc:"Food facility for students and staff.",
+        img:"../assets/images/canteen.png",
+        campus:"Campus A"
+    },
 
-        // ── Interactive Image Map Hotspots ──────────────────────────────────
-        (function() {
-            const hotspots = [
-                { id: 'cla',          x: 378, y: 229 },
-                { id: 'carpentry',    x: 224, y: 414 },
-                { id: 'gymnasium',    x: 301, y: 403 },
-                { id: 'auditorium',   x: 375, y: 452 },
-                { id: 'admin',        x: 446, y: 434 },
-                { id: 'upres',        x: 653, y: 280 },
-                { id: 'coveredcourt', x: 564, y: 162 },
-                { id: 'elem',         x: 614, y: 111 },
-                { id: 'claw',         x: 476, y: 242 },
-                { id: 'cpads',        x: 477, y: 290 },
-                { id: 'misto',        x: 438, y: 507 },
-            ];
+    admin:{
+        title:"Administration Building",
+        shortName:"Admin",
+        desc:"Main administrative offices of WMSU.",
+        img:"../assets/images/admin.png",
+        campus:"Campus A"
+    },
 
-            const svg     = document.getElementById('map-hotspot-svg');
-            const tooltip = document.getElementById('map-tooltip');
-            const imgEl   = document.getElementById('campus-map-img');
+    misto:{
+        title:"MISTO",
+        shortName:"MISTO",
+        desc:"Handles ICT infrastructure and systems.",
+        img:"../assets/images/misto.png",
+        campus:"Campus A"
+    },
 
-            const styleTag = document.createElementNS('http://www.w3.org/2000/svg','style');
-            styleTag.textContent = `
-                @keyframes pulse-ring {
-                    0%   { r: 10; opacity: 0.8; }
-                    100% { r: 24; opacity: 0; }
-                }
-                @keyframes dot-pop {
-                    0%,100% { r: 7; }
-                    50%     { r: 9; }
-                }
-            `;
-            svg.appendChild(styleTag);
+    upres:{
+        title:"UPRESS",
+        shortName:"UPRESS",
+        desc:"University publication and printing office.",
+        img:"../assets/images/upress.png",
+        campus:"Campus A"
+    },
 
-            function renderHotspots() {
-                [...svg.querySelectorAll('g.hs')].forEach(g => g.remove());
-                hotspots.forEach((h, i) => {
-                    const b = buildings[h.id];
-                    if (!b) return;
-                    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-                    g.setAttribute('class', 'hs');
-                    g.style.cursor = 'pointer';
+    landbank:{
+        title:"Landbank",
+        shortName:"Landbank",
+        desc:"On-campus banking services.",
+        img:"../assets/images/landbank.png",
+        campus:"Campus A"
+    },
 
-                    const ring = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-                    ring.setAttribute('cx', h.x); ring.setAttribute('cy', h.y); ring.setAttribute('r', 10);
-                    ring.setAttribute('fill', 'none'); ring.setAttribute('stroke', '#9d0610');
-                    ring.setAttribute('stroke-width', '2.5');
-                    ring.style.animation = `pulse-ring 1.8s ease-out infinite`;
-                    ring.style.animationDelay = `${(i * 0.18) % 1.4}s`;
+    storage:{
+        title:"Storage Building",
+        shortName:"Storage",
+        desc:"Storage facility for university offices.",
+        img:"../assets/images/storage.png",
+        campus:"Campus A"
+    },
 
-                    const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-                    dot.setAttribute('cx', h.x); dot.setAttribute('cy', h.y); dot.setAttribute('r', 7);
-                    dot.setAttribute('fill', '#9d0610');
-                    dot.style.animation = `dot-pop 2s ease-in-out infinite`;
-                    dot.style.animationDelay = `${(i * 0.22) % 1}s`;
+    property:{
+        title:"Property Management Office",
+        shortName:"Property Office",
+        desc:"Handles university assets and inventory.",
+        img:"../assets/images/property.png",
+        campus:"Campus A"
+    },
 
-                    g.appendChild(ring); g.appendChild(dot); svg.appendChild(g);
+    carpentry:{
+        title:"Carpentry Shop",
+        shortName:"Carpentry",
+        desc:"Maintenance and furniture fabrication workshop.",
+        img:"../assets/images/carpentry.png",
+        campus:"Campus A"
+    },
 
-                    g.addEventListener('mouseenter', (e) => {
-                        dot.setAttribute('r', '9');
-                        dot.setAttribute('fill', '#ff1a2a');
-                        tooltip.textContent = b.shortName || b.title;
-                        tooltip.style.display = 'block';
-                        positionTooltip(e);
-                    });
-                    g.addEventListener('mousemove', positionTooltip);
-                    g.addEventListener('mouseleave', () => {
-                        dot.setAttribute('r', '7');
-                        dot.setAttribute('fill', '#9d0610');
-                        tooltip.style.display = 'none';
-                    });
-                    g.addEventListener('click', () => {
-                        tooltip.style.display = 'none';
-                        showPreview(h.id);
-                    });
-                });
-            }
+    gate2:{
+        title:"Gate 2",
+        shortName:"Gate 2",
+        desc:"Secondary entrance gate.",
+        img:"../assets/images/gate2.png",
+        campus:"Campus A"
+    },
 
-            function positionTooltip(e) {
-                const cRect = imgEl.parentElement.getBoundingClientRect();
-                tooltip.style.left = (e.clientX - cRect.left) + 'px';
-                tooltip.style.top  = (e.clientY - cRect.top)  + 'px';
-            }
+    gate4:{
+        title:"Gate 4",
+        shortName:"Gate 4",
+        desc:"Northern gate access.",
+        img:"../assets/images/gate4.png",
+        campus:"Campus A"
+    },
 
-            function rescaleAreas() {
-                if (!imgEl.complete || !imgEl.naturalWidth) return;
-                const scaleX = imgEl.offsetWidth  / imgEl.naturalWidth;
-                const scaleY = imgEl.offsetHeight / imgEl.naturalHeight;
-                document.querySelectorAll('#campus-map area').forEach(area => {
-                    if (!area.dataset.baseCoords) area.dataset.baseCoords = area.getAttribute('coords');
-                    const base = area.dataset.baseCoords.split(',').map(Number);
-                    area.setAttribute('coords', [
-                        Math.round(base[0] * scaleX),
-                        Math.round(base[1] * scaleY),
-                        Math.round(base[2] * ((scaleX + scaleY) / 2))
-                    ].join(','));
-                });
-            }
+    gate5:{
+        title:"Gate 5",
+        shortName:"Gate 5",
+        desc:"Alternate campus entrance.",
+        img:"../assets/images/gate5.png",
+        campus:"Campus A"
+    },
 
-            imgEl.addEventListener('load', () => { rescaleAreas(); renderHotspots(); });
-            if (imgEl.complete) { rescaleAreas(); renderHotspots(); }
-            window.addEventListener('resize', rescaleAreas);
+    ccs:{
+        title:"College of Computing Studies",
+        shortName:"CCS",
+        desc:"Center of technology and innovation.",
+        img:"../assets/images/ccs.png",
+        campus:"Campus B"
+    },
 
-            document.querySelectorAll('#campus-map area[data-id]').forEach(area => {
-                area.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    showPreview(area.dataset.id);
-                });
-            });
-        })();
-    </script>
+    csm:{
+        title:"College of Science and Mathematics",
+        shortName:"CSM",
+        desc:"Science and mathematics programs.",
+        img:"../assets/images/csm.png",
+        campus:"Campus B"
+    },
+
+    canteenB:{
+        title:"University Canteen (Campus B)",
+        shortName:"Canteen B",
+        desc:"Food facility for Campus B.",
+        img:"../assets/images/canteen.png",
+        campus:"Campus B"
+    }
+};
+
+let selectedCampus = "Campus A";
+
+function showStage(n){
+
+    document.querySelectorAll('.stage')
+    .forEach(stage => {
+        stage.classList.remove('active');
+    });
+
+    document.getElementById(`stage-${n}`)
+    .classList.add('active');
+
+    if(n === 2){
+        document.getElementById('directory-search').value = '';
+        renderDirectory('');
+    }
+}
+
+function selectCampus(campus){
+
+    selectedCampus = campus;
+
+    document.getElementById('selected-campus-title')
+    .innerText = `${campus} Directory`;
+
+    showStage(2);
+}
+
+function renderDirectory(filter){
+
+    const query = (filter || '').toLowerCase().trim();
+
+    const list = document.getElementById('directory-list');
+
+    list.innerHTML = '';
+
+    let hasResults = false;
+
+    Object.keys(buildings).forEach(id => {
+
+        const b = buildings[id];
+
+        if(b.campus !== selectedCampus) return;
+
+        const matches =
+            !query ||
+            b.title.toLowerCase().includes(query) ||
+            b.shortName.toLowerCase().includes(query);
+
+        if(!matches) return;
+
+        hasResults = true;
+
+        const card = document.createElement('div');
+
+        card.className = 'card';
+
+        card.innerHTML = `
+            <img src="${b.img}" 
+                 onerror="this.src='https://via.placeholder.com/60'">
+
+            <div class="card-text">
+                <h4>${b.title}</h4>
+                <p>${b.shortName}</p>
+            </div>
+        `;
+
+        card.onclick = () => showPreview(id);
+
+        list.appendChild(card);
+    });
+
+    if(!hasResults){
+        list.innerHTML = `<p style="padding:16px;color:#888;font-size:13px;">No results for "${filter}"</p>`;
+    }
+}
+
+// STAGE 2 — directory search (live filter)
+document.getElementById('directory-search')
+.addEventListener('input', function () {
+
+    renderDirectory(this.value);
+
+});
+
+function showPreview(id){
+
+    const b = buildings[id];
+
+    document.getElementById('building-detail-card')
+    .classList.remove('hidden');
+
+    document.getElementById('detail-img-wrap').innerHTML = `
+        <img src="${b.img}" 
+             onerror="this.src='https://via.placeholder.com/150'">
+    `;
+
+    document.getElementById('detail-name').innerText =
+    b.title;
+
+    document.getElementById('detail-desc').innerText =
+    b.desc;
+}
+</script>
+
 </body>
 </html>
-
