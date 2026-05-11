@@ -1,0 +1,473 @@
+/* Import fonts to match your landing page */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --crimson: #9d0610; /* Standardized WMSU Red */
+    --crimson-dark: #7a040b; /* Darker shade for hover states */
+    --white: #ffffff;
+    --bg-body: #f8f9fa; /* Lighter background for the overall page */
+    --sidebar-bg: #ffffff;
+    --card-bg: #ffffff;
+    --text-main: #333; /* Standard dark text color */
+    --text-muted: #666;
+    --border-color: #eee; /* Lighter border color */
+    --header-border: #eee; /* Lighter header border */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+}
+
+/* --- Sidebar Styling --- */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    color: var(--text-main);
+    position: fixed;
+    padding: 30px 20px;
+}
+
+.sidebar .logo {
+    font-family: 'Montserrat', sans-serif; /* Changed font */
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.sidebar .logo span {
+    color: var(--crimson);
+}
+
+.nav-section {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #555;
+    text-decoration: none;
+    padding: 12px 15px;
+    display: block;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+    width: 20px;
+}
+
+.sidebar ul li a:hover, 
+.sidebar ul li.active a {
+    background: var(--crimson);
+    color: white;
+    box-shadow: 0 4px 15px rgba(157, 6, 16, 0.3);
+}
+
+/* --- Main Content Area --- */
+.content {
+    margin-left: 260px;
+    padding: 40px;
+    background-color: var(--white); /* Added white background for the main content area */
+    min-height: 100vh; /* Ensure it takes full height */
+    box-shadow: -5px 0 20px rgba(0,0,0,0.05); /* Subtle shadow to separate from body background */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--header-border);
+}
+
+#current-view-title {
+    font-family: 'Montserrat', sans-serif; /* Changed font */
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.header-right {
+    font-weight: 600;
+    color: var(--crimson);
+}
+
+/* --- Cards & Dashboard --- */
+.welcome-box {
+    background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dark) 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-left: 5px solid var(--crimson);
+    color: var(--text-main);
+}
+
+.stat-card h3 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.stat-card h2 {
+    font-size: 2rem;
+    margin: 5px 0;
+}
+
+.change-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+/* --- Tables Styling --- */
+.data-table {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th {
+    text-align: left;
+    padding: 15px;
+    background: var(--border-color); /* Use border-color for a softer header background */
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-add {
+    background: var(--crimson);
+    color: white;
+}
+
+.btn-add:hover {
+    background: var(--crimson-dark);
+    transform: translateY(-2px);
+}
+
+.btn-table-edit {
+    background: transparent;
+    color: var(--crimson);
+    border: 1px solid var(--crimson);
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+
+.btn-table-edit:hover {
+    background: var(--crimson);
+    color: white;
+}
+
+.btn-table-delete {
+    background: transparent;
+    color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+    padding: 5px 12px;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.btn-table-delete:hover {
+    background: #ff4d4d;
+    color: white;
+}
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+/* --- Search Box Upgrade --- */
+.search-box {
+    background: var(--white);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 200px;
+    color: #333;
+}
+
+.search-box i {
+    color: #999;
+}
+
+/* --- Activity Feed --- */
+.activity-list {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.activity-item {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+}
+
+.activity-item i {
+    color: var(--crimson);
+    width: 20px;
+}
+
+.activity-time {
+    color: var(--text-muted);
+    margin-left: auto;
+}
+
+/* --- Modal Styling --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: var(--white); /* Changed to white */
+    backdrop-filter: blur(20px);
+    margin: 10% auto;
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    position: relative;
+    animation: modalSlideDown 0.3s ease-out;
+}
+
+@keyframes modalSlideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--crimson);
+}
+
+.modal-content h2 {
+    font-family: 'Montserrat', sans-serif; /* Changed font */
+    margin-bottom: 20px;
+    color: var(--crimson);
+    font-size: 1.4rem;
+}
+
+.modal .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.modal .form-group label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+.modal .form-group input, 
+.modal .form-group select {
+    width: 100%;
+    padding: 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-main);
+    outline: none;
+    transition: 0.3s;
+}
+
+.modal .form-group input:focus {
+    border-color: var(--crimson);
+    background: rgba(255, 255, 255, 0.1); /* Keep a subtle background on focus */
+}
+
+/* --- Profile Section Styling --- */
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.avatar-upload {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.profile-avatar-preview {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--crimson);
+    background: var(--card-bg);
+}
+
+.avatar-edit-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: var(--crimson);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid var(--bg-body); /* Use the new lighter body background */
+    transition: 0.3s;
+}
+
+.avatar-edit-btn:hover {
+    background: var(--crimson-dark);
+}
+
+/* Style for the relocate modal specifically */
+.modal-relocate-content {
+    background-color: var(--white); /* Ensure this is white */
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 12px;
+    width: 400px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* --- Super Admin Specific Features --- */
+.system-health-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.health-widget {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.health-widget i { font-size: 1.5rem; color: var(--crimson); margin-bottom: 10px; }
+.health-widget h4 { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 5px; }
+.health-widget p { font-size: 1.2rem; font-weight: 700; color: var(--text-main); }
+
+.danger-zone {
+    margin-top: 40px;
+    border: 2px dashed #ff4d4d;
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(255, 77, 77, 0.02);
+}
+
+.danger-zone h3 { color: #ff4d4d; margin-bottom: 15px; font-family: 'Montserrat', sans-serif; }
+
+.btn-danger {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+}
+.btn-danger:hover { background: #cc0000; }
