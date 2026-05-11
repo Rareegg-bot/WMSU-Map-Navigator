@@ -6,12 +6,12 @@
     <title>WMSU Map Navigator — Preview</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="Preview.css">
+    <link rel="stylesheet" href="../assets/css/Preview.css">
 </head>
 <body>
 
 <div class="page-bg-clear">
-    <img src="CTE.png" alt="WMSU Campus">
+    <img src="../assets/images/CTE.png" alt="WMSU Campus">
     <div class="bg-overlay"></div> 
 </div>
 
@@ -20,8 +20,10 @@
         <h1 class="logo">WMSU Navigator</h1>
         <nav>
             <ul>
-                <li><a href="Landing-Page.html">Home</a></li>
+                <li><a href="../html/Landing-Page.html">Home</a></li>
                 <li><a href="#Preview" class="active">Preview</a></li>
+                <li><a href="../html/Login-Page.html">Login</a></li>
+                <li><a href="../html/Contacts.html">Contact</a></li>
             </ul>
         </nav>
     </div>
@@ -33,8 +35,8 @@
         <h1>Navigate the <br><span>Crimson Frontier</span></h1>
         <p>Step into the heart of Western Mindanao State University. Experience our campus through a modern digital lens.</p>
         <div class="hero-actions">
-            <a class="btn btn-red" href="loginPage.html">Get Started</a>
-            <a class="btn btn-outline" href="Landing-Page.html">Our Story</a>
+            <a class="btn btn-red" href="../html/Login-Page.html">Get Started</a>
+            <a class="btn btn-outline" href="../html/Landing-Page.html">Our Story</a>
         </div>
     </div>
 
@@ -45,7 +47,7 @@
                 <div class="loader-line" id="loader"></div>
                 <div id="slideshow-content-root" class="content-anim">
                     <div class="image-frame">
-                        <img src="Map1.png" id="building-thumb" alt="Campus Building">
+                        <img src="../assets/images/Map1.png" id="building-thumb" alt="Campus Building">
                     </div>
                     <div class="text-frame">
                         <h3 id="building-name">Interactive Campus Map</h3>
@@ -72,32 +74,32 @@
     
     <div class="viewed-grid">
         <div class="viewed-card">
-            <img src="admin.png" class="viewed-img" alt="Admin">
+            <img src="../assets/images/admin.png" class="viewed-img" alt="Admin">
             <div class="viewed-content">
                 <div class="stats"><i class="fas fa-eye"></i> 1,240 Visits</div>
                 <h4>Administration Building</h4>
                 <p>The central hub for student services and university executive offices.</p>
-                <a href="loginPage.html" class="btn btn-red" style="padding: 8px 15px; font-size: 0.75rem;">Log In to View</a>
+                <a href="../html/Login-Page.html" class="btn btn-red" style="padding: 8px 15px; font-size: 0.75rem;">Log In to View</a>
             </div>
         </div>
 
         <div class="viewed-card">
-            <img src="CTE.png" class="viewed-img" alt="CTE">
+            <img src="../assets/images/CTE.png" class="viewed-img" alt="CTE">
             <div class="viewed-content">
                 <div class="stats"><i class="fas fa-eye"></i> 980 Visits</div>
                 <h4>Teacher Education</h4>
                 <p>One of the most distinguished colleges, shaping future educators.</p>
-                <a href="loginPage.html" class="btn btn-red" style="padding: 8px 15px; font-size: 0.75rem;">Log In to View</a>
+                <a href="../html/Login-Page.html" class="btn btn-red" style="padding: 8px 15px; font-size: 0.75rem;">Log In to View</a>
             </div>
         </div>
 
         <div class="viewed-card">
-            <img src="ccs.png" class="viewed-img" alt="CCS">
+            <img src="../assets/images/ccs.png" class="viewed-img" alt="CCS">
             <div class="viewed-content">
                 <div class="stats"><i class="fas fa-eye"></i> 850 Visits</div>
                 <h4>Computing Studies</h4>
                 <p>The center for technological growth and innovation at WMSU.</p>
-                <a href="loginPage.html" class="btn btn-red" style="padding: 8px 15px; font-size: 0.75rem;">Log In to View</a>
+                <a href="../html/Login-Page.html" class="btn btn-red" style="padding: 8px 15px; font-size: 0.75rem;">Log In to View</a>
             </div>
         </div>
     </div>
@@ -105,14 +107,14 @@
 
 <script>
     const buildings = [
-        { name: "Interactive Campus Map", desc: "A high-fidelity digital overview of the WMSU campus, designed for seamless navigation and discovery.", img: "Map1.png", link: "map" },
-        { name: "College of Teacher Education", desc: "A modern facility providing vast resources for all WMSU students.", img: "CTE.png", link: "college-of-teachers-education" },
-        { name: "College of Computing Studies", desc: "The hub of technology and innovation at Western Mindanao State University.", img: "ccs.png", link: "college-of-computing-studies" },
-        { name: "Administration Building", desc: "The heart of WMSU, housing executive offices and student support services.", img: "admin.png", link: "admin" }
+        { name: "Interactive Campus Map", desc: "A high-fidelity digital overview of the WMSU campus, designed for seamless navigation and discovery.", img: "../assets/images/Map1.png", link: "map" },
+        { name: "College of Teacher Education", desc: "A modern facility providing vast resources for all WMSU students.", img: "../assets/images/CTE.png", link: "college-of-teachers-education" },
+        { name: "College of Computing Studies", desc: "The hub of technology and innovation at Western Mindanao State University.", img: "../assets/images/ccs.png", link: "college-of-computing-studies" },
+        { name: "Administration Building", desc: "The heart of WMSU, housing executive offices and student support services.", img: "../assets/images/admin.png", link: "admin" }
     ];
 
     let currentIndex = 0;
-    let slideInterval = setInterval(() => changeSlide(1), 2000);
+    let slideInterval = setInterval(() => changeSlide(1), 5000);
 
     function changeSlide(n) {
         resetTimer();
