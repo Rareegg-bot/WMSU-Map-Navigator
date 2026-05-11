@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WMSU Map Navigator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --crimson: #9d0610;
+            --white: #ffffff;
+            --text-gray: #ccc;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -18,87 +25,133 @@
         body {
             display: flex;
             flex-direction: column;
-            background-color: #3498db;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            padding: 10px;
+            background-color: #f8f9fa;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh; /* Ensure body takes full height */
+            margin: 0;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 14px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            overflow: visible;
+            background: var(--white);
+            border: none;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            overflow: hidden; /* Changed from visible to hidden to contain header background */
             width: 100%;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
 
-        header {
-            min-height: 40vh;
-            background: linear-gradient(to right, #2c3e50 0%, #3498db 100%);
-            color: white;
-            padding: 30px 15px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.3em;
-            margin-bottom: 8px;
-            margin-top: 20px;
-        }
-
-        header p {
-            font-size: 1.05em;
-            opacity: 0.9;
-        }
-
-        nav {
-            box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.5);
-            padding: 1.2em 1em;
-            position: sticky;
+        /* New Navbar Styling (similar to Landing-Page.css .navbar) */
+        .contacts-navbar {
+            position: absolute; /* Position absolutely within the container */
             top: 0;
-            background: linear-gradient(to right, white, rgba(255, 255, 255, 0.8) 50%, white);
-            z-index: 10;
-            border-radius: 12px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background: transparent; /* Transparent background */
         }
 
-        nav ul {
-            list-style: none;
+        .contacts-navbar .nav-container {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10%;
         }
 
-        nav a {
-            padding: 12px 20px;
-            text-decoration: none;
-            color: darkblue;
+        .contacts-navbar .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
             font-size: 1.4rem;
-            font-weight: bold;
-            border-radius: 6px;
-            transition: all 0.2s;
+            color: var(--white);
+            letter-spacing: 1px;
         }
 
-        nav a:hover {
-            background-color: #2c3e50;
-            color: white;
+        .contacts-navbar nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
         }
 
-        nav a.active {
-            background-color: #2c3e50;
+        .contacts-navbar nav ul li a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+            padding: 5px 0;
+        }
+
+        .contacts-navbar nav ul li a:hover {
+            color: var(--crimson);
+        }
+
+        .contacts-navbar nav ul li a.active {
+            color: var(--crimson);
+            border-bottom: 2px solid var(--crimson);
+        }
+
+        /* New Hero Section Styling (similar to Landing-Page.css .hero) */
+        .contacts-hero-section {
+            position: relative;
+            height: 50vh; /* Adjust as needed */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; /* To stack nav and content */
+            text-align: center;
             color: white;
+            background-image: url('../assets/images/CTE.png'); /* Use the same background image */
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+        }
+
+        .contacts-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+        }
+
+        .contacts-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .contacts-hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 4.5rem; /* Larger font size for hero title */
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .contacts-hero-content h1 span {
+            color: var(--crimson);
+        }
+
+        .contacts-hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         footer {
-            background: #2c3e50;
-            color: white;
+            background: #1a1a1a;
+            color: var(--white);
             text-align: center;
-            padding: 25px;
+            padding: 25px; /* Keep existing padding */
             margin-top: auto;
         }
 
@@ -106,12 +159,35 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            text-align: justify;
-            min-height: 100vh;
-            margin: 50px;
+            text-align: left;
+            margin: 0;
             flex: 1;
-            padding: 30px 20px;
-            color: #333;
+            padding: 80px 10%;
+            color: #444;
+            position: relative; /* To ensure z-index works if needed */
+            z-index: 1; /* Place main content above any potential lingering background elements */
+        }
+
+        main h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            font-weight: 800;
+        }
+
+        main h2 span {
+            color: var(--crimson);
+        }
+
+        .sub-label {
+            color: var(--crimson);
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
         }
 
         .about-us {
@@ -125,18 +201,58 @@
         .developers {
             margin-bottom: 50px;
         }
- 
-        .info a {
-            margin-bottom: 15px;
-            text-decoration: none;
+
+        .info ul, .developers ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
         }
 
-        .developers a{
-            color: black;
+        .info li, .developers li {
+            background: #fdfdfd;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .info li:hover, .developers li:hover {
+            background: var(--white);
+            border-color: var(--crimson);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .info li strong, .developers li strong {
+            display: block;
+            color: var(--crimson);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .info a, .developers a {
+            color: #222;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .info a {
+            font-size: 1.1rem;
         }
 
         .developers a:hover {
-            color: #3498db;
+            color: var(--crimson);
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 40px 20px;
+            }
         }
     </style>
 </head>
@@ -144,48 +260,83 @@
 
     <div class="container">
 
-        <nav>
-            <ul>
-                <li><a href="WMSU-Map-Navigator.html">Home</a></li>
-                <li><a href="Contacts.html" class="active">Contacts</a></li>
-                <li><a href="loginUI.html">Login</a></li>
-                <li><a href="Admin-Login-Page.html">Admin</a></li>
-            </ul>
-        </nav>
-
-        <header>
-            <h1>Contact Us</h1>
+        <header class="contacts-hero-section">
+            <div class="contacts-hero-overlay"></div>
+            <div class="contacts-navbar">
+                <div class="nav-container">
+                    <h1 class="logo">WMSU Navigator</h1>
+                    <nav>
+                        <ul>
+                            <li><a href="Landing-Page.html">Home</a></li>
+                            <li><a href="Preview.html">Preview</a></li>
+                            <li><a href="WMSU-Map-Navigator.html">Map</a></li>
+                            <li><a href="Contacts.html" class="active">Contacts</a></li>
+                            <li><a href="Admin-Login-Page.html">Admin</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="contacts-hero-content">
+                <h1>Contact <span>Us</span></h1>
+                <p>We're here to help you navigate your WMSU experience.</p>
+            </div>
         </header>
-
         <main>
             <div class="about-us">
-                <h2>About Us</h2>
-                <p>We are a group of passionate students from Western Mindanao State University dedicated to creating useful digital solutions for our campus community. The WMSU Map Navigator was developed to help new students, transferees, visitors, and guests explore and navigate the campus more easily and confidently.</p>
+                <span class="sub-label">Who We Are</span>
+                <h2>About <span>Us</span></h2>
+                <p>We are a team of WMSU innovators—proud students who believe that our university deserves a digital experience as grand as its physical history. The Crimson Navigator was born out of a desire to help our fellow Normalites, visitors, and guests find their way through our sprawling campus with confidence and ease.</p>
                 <br>
-                <p>We are working on this system for 3 weeks now and this is what we came up so far, we only started learning Web Developing about 2 months ago and we are still learning as we go through this system.</p>
+                <p>We’ve been building this for 3 weeks, fueled by coffee and university pride. Though we only started our web development journey 2 months ago, we are constantly learning and iterating to make this the best possible tool for our community.</p>
                 <br>
-                <p>Our team is committed to continuously improving the WMSU Map Navigator and welcome any input or ideas you may have.</p>
+                <p>This project is for the WMSU family. We are committed to making navigation effortless, and we’d love to hear your ideas on how to make it even better.</p>
             </div>
 
             <div class="info">
-                <h2>Get in Touch</h2>
+                <span class="sub-label">Contact Details</span>
+                <h2>Get in <span>Touch</span></h2>
                 <p>If you have any questions, suggestions, or feedback, please don't hesitate to reach out!</p>
                 <ul>
-                    <li>Email: <a href="mailto:info@wmsu.edu.ph">info@wmsu.edu.ph</a></li>
-                    <li>Phone: <a href="tel:123-456-7890">123-456-7890</a></li>
-                    <li>Website: <a href="https://www.wmsu.edu.ph" target="_blank">www.wmsu.edu.ph</a></li>
+                    <li>
+                        <strong>Email Us</strong>
+                        <a href="mailto:info@wmsu.edu.ph">info@wmsu.edu.ph</a>
+                    </li>
+                    <li>
+                        <strong>Call Us</strong>
+                        <a href="tel:123-456-7890">123-456-7890</a>
+                    </li>
+                    <li>
+                        <strong>Official Website</strong>
+                        <a href="https://www.wmsu.edu.ph" target="_blank">www.wmsu.edu.ph</a>
+                    </li>
                 </ul>
             </div>
 
             <div class="developers">
-                <h2>Developers</h2>
+                <span class="sub-label">The Team</span>
+                <h2>Our <span>Developers</span></h2>
                 <p>Meet the team behind the WMSU Map Navigator and their Github Accounts:</p>
                 <ul>
-                    <li>Ian Gervic Lim - <a href="https://github.com/Rareegg-bot">Rareegg-bot</a></li>
-                    <li>Christian Benedict Jala - <a href="https://github.com/jalachristiaan-a11y">jalachristiaan-a11y</a></li>
-                    <li>Halipa Suaili Jr. - <a href="https://github.com/dey-args">dey-args</a></li>
-                    <li>Danica Custodio - <a href="https://github.com/nics-arg">nics-arg</a></li>
-                    <li>Ferdausi Mamiscal - <a href="https://github.com/codewFerd">codewFerd</a></li>
+                    <li>
+                        <strong>Project Lead</strong>
+                        Ian Gervic Lim — <a href="https://github.com/Rareegg-bot">Rareegg-bot</a>
+                    </li>
+                    <li>
+                        <strong>Lead Designer</strong>
+                        Christian Benedict Jala — <a href="https://github.com/jalachristiaan-a11y">jalachristiaan-a11y</a>
+                    </li>
+                    <li>
+                        <strong>Frontend Developer</strong>
+                        Halipa Suaili Jr. — <a href="https://github.com/dey-args">dey-args</a>
+                    </li>
+                    <li>
+                        <strong>Content Strategy</strong>
+                        Danica Custodio — <a href="https://github.com/nics-arg">nics-arg</a>
+                    </li>
+                    <li>
+                        <strong>Systems Architect</strong>
+                        Ferdausi Mamiscal — <a href="https://github.com/codewFerd">codewFerd</a>
+                    </li>
                 </ul>
             </div>
         </main>
