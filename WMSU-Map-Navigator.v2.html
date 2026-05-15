@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WMSU Map Navigator — Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/Preview.css">
+</head>
+<body>
+
+<div class="page-bg-clear">
+    <img src="../assets/images/CTE.png" alt="WMSU Campus">
+    <div class="bg-overlay"></div> 
+</div>
+
+<header class="navbar">
+    <div class="nav-container">
+        <h1 class="logo">WMSU Navigator</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#Preview" class="active">Preview</a></li>
+                <li><a href="../html/Login-Page.html">Login</a></li>
+                <li><a href="../html/Contacts.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero-split">
+    <div class="hero-text">
+        <span class="badge-legacy">Legacy of Excellence</span>
+        <h1>Navigate the <br><span>Crimson Frontier</span></h1>
+        <p>Step into the heart of Western Mindanao State University. Experience our campus through a modern digital lens.</p>
+        <div class="hero-actions">
+            <a class="btn btn-red" href="../html/Login-Page.html">Get Started</a>
+            <a class="btn btn-outline" href="../index.html">Our Story</a>
+        </div>
+    </div>
+
+    <div class="hero-visual">
+        <div class="highlight-card">
+            <div class="highlight-label">Campus Highlight</div>
+            <div class="slideshow-wrapper">
+                <div class="loader-line" id="loader"></div>
+                <div id="slideshow-content-root" class="content-anim">
+                    <div class="image-frame">
+                        <img src="../assets/images/Map1.png" id="building-thumb" alt="Campus Building">
+                    </div>
+                    <div class="text-frame">
+                        <h3 id="building-name">Interactive Campus Map</h3>
+                        <p id="building-desc">A high-fidelity digital overview of the WMSU campus, designed for seamless navigation and discovery.</p>
+                        
+                        <div class="nav-footer">
+                            <span id="slide-number">01 / 04</span>
+                            <div class="nav-btns">
+                                <button onclick="changeSlide(-1)"><i class="fas fa-arrow-left"></i></button>
+                                <button onclick="changeSlide(1)"><i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ADDED SECTION: MOST VIEWED -->
+<section class="most-viewed-section">
+    <h2 class="section-title">Most Visited</h2>
+    <p class="section-subtitle">Discover the most frequented landmarks on our campus.</p>
+    
+    <div class="viewed-grid">
+        <div class="viewed-card">
+            <img src="../assets/images/admin.png" class="viewed-img" alt="Admin">
+            <div class="viewed-content">
+                <div class="stats"><i class="fas fa-eye"></i> 1,240 Visits</div>
+                <h4>Administration Building</h4>
+                <p>The central hub for student services and university executive offices.</p>
+                <a href="../html/Login-Page.html" class="btn btn-red" style="padding: 8px 15px; font-size: 0.75rem;">Log In to View</a>
+            </div>
+        </div>
+
+        <div class="viewed-card">
+            <img src="../assets/images/CTE.png" class="viewed-img" alt="CTE">
+            <div class="viewed-content">
+                <div class="stats"><i class="fas fa-eye"></i> 980 Visits</div>
+                <h4>Teacher Education</h4>
+                <p>One of the most distinguished colleges, shaping future educators.</p>
+                <a href="../html/Login-Page.html" class="btn btn-red" style="padding: 8px 15px; font-size: 0.75rem;">Log In to View</a>
+            </div>
+        </div>
+
+        <div class="viewed-card">
+            <img src="../assets/images/ccs.png" class="viewed-img" alt="CCS">
+            <div class="viewed-content">
+                <div class="stats"><i class="fas fa-eye"></i> 850 Visits</div>
+                <h4>Computing Studies</h4>
+                <p>The center for technological growth and innovation at WMSU.</p>
+                <a href="../html/Login-Page.html" class="btn btn-red" style="padding: 8px 15px; font-size: 0.75rem;">Log In to View</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+            // Update Navbar and Hero buttons to skip login if already authenticated
+            const loginLinks = document.querySelectorAll('a[href="../html/Login-Page.html"]');
+            loginLinks.forEach(link => {
+                const isBtn = link.classList.contains('btn');
+                link.textContent = isBtn ? 'Continue to Map' : 'Map';
+                link.href = '../html/WMSU-Map-Navigator.html';
+            });
+        }
+    });
+
+    const buildings = [
+        { name: "Interactive Campus Map", desc: "A high-fidelity digital overview of the WMSU campus, designed for seamless navigation and discovery.", img: "../assets/images/Map1.png", link: "map" },
+        { name: "College of Teacher Education", desc: "A modern facility providing vast resources for all WMSU students.", img: "../assets/images/CTE.png", link: "college-of-teachers-education" },
+        { name: "College of Computing Studies", desc: "The hub of technology and innovation at Western Mindanao State University.", img: "../assets/images/ccs.png", link: "college-of-computing-studies" },
+        { name: "Administration Building", desc: "The heart of WMSU, housing executive offices and student support services.", img: "../assets/images/admin.png", link: "admin" }
+    ];
+
+    let currentIndex = 0;
+    let slideInterval = setInterval(() => changeSlide(1), 5000);
+
+    function changeSlide(n) {
+        resetTimer();
+        const content = document.getElementById('slideshow-content-root');
+        const loader = document.getElementById('loader');
+
+        content.style.opacity = '0';
+        content.style.transform = 'translateY(10px)';
+        loader.style.width = '0%';
+
+        setTimeout(() => {
+            currentIndex = (currentIndex + n + buildings.length) % buildings.length;
+            const b = buildings[currentIndex];
+
+            document.getElementById('building-name').innerText = b.name;
+            document.getElementById('building-desc').innerText = b.desc;
+            document.getElementById('building-thumb').src = b.img;
+            document.getElementById('slide-number').innerText = `0${currentIndex + 1} / 0${buildings.length}`;
+
+            content.style.opacity = '1';
+            content.style.transform = 'translateY(0)';
+            loader.style.width = '100%';
+        }, 350);
+    }
+
+    function resetTimer() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(() => changeSlide(1), 2000);
+    }
+</script>
+</body>
+</html>
